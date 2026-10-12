@@ -1,0 +1,16 @@
+name: Cloud reachability check
+
+# Manual test: can GitHub's servers reach the data sources this project uses?
+on: workflow_dispatch
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install -q nba_api requests
+      - run: python tools/cloud_check.py

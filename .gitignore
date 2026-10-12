@@ -1,0 +1,7 @@
+# keys and local-only files never go to GitHub
+.env
+.venv/
+__pycache__/
+.DS_Store
+logs/
+backups/
