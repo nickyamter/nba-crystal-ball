@@ -1,0 +1,96 @@
+name: Daily run
+
+# Refreshes stats, scores yesterday, pulls today's lines inside the free limits,
+# logs today's picks, saves the data back to the repository and publishes the
+# dashboard as the project's web page.
+on:
+  schedule:
+    # GitHub schedules use UTC: 15:17 UTC is 11:17 AM Eastern in summer time and
+    # 10:17 AM in winter. The two later runs are catch-up tries; they do nothing
+    # once the day's run is finished.
+    - cron: "17 15 * * *"
+    - cron: "17 18 * * *"
+    - cron: "17 21 * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Run even if today's run already finished"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: daily-run
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: requirements-ci.txt
+
+      - run: pip install -q -r requirements-ci.txt
+
+      - name: Restore yesterday's lines and logged picks
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            CSVs/ODDS_TODAY.csv
+            CSVs/weight_experiments.csv
+          key: private-state-${{ github.run_id }}
+          restore-keys: private-state-
+
+      - name: Daily job
+        env:
+          STATS_SOURCE: espn
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python daily.py ${{ inputs.force && '--force' || '' }}
+
+      - name: Save lines and logged picks for tomorrow
+        if: always() && hashFiles('CSVs/ODDS_TODAY.csv', 'CSVs/weight_experiments.csv') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            CSVs/ODDS_TODAY.csv
+            CSVs/weight_experiments.csv
+          key: private-state-${{ github.run_id }}
+
+      - name: Commit updated data
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add CSVs
+          git diff --cached --quiet || git commit -m "Daily data update $(date -u +%F)"
+          git push
+
+      - name: Prepare web page
+        id: site
+        if: hashFiles('dashboard.html') != ''
+        run: |
+          mkdir -p site
+          cp dashboard.html site/index.html
+          echo "built=true" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.site.outputs.built == 'true'
+        with:
+          path: site
+
+      - id: deploy
+        if: steps.site.outputs.built == 'true'
+        uses: actions/deploy-pages@v4

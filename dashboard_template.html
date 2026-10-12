@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NBA Crystal Ball</title>
+<style>
+  :root {
+    color-scheme: light;
+    --page: #f9f9f7; --surface: #fcfcfb; --raised: #ffffff;
+    --ink: #0b0b0b; --ink2: #52514e; --muted: #898781;
+    --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,.10);
+    --over: #2a78d6; --under: #e34948; --neutral: #f0efec;
+    --over-wash: rgba(42,120,214,.10); --under-wash: rgba(227,73,72,.10);
+    --accent: #2a78d6; --track: #cde2fb; --warn: #fab219;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --page: #0d0d0d; --surface: #1a1a19; --raised: #222221;
+      --ink: #ffffff; --ink2: #c3c2b7; --muted: #898781;
+      --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,.10);
+      --over: #3987e5; --under: #e66767; --neutral: #383835;
+      --over-wash: rgba(57,135,229,.16); --under-wash: rgba(230,103,103,.16);
+      --accent: #3987e5; --track: #104281;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--page); color: var(--ink);
+    font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 24px 16px 56px; }
+  h1 { font-size: 22px; margin: 0; letter-spacing: -.01em; }
+  h2 { font-size: 15px; margin: 0 0 2px; }
+  .sub { color: var(--ink2); font-size: 13px; }
+  .muted { color: var(--muted); }
+  header.top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+
+  /* stat tiles */
+  .tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 12px; }
+  .tile .label { color: var(--ink2); font-size: 12px; }
+  .tile .value { font-size: 26px; font-weight: 600; letter-spacing: -.01em; margin: 2px 0; }
+  .tile .note { color: var(--muted); font-size: 12px; }
+  .meter { height: 6px; border-radius: 3px; background: var(--track); margin-top: 8px; overflow: hidden; }
+  .meter > i { display: block; height: 100%; background: var(--accent); border-radius: 3px; }
+
+  .banner { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap;
+            border-left: 3px solid var(--warn); margin-bottom: 12px; padding: 12px 16px; }
+
+  .layout { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 12px; align-items: start; }
+  .side { position: sticky; top: 12px; display: grid; gap: 12px; }
+  .main { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; min-width: 0; }
+  .main > *, .picks > * { min-width: 0; }
+
+  /* weights */
+  .w-row { margin-top: 12px; }
+  .w-head { display: flex; justify-content: space-between; font-size: 13px; }
+  .w-head b { font-weight: 600; }
+  .w-head span { color: var(--ink2); font-variant-numeric: tabular-nums; }
+  input[type=range] { width: 100%; accent-color: var(--accent); margin: 4px 0 0; }
+  .btns { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+  button {
+    font: inherit; color: var(--ink); background: var(--raised); border: 1px solid var(--border);
+    border-radius: 7px; padding: 6px 10px; cursor: pointer;
+  }
+  button:hover { border-color: var(--axis); }
+  button:focus-visible, input:focus-visible, th[tabindex]:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  button[aria-pressed=true] { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+
+  /* picks */
+  .picks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .parlay { margin-top: 12px; }
+  .parlay h3 { font-size: 12px; font-weight: 600; color: var(--ink2); text-transform: uppercase; letter-spacing: .04em; margin: 0 0 6px; }
+  .leg { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; padding: 8px 0; border-top: 1px solid var(--grid); }
+  .leg .who { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .leg .who small { font-weight: 400; color: var(--muted); margin-left: 6px; }
+  .leg .meta { grid-column: 1 / -1; color: var(--ink2); font-size: 12px; }
+  .pill { display: inline-flex; align-items: center; gap: 5px; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+  .pill.over { background: var(--over-wash); }
+  .pill.under { background: var(--under-wash); }
+  .pill i { font-style: normal; font-size: 10px; }
+  .pill.over i { color: var(--over); }
+  .pill.under i { color: var(--under); }
+  .empty { color: var(--ink2); padding: 18px 0 6px; }
+
+  /* table */
+  .toolbar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 12px 0; }
+  .tabs { display: inline-flex; gap: 4px; }
+  input[type=search] {
+    font: inherit; color: var(--ink); background: var(--raised); border: 1px solid var(--border);
+    border-radius: 7px; padding: 6px 10px; min-width: 180px; flex: 1 1 180px; max-width: 280px;
+  }
+  label.check { display: inline-flex; align-items: center; gap: 6px; color: var(--ink2); font-size: 13px; }
+  .scroll { overflow-x: auto; margin: 0 -16px; padding: 0 16px; }
+  table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+  th, td { padding: 7px 10px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--grid); }
+  th { font-size: 12px; font-weight: 600; color: var(--ink2); user-select: none; vertical-align: bottom; }
+  th[data-sort] { cursor: pointer; }
+  th[data-sort]:hover { color: var(--ink); }
+  th .arrow { color: var(--muted); margin-left: 3px; }
+  th small { display: block; font-weight: 400; color: var(--muted); }
+  th.l, td.l { text-align: left; }
+  td.name { font-weight: 600; }
+  td.name small { font-weight: 400; color: var(--muted); margin-left: 6px; }
+  td.sig { color: var(--ink2); }
+  td.off { color: var(--muted); opacity: .55; }
+  th.group-start, td.group-start { border-left: 1px solid var(--grid); }
+  tbody tr:hover { background: var(--neutral); }
+  .edge { display: inline-flex; align-items: center; gap: 8px; justify-content: flex-end; }
+  .edge .bar { position: relative; width: 96px; height: 10px; }
+  .edge .bar::before { content: ""; position: absolute; left: 50%; top: -3px; bottom: -3px; width: 1px; background: var(--axis); }
+  .edge .fill { position: absolute; top: 0; bottom: 0; }
+  .edge .fill.over { left: 50%; background: var(--over); border-radius: 0 4px 4px 0; }
+  .edge .fill.under { right: 50%; background: var(--under); border-radius: 4px 0 0 4px; }
+  .edge .val { min-width: 44px; text-align: right; }
+  .rate { display: inline-flex; align-items: center; gap: 8px; }
+  .rate .bar { width: 80px; height: 8px; border-radius: 4px; background: var(--track); overflow: hidden; }
+  .rate .bar i { display: block; height: 100%; background: var(--accent); border-radius: 4px; }
+  .count { color: var(--muted); font-size: 12px; margin-left: 4px; }
+  footer { color: var(--muted); font-size: 12px; margin-top: 16px; }
+  footer p { margin: 4px 0; max-width: 90ch; }
+
+  @media (max-width: 980px) {
+    .layout { grid-template-columns: minmax(0, 1fr); }
+    .side { position: static; }
+    .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 640px) {
+    .picks { grid-template-columns: minmax(0, 1fr); }
+    .tile .value { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>NBA Crystal Ball</h1>
+      <div class="sub" id="subtitle"></div>
+    </div>
+    <div class="sub" id="updated"></div>
+  </header>
+
+  <section class="tiles" id="tiles"></section>
+  <section id="banner"></section>
+
+  <div class="layout">
+    <aside class="side">
+      <div class="card">
+        <h2>Blend weights</h2>
+        <div class="sub">How much each signal counts toward the projection.</div>
+        <div id="weights"></div>
+        <div class="btns">
+          <button id="equal">Equal weights</button>
+          <button id="best">Use best blend</button>
+        </div>
+      </div>
+    </aside>
+
+    <div class="main">
+      <section class="picks">
+        <div class="card">
+          <h2>Your blend</h2>
+          <div class="sub">Biggest gaps between your projection and the line.</div>
+          <div id="picks-own"></div>
+        </div>
+        <div class="card">
+          <h2>Best-blend consensus</h2>
+          <div class="sub" id="consensus-sub"></div>
+          <div id="picks-consensus"></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Projections</h2>
+        <div class="sub" id="table-sub"></div>
+        <div class="toolbar">
+          <div class="tabs" id="tabs" role="group" aria-label="Stat"></div>
+          <input type="search" id="search" placeholder="Search player or team" aria-label="Search player or team">
+          <label class="check" id="lined-wrap"><input type="checkbox" id="lined"> Only players with a line</label>
+        </div>
+        <div class="scroll"><table id="table"></table></div>
+        <div class="empty" id="table-empty" hidden>No players match.</div>
+      </section>
+
+      <section class="card">
+        <h2>Blend track record</h2>
+        <div class="sub">Each weight mix logs its five biggest gaps every game day; these are the mixes whose logged picks have hit most often.</div>
+        <div class="scroll" style="margin-top:12px"><table id="blends"></table></div>
+      </section>
+    </div>
+  </div>
+
+  <footer id="footer"></footer>
+</div>
+
+<script>
+const D = /*__DATA__*/null;
+
+// ---------- state ----------
+const LS_KEY = "nbacb-ui";
+const state = { w: D.metrics.map(() => 0.2), stat: "PTS", sort: null, dir: -1, q: "", lined: true, stale: false };
+try {
+  const saved = JSON.parse(localStorage.getItem(LS_KEY) || "null");
+  if (saved && Array.isArray(saved.w) && saved.w.length === D.metrics.length) state.w = saved.w;
+  if (saved && D.stats.includes(saved.stat)) state.stat = saved.stat;
+} catch (e) {}
+function persist() {
+  try { localStorage.setItem(LS_KEY, JSON.stringify({ w: state.w, stat: state.stat })); } catch (e) {}
+}
+
+// ---------- helpers ----------
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const f1 = (v) => (v == null ? "–" : v.toFixed(1));
+const signed = (v) => (v == null ? "–" : (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(1));
+const pct = (v) => (v == null ? "–" : Math.round(v * 100) + "%");
+function niceDate(iso) {
+  if (!iso) return "–";
+  const [y, m, d] = iso.split("-").map(Number);
+  return new Date(y, m - 1, d).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+}
+const linesOn = () => D.lines_today || state.stale;
+const hasLineStat = (stat) => D.line_stats.includes(stat);
+
+// weighted average of the signals that have a value and a weight above zero
+function blend(p, stat, w) {
+  const x = p.sig[stat];
+  let num = 0, den = 0;
+  for (let i = 0; i < x.length; i++) {
+    if (x[i] != null && w[i] > 0) { num += x[i] * w[i]; den += w[i]; }
+  }
+  return den ? Math.round((num / den) * 100) / 100 : null;
+}
+function lineOf(p, stat) { return linesOn() && hasLineStat(stat) ? p.line[stat] : null; }
+function edgeOf(p, stat, w) {
+  const line = lineOf(p, stat), pred = blend(p, stat, w);
+  return line == null || pred == null ? null : pred - line;
+}
+// average gap across the best blends (same rule as the old "Suggested Parlays")
+function consensusEdge(p, stat) {
+  let sum = 0, n = 0;
+  for (const b of D.blends.slice(0, D.blends_used)) {
+    const e = edgeOf(p, stat, b.w);
+    if (e != null) { sum += e; n++; }
+  }
+  return n ? sum / n : null;
+}
+function ouText(p, stat, dir) {
+  const [over, under] = p.ou[stat] || [0, 0];
+  const total = over + under;
+  if (!total) return "";
+  const k = dir === "over" ? over : under;
+  return `went ${dir} ${k} of ${total}`;
+}
+
+// ---------- tiles ----------
+function renderTiles() {
+  const c = D.credits, t = c.today || {};
+  const linesValue = D.lines_today ? `${D.games_with_lines} game${D.games_with_lines === 1 ? "" : "s"}` : "None";
+  let linesNote;
+  if (D.lines_today) linesNote = t.events ? `of ${t.events} scheduled, DraftKings` : "DraftKings";
+  else if (t.note && t.note !== "ok" && t.note !== "no games today") linesNote = esc(t.note);
+  else linesNote = t.events === 0 || t.note === "no games today" ? "No games scheduled today" : "No lines pulled today";
+
+  const left = c.remaining;
+  const meter = left == null ? "" : `<div class="meter" title="${left} of ${c.plan} credits left"><i style="width:${Math.max(0, Math.min(100, (left / c.plan) * 100))}%"></i></div>`;
+  const best = D.blends[0];
+
+  $("tiles").innerHTML = `
+    <div class="card tile"><div class="label">Lines today</div><div class="value">${linesValue}</div><div class="note">${linesNote}</div></div>
+    <div class="card tile"><div class="label">Odds credits left</div><div class="value">${left == null ? "–" : left}</div>
+      <div class="note">of ${c.plan} free per month, ${c.spent_this_month} used</div>${meter}</div>
+    <div class="card tile"><div class="label">Stats through</div><div class="value">${esc(niceDate(D.stats_through))}</div>
+      <div class="note">${esc(D.season || "")} season, ${D.players.length} players</div></div>
+    <div class="card tile"><div class="label">Best blend hit rate</div><div class="value">${best ? pct(best.rate) : "–"}</div>
+      <div class="note">${best ? `${best.hits} of ${best.picks} logged picks` : "No scored picks yet"}</div></div>`;
+}
+
+function renderBanner() {
+  if (D.lines_today) { $("banner").innerHTML = ""; return; }
+  if (!D.lines_date) {
+    $("banner").innerHTML = `<div class="card banner"><div>No lines saved yet. Picks appear after the daily run on a game day.</div></div>`;
+    return;
+  }
+  $("banner").innerHTML = `<div class="card banner">
+      <div><b>No lines for today.</b> ${state.stale
+        ? `Showing the last saved lines, from ${esc(niceDate(D.lines_date))}. These are not today's lines.`
+        : `The last saved lines are from ${esc(niceDate(D.lines_date))}, so picks are hidden.`}</div>
+      <button id="stale" aria-pressed="${state.stale}">${state.stale ? "Hide old lines" : "Show old lines anyway"}</button>
+    </div>`;
+  $("stale").onclick = () => { state.stale = !state.stale; renderAll(); };
+}
+
+// ---------- weights ----------
+function renderWeights() {
+  const total = state.w.reduce((a, b) => a + b, 0);
+  $("weights").innerHTML = D.metrics.map((m, i) => `
+    <div class="w-row">
+      <div class="w-head"><b>${esc(m.label)}</b><span>${total ? Math.round((state.w[i] / total) * 100) : 0}%</span></div>
+      <input type="range" min="0" max="1" step="0.05" value="${state.w[i]}" data-i="${i}" aria-label="${esc(m.label)} weight">
+    </div>`).join("") + (total ? "" : `<div class="empty">Set at least one weight above zero.</div>`);
+  $("weights").querySelectorAll("input").forEach((el) => {
+    el.oninput = () => { state.w[+el.dataset.i] = +el.value; persist(); renderWeightShares(); renderPicks(); renderTable(); };
+  });
+}
+function renderWeightShares() {
+  const total = state.w.reduce((a, b) => a + b, 0);
+  $("weights").querySelectorAll(".w-head span").forEach((el, i) => {
+    el.textContent = (total ? Math.round((state.w[i] / total) * 100) : 0) + "%";
+  });
+}
+function setWeights(w) { state.w = w.slice(); persist(); renderWeights(); renderPicks(); renderTable(); }
+
+// ---------- picks ----------
+function rankFor(stat, edgeFn) {
+  return D.players
+    .map((p) => ({ p, e: edgeFn(p, stat) }))
+    .filter((x) => x.e != null)
+    .sort((a, b) => Math.abs(b.e) - Math.abs(a.e));
+}
+function legHtml(x, stat, w, label) {
+  const dir = x.e > 0 ? "over" : "under";
+  const pred = w ? blend(x.p, stat, w) : x.p.line[stat] + x.e;
+  const ou = ouText(x.p, stat, dir);
+  return `<div class="leg">
+      <div class="who">${esc(x.p.name)}<small>${esc(x.p.team)}${x.p.opp ? " vs " + esc(x.p.opp) : ""}</small></div>
+      <div><span class="pill ${dir}"><i>${dir === "over" ? "▲" : "▼"}</i>${dir === "over" ? "Over" : "Under"} ${f1(x.p.line[stat])} ${stat}</span></div>
+      <div class="meta">${label} ${f1(pred)} (${signed(x.e)})${ou ? ", " + ou : ""}</div>
+    </div>`;
+}
+function parlaysHtml(edgeFn, w, label) {
+  const ranked = D.line_stats.map((stat) => ({ stat, list: rankFor(stat, edgeFn) })).filter((r) => r.list.length);
+  if (!ranked.length) return "";
+  const first = ranked.map((r) => legHtml(r.list[0], r.stat, w, label)).join("");
+  const second = ranked.filter((r) => r.list.length > 1).map((r) => legHtml(r.list[1], r.stat, w, label)).join("");
+  return `<div class="parlay"><h3>Parlay 1</h3>${first}</div>` + (second ? `<div class="parlay"><h3>Parlay 2</h3>${second}</div>` : "");
+}
+function renderPicks() {
+  const none = `<div class="empty">${linesOn() ? "No players with both a line and a projection." : "No lines for today."}</div>`;
+  $("picks-own").innerHTML = parlaysHtml((p, s) => edgeOf(p, s, state.w), state.w, "Projected") || none;
+  const used = Math.min(D.blends_used, D.blends.length);
+  $("consensus-sub").textContent = used
+    ? `Average gap across the ${used} weight mixes with the best track record.`
+    : "Needs scored picks first.";
+  $("picks-consensus").innerHTML = (used && parlaysHtml(consensusEdge, null, "Average projection")) || none;
+}
+
+// ---------- projections table ----------
+function tableRows() {
+  const stat = state.stat, withLine = hasLineStat(stat) && linesOn();
+  const q = state.q.trim().toLowerCase();
+  let rows = D.players.map((p) => {
+    const pred = blend(p, stat, state.w), line = lineOf(p, stat);
+    const edge = pred != null && line != null ? pred - line : null;
+    const [over, under] = (hasLineStat(stat) && p.ou[stat]) || [0, 0];
+    const dir = edge == null ? null : edge > 0 ? "over" : "under";
+    const k = dir === "over" ? over : under, total = over + under;
+    return { p, pred, line, edge, dir, histK: k, histN: total, hist: dir && total ? k / total : null };
+  });
+  if (q) rows = rows.filter((r) => (r.p.name + " " + r.p.team + " " + (r.p.opp || "")).toLowerCase().includes(q));
+  if (withLine && state.lined) rows = rows.filter((r) => r.line != null);
+
+  const key = state.sort || (withLine ? "edge" : "pred");
+  const val = (r) => {
+    if (key === "name") return r.p.name.toLowerCase();
+    if (key === "opp") return (r.p.opp || "").toLowerCase();
+    if (key === "edge") return r.edge == null ? null : Math.abs(r.edge);
+    if (key.startsWith("sig")) return r.p.sig[stat][+key.slice(3)];
+    return r[key];
+  };
+  rows.sort((a, b) => {
+    const x = val(a), y = val(b);
+    if (x == null && y == null) return 0;
+    if (x == null) return 1;
+    if (y == null) return -1;
+    return (x < y ? -1 : x > y ? 1 : 0) * state.dir;
+  });
+  return { rows, withLine, key };
+}
+function renderTable() {
+  const stat = state.stat;
+  const { rows, withLine, key } = tableRows();
+  const total = state.w.reduce((a, b) => a + b, 0);
+  const th = (k, label, cls = "", sub = "") =>
+    `<th data-sort="${k}" tabindex="0" class="${cls}" aria-sort="${key === k ? (state.dir < 0 ? "descending" : "ascending") : "none"}">${label}${key === k ? `<span class="arrow">${state.dir < 0 ? "↓" : "↑"}</span>` : ""}${sub ? `<small>${sub}</small>` : ""}</th>`;
+
+  let head = th("name", "Player", "l") + th("opp", "Next opp", "l");
+  if (withLine) head += th("line", "Line") + th("pred", "Projection") + th("edge", "Gap vs line") + `<th class="l">Lean</th>` + th("hist", "Went that way");
+  else head += th("pred", "Projection");
+  head += D.metrics.map((m, i) => th("sig" + i, esc(m.label), i === 0 ? "group-start" : "", total ? Math.round((state.w[i] / total) * 100) + "% weight" : "")).join("");
+
+  const maxEdge = Math.max(0.1, ...rows.map((r) => (r.edge == null ? 0 : Math.abs(r.edge))));
+  const body = rows.map((r) => {
+    let cells = `<td class="l name">${esc(r.p.name)}<small>${esc(r.p.team)}</small></td><td class="l">${r.p.opp ? esc(r.p.opp) : "–"}</td>`;
+    if (withLine) {
+      let edge = "–", lean = "–", hist = "–";
+      if (r.edge != null) {
+        const w = (Math.abs(r.edge) / maxEdge) * 50;
+        edge = `<span class="edge"><span class="bar"><span class="fill ${r.dir}" style="width:${w.toFixed(1)}%"></span></span><span class="val">${signed(r.edge)}</span></span>`;
+        lean = `<span class="pill ${r.dir}"><i>${r.dir === "over" ? "▲" : "▼"}</i>${r.dir === "over" ? "Over" : "Under"}</span>`;
+        if (r.histN) hist = `${pct(r.hist)}<span class="count">${r.histK}/${r.histN}</span>`;
+      }
+      cells += `<td>${f1(r.line)}</td><td><b>${f1(r.pred)}</b></td><td>${edge}</td><td class="l">${lean}</td><td>${hist}</td>`;
+    } else {
+      cells += `<td><b>${f1(r.pred)}</b></td>`;
+    }
+    cells += r.p.sig[stat].map((v, i) => `<td class="sig${i === 0 ? " group-start" : ""}${state.w[i] > 0 ? "" : " off"}">${f1(v)}</td>`).join("");
+    return `<tr>${cells}</tr>`;
+  }).join("");
+
+  $("table").innerHTML = `<thead><tr>${head}</tr></thead><tbody>${body}</tbody>`;
+  $("table-empty").hidden = rows.length > 0;
+  $("lined-wrap").hidden = !withLine;
+  $("table-sub").textContent = withLine
+    ? `${rows.length} players. Gap is your projection minus the DraftKings line; "went that way" is how often the player has landed on that side of past lines.`
+    : `${rows.length} players. ${hasLineStat(stat) ? "No lines for today, so only projections are shown." : "DraftKings lines are only pulled for points, rebounds and assists."}`;
+  $("table").querySelectorAll("th[data-sort]").forEach((el) => {
+    const go = () => {
+      const k = el.dataset.sort;
+      if (key === k) state.dir = -state.dir;
+      else { state.sort = k; state.dir = k === "name" || k === "opp" ? 1 : -1; }
+      renderTable();
+    };
+    el.onclick = go;
+    el.onkeydown = (ev) => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); go(); } };
+  });
+}
+function renderTabs() {
+  $("tabs").innerHTML = D.stats.map((s) => `<button data-stat="${s}" aria-pressed="${s === state.stat}">${s}</button>`).join("");
+  $("tabs").querySelectorAll("button").forEach((b) => {
+    b.onclick = () => { state.stat = b.dataset.stat; state.sort = null; state.dir = -1; persist(); renderTabs(); renderTable(); };
+  });
+}
+
+// ---------- blend track record ----------
+function renderBlends() {
+  if (!D.blends.length) { $("blends").innerHTML = `<tbody><tr><td class="l">No scored picks yet.</td></tr></tbody>`; return; }
+  const head = `<th class="l">#</th>` + D.metrics.map((m) => `<th>${esc(m.label)}</th>`).join("") +
+    `<th class="group-start">Hit rate</th><th>Hits</th><th>Picks</th><th></th>`;
+  const body = D.blends.map((b, i) => `<tr>
+      <td class="l muted">${i + 1}</td>
+      ${b.w.map((v) => `<td class="${v > 0 ? "" : "off"}">${Math.round(v * 100)}%</td>`).join("")}
+      <td class="group-start"><span class="rate"><span class="bar"><i style="width:${Math.round(b.rate * 100)}%"></i></span><b>${pct(b.rate)}</b></span></td>
+      <td>${b.hits}</td><td>${b.picks}</td>
+      <td><button data-i="${i}">Use</button></td>
+    </tr>`).join("");
+  $("blends").innerHTML = `<thead><tr>${head}</tr></thead><tbody>${body}</tbody>`;
+  $("blends").querySelectorAll("button").forEach((b) => { b.onclick = () => { setWeights(D.blends[+b.dataset.i].w); window.scrollTo({ top: 0, behavior: "smooth" }); }; });
+}
+
+function renderFooter() {
+  const c = D.credits, t = c.today || {};
+  const pulled = t.date ? `Today's odds pull: ${t.pulled || 0} of ${t.events || 0} games (assists for ${t.assists_games || 0}), ${t.credits || 0} credits (${esc(t.note || "")}).` : "No odds pull recorded today.";
+  $("footer").innerHTML = `
+    <p>${pulled} Points and rebounds are pulled for every game; assists only when the month's credits can spare them. The pull stops for the month once ${c.reserve} credits are left, so the free plan is never exceeded.</p>
+    <p>Projections are a weighted average of five signals: season average, last five games, the game after similar performances, the same days of rest, and games against the next opponent. Small samples make any single pick uncertain.</p>`;
+}
+
+function renderAll() { renderBanner(); renderPicks(); renderTable(); }
+
+$("subtitle").textContent = "Player prop projections against DraftKings lines";
+$("updated").textContent = "Updated " + D.generated_at;
+$("equal").onclick = () => setWeights(D.metrics.map(() => 0.2));
+$("best").onclick = () => { if (D.blends[0]) setWeights(D.blends[0].w); };
+$("best").hidden = !D.blends.length;
+$("search").oninput = (e) => { state.q = e.target.value; renderTable(); };
+$("lined").checked = state.lined;
+$("lined").onchange = (e) => { state.lined = e.target.checked; renderTable(); };
+renderTiles(); renderWeights(); renderTabs(); renderBlends(); renderFooter(); renderAll();
+</script>
+</body>
+</html>

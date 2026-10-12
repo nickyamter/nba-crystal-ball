@@ -1,0 +1,18 @@
+{
+  "odds": {
+    "months": {},
+    "remaining": 500,
+    "checked_at": "2026-10-12T12:47:19-04:00",
+    "today": {
+      "date": "2026-10-12",
+      "events": 0,
+      "allowed": 0,
+      "pulled": 0,
+      "assists_games": 0,
+      "credits": 0,
+      "note": "no games today",
+      "final": true
+    }
+  },
+  "injury": {}
+}

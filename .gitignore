@@ -5,3 +5,18 @@ __pycache__/
 .DS_Store
 logs/
 backups/
+
+# built on every run and published as the web page
+dashboard.html
+
+# raw DraftKings lines (and the picks log that repeats them) stay out of the public
+# repository: The Odds API allows displaying its data but not offering it as files.
+# The daily workflow carries these two from one run to the next in a private cache.
+CSVs/ODDS_TODAY.csv
+CSVs/weight_experiments.csv
+
+# old or unused data
+CSVs/INJURY_RAW.json
+CSVs/INJURY_REPORT.csv
+CSVs/MOST_SIMILAR_GAME1_2.csv
+CSVs/_test_*
