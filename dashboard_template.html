@@ -12,7 +12,7 @@
     --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,.10);
     --over: #2a78d6; --under: #e34948; --neutral: #f0efec;
     --over-wash: rgba(42,120,214,.10); --under-wash: rgba(227,73,72,.10);
-    --accent: #2a78d6; --track: #cde2fb; --warn: #fab219;
+    --accent: #2a78d6; --track: #cde2fb; --warn: #fab219; --crit: #d03b3b;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -75,7 +75,7 @@
   .parlay { margin-top: 12px; }
   .parlay h3 { font-size: 12px; font-weight: 600; color: var(--ink2); text-transform: uppercase; letter-spacing: .04em; margin: 0 0 6px; }
   .leg { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; padding: 8px 0; border-top: 1px solid var(--grid); }
-  .leg .who { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .leg .who { font-weight: 600; line-height: 1.7; }
   .leg .who small { font-weight: 400; color: var(--muted); margin-left: 6px; }
   .leg .meta { grid-column: 1 / -1; color: var(--ink2); font-size: 12px; }
   .pill { display: inline-flex; align-items: center; gap: 5px; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; }
@@ -85,6 +85,26 @@
   .pill.over i { color: var(--over); }
   .pill.under i { color: var(--under); }
   .empty { color: var(--ink2); padding: 18px 0 6px; }
+
+  /* injury notes */
+  .tag { display: inline-flex; align-items: center; gap: 4px; padding: 1px 7px; border-radius: 999px; margin-left: 6px;
+         font-size: 11px; font-weight: 600; white-space: nowrap; background: var(--neutral); color: var(--ink); vertical-align: middle; }
+  .tag i { font-style: normal; font-size: 10px; }
+  .tag.out i { color: var(--crit); }
+  .tag.q i { color: var(--warn); }
+  .tag.back i { color: var(--accent); }
+  .leg .note { grid-column: 1 / -1; color: var(--ink2); font-size: 12px; }
+  .mates { grid-column: 1 / -1; font-size: 12px; margin-top: 4px; }
+  .mates summary { display: inline-block; cursor: pointer; list-style: none; color: var(--ink); background: var(--raised);
+                   border: 1px solid var(--border); border-radius: 7px; padding: 3px 9px; }
+  .mates summary::-webkit-details-marker { display: none; }
+  .mates summary:hover { border-color: var(--axis); }
+  .mates summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .mates[open] summary { background: var(--neutral); }
+  .mates ul { list-style: none; margin: 6px 0 0; padding: 0; }
+  .mates li { padding: 3px 0; color: var(--ink2); }
+  .mates li b { color: var(--ink); font-weight: 600; }
+  .mates.none { color: var(--muted); }
 
   /* table */
   .toolbar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 12px 0; }
@@ -249,6 +269,39 @@ function consensusEdge(p, stat) {
   }
   return n ? sum / n : null;
 }
+// ---------- injury notes ----------
+function shortDate(iso) {
+  const [y, m, d] = iso.split("-").map(Number);
+  return new Date(y, m - 1, d).toLocaleDateString("en-US", { month: "short", day: "numeric" });
+}
+const isBack = (p) => p.back && !(p.inj && p.inj.label !== "Questionable");
+function injTags(p) {
+  let out = "";
+  if (p.inj) {
+    const q = p.inj.label === "Questionable";
+    out += `<span class="tag ${q ? "q" : "out"}"><i>${q ? "?" : "✕"}</i>${esc(p.inj.label)}</span>`;
+  }
+  if (isBack(p)) out += `<span class="tag back"><i>↩</i>First game back</span>`;
+  return out;
+}
+function injNote(p) {
+  const parts = [];
+  if (p.inj) parts.push(`${esc(p.inj.label)}${p.inj.what ? ": " + esc(p.inj.what.toLowerCase()) : ""}`);
+  if (isBack(p)) {
+    const n = p.back.games;
+    parts.push(`First game back: missed the last ${n === 1 ? "game" : n + " games"} (${p.back.reason ? esc(p.back.reason.toLowerCase()) : "reason not listed"})`);
+  }
+  return parts.length ? `<div class="note">${parts.join(". ")}.</div>` : "";
+}
+function matesHtml(p) {
+  if (!D.injury_today) return "";
+  const list = (D.injured[p.team] || []).filter((x) => x.key !== p.key);
+  if (!list.length) return `<div class="mates none">No teammates on the injury report</div>`;
+  const items = list.map((x) =>
+    `<li><b>${esc(x.name)}</b> ${esc(x.label)}${x.what ? ", " + esc(x.what.toLowerCase()) : ""}${x.ret ? ", est. return " + esc(shortDate(x.ret)) : ""}</li>`).join("");
+  return `<details class="mates"><summary>Injured teammates (${list.length})</summary><ul>${items}</ul></details>`;
+}
+
 function ouText(p, stat, dir) {
   const [over, under] = p.ou[stat] || [0, 0];
   const total = over + under;
@@ -327,9 +380,10 @@ function legHtml(x, stat, w, label) {
   const pred = w ? blend(x.p, stat, w) : x.p.line[stat] + x.e;
   const ou = ouText(x.p, stat, dir);
   return `<div class="leg">
-      <div class="who">${esc(x.p.name)}<small>${esc(x.p.team)}${x.p.opp ? " vs " + esc(x.p.opp) : ""}</small></div>
+      <div class="who">${esc(x.p.name)}<small>${esc(x.p.team)}${x.p.opp ? " vs " + esc(x.p.opp) : ""}</small>${injTags(x.p)}</div>
       <div><span class="pill ${dir}"><i>${dir === "over" ? "▲" : "▼"}</i>${dir === "over" ? "Over" : "Under"} ${f1(x.p.line[stat])} ${stat}</span></div>
       <div class="meta">${label} ${f1(pred)} (${signed(x.e)})${ou ? ", " + ou : ""}</div>
+      ${injNote(x.p)}${matesHtml(x.p)}
     </div>`;
 }
 function parlaysHtml(edgeFn, w, label) {
@@ -395,7 +449,7 @@ function renderTable() {
 
   const maxEdge = Math.max(0.1, ...rows.map((r) => (r.edge == null ? 0 : Math.abs(r.edge))));
   const body = rows.map((r) => {
-    let cells = `<td class="l name">${esc(r.p.name)}<small>${esc(r.p.team)}</small></td><td class="l">${r.p.opp ? esc(r.p.opp) : "–"}</td>`;
+    let cells = `<td class="l name">${esc(r.p.name)}<small>${esc(r.p.team)}</small>${injTags(r.p)}</td><td class="l">${r.p.opp ? esc(r.p.opp) : "–"}</td>`;
     if (withLine) {
       let edge = "–", lean = "–", hist = "–";
       if (r.edge != null) {
@@ -457,6 +511,7 @@ function renderFooter() {
   const pulled = t.date ? `Today's odds pull: ${t.pulled || 0} of ${t.events || 0} games (assists for ${t.assists_games || 0}), ${t.credits || 0} credits (${esc(t.note || "")}).` : "No odds pull recorded today.";
   $("footer").innerHTML = `
     <p>${pulled} Points and rebounds are pulled for every game; assists only when the month's credits can spare them. The pull stops for the month once ${c.reserve} credits are left, so the free plan is never exceeded.</p>
+    <p>${D.injury_today ? "Injury notes are from ESPN's injury report as of this update; statuses can change before tip-off. \"First game back\" means the player sat out his team's most recent game or games, with the reason from the box score when one was listed." : "No injury report was saved in this update."}</p>
     <p>Projections are a weighted average of five signals: season average, last five games, the game after similar performances, the same days of rest, and games against the next opponent. Small samples make any single pick uncertain.</p>`;
 }
 

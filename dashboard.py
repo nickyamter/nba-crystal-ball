@@ -9,7 +9,7 @@ import pandas as pd
 
 import budget
 import model
-from common import BASE_DIR, data_path
+from common import BASE_DIR, data_path, clean_player_name
 
 TEMPLATE_PATH = BASE_DIR / "dashboard_template.html"
 OUTPUT_PATH = BASE_DIR / "dashboard.html"
@@ -38,6 +38,32 @@ def _int(val):
     return int(val)
 
 
+def _sentence(*parts) -> str:
+    """('Left', 'Knee', 'Tendinitis') -> 'Left knee tendinitis'"""
+    text = " ".join(str(p).strip() for p in parts if p is not None and not pd.isna(p) and str(p).strip())
+    return text[:1].upper() + text[1:].lower() if text else ""
+
+
+def _injury_label(status, abbr) -> str:
+    """ESPN's status codes in plain words."""
+    abbr = "" if abbr is None or pd.isna(abbr) else str(abbr).upper()
+    if abbr == "GTD":
+        return "Questionable"
+    if abbr == "OFS":
+        return "Out for season"
+    if abbr == "OUT":
+        return "Out"
+    return "" if status is None or pd.isna(status) else str(status)
+
+
+def _injury_entry(status, abbr, side, kind, detail, ret) -> dict:
+    return {
+        "label": _injury_label(status, abbr),
+        "what": _sentence(side, kind, detail),
+        "ret": None if ret is None or pd.isna(ret) else str(ret)[:10],
+    }
+
+
 def build_data() -> dict:
     now = datetime.now(budget.EASTERN)
     today = now.date().isoformat()
@@ -54,11 +80,41 @@ def build_data() -> dict:
         if len(dates):
             stats_through = str(dates.max())[:10]
 
+    # today's injury report, by team (everyone listed, not only the players projected here)
+    report = model.load_csv("INJURY_REPORT.csv")
+    injury_today = (
+        not report.empty and "snapshot_date" in report.columns
+        and (report["snapshot_date"].astype(str) == today).any()
+    )
+    injured = {}
+    if injury_today:
+        for _, i in report.iterrows():
+            entry = _injury_entry(i["status"], i["fantasy_status_abbr"], i["injury_side"],
+                                  i["injury_type"], i["injury_detail"], i["return_date"])
+            entry["name"] = i["player_name"]
+            entry["key"] = clean_player_name(i["player_name"])
+            injured.setdefault(str(i["team_abbr"]), []).append(entry)
+
     rows = []
     for _, r in players.iterrows():
         opp = r.get("NEXT_OPP")
+        inj = None
+        if injury_today and str(r["INJ_DATE"]) == today and not pd.isna(r["INJ_STATUS"]):
+            inj = _injury_entry(r["INJ_STATUS"], r["INJ_ABBR"], r["INJ_SIDE"], r["INJ_TYPE"], r["INJ_DETAIL"], r["INJ_RETURN"])
+        # "first game back": he sat out his team's most recent game(s). Counted when the
+        # listed reason is an injury, or when no reason is listed and the games were
+        # this season (so last spring's rested starters aren't all flagged on opening night).
+        missed = _int(r["GAMES_MISSED"]) or 0
+        injury = r["MISSED_FOR_INJURY"] == True
+        unexplained = not injury and r["MISSED_FOR_OTHER"] != True and (_int(r["MISSED_THIS_SEASON"]) or 0) > 0
+        back = None
+        if missed > 0 and (injury or unexplained):
+            back = {"games": missed, "reason": _sentence(r["LAST_REASON"]) if injury else ""}
         rows.append({
             "name": r["PLAYER_NAME"],
+            "key": r["player_name_clean"],
+            "inj": inj,
+            "back": back,
             "team": r["TEAM_ABBREVIATION"],
             "opp": None if pd.isna(opp) else str(opp),
             "sig": {s: [_num(r[c]) for c in model.signal_columns(s)] for s in model.STATS},
@@ -103,6 +159,8 @@ def build_data() -> dict:
         "lines_date": lines_date,
         "lines_today": lines_date == today,
         "games_with_lines": games_with_lines,
+        "injury_today": bool(injury_today),
+        "injured": injured,
         "blends": blends,
         "blends_used": TOP_BLENDS_USED,
         "credits": {

@@ -17,6 +17,5 @@ CSVs/weight_experiments.csv
 
 # old or unused data
 CSVs/INJURY_RAW.json
-CSVs/INJURY_REPORT.csv
 CSVs/MOST_SIMILAR_GAME1_2.csv
 CSVs/_test_*

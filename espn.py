@@ -29,6 +29,12 @@ LOG_COLS = [
     "GAME_ID", "GAME_DATE", "PLAYER_ID", "PLAYER_NAME", "TEAM_ID", "TEAM_ABBREVIATION",
     "MATCHUP", "MIN", "PTS", "REB", "AST", "STL", "BLK",
 ]
+# players listed in a box score who did not play, with the reason ESPN gives
+DNP_COLS = ["GAME_ID", "GAME_DATE", "PLAYER_ID", "PLAYER_NAME", "TEAM_ID", "TEAM_ABBREVIATION", "REASON"]
+INJURY_COLS = [
+    "team_name", "team_abbr", "player_name", "status", "fantasy_status_abbr",
+    "injury_type", "injury_location", "injury_detail", "injury_side", "return_date", "report_date_est",
+]
 STAT_KEYS = {"MIN": "minutes", "PTS": "points", "REB": "rebounds", "AST": "assists", "STL": "steals", "BLK": "blocks"}
 
 _events_cache: dict[str, pd.DataFrame] = {}
@@ -124,9 +130,10 @@ def schedule(season: str) -> pd.DataFrame:
 # =========================================================
 # BOX SCORES
 # =========================================================
-def _box_score_rows(game) -> list[dict]:
+def _box_score_rows(game) -> tuple[list[dict], list[dict]]:
+    """One game's box score: (rows for players who played, rows for players who sat out)."""
     summary = _get("summary", {"event": game["GAME_ID"]})
-    rows = []
+    played, sat = [], []
     for team in summary.get("boxscore", {}).get("players", []):
         team_id = int(team["team"]["id"])
         is_home = team_id == game["HOME_TEAM_ID"]
@@ -140,28 +147,73 @@ def _box_score_rows(game) -> list[dict]:
             for a in block.get("athletes", []):
                 values = a.get("stats") or []
                 athlete = a.get("athlete") or {}
-                # skip players who sat out, and the occasional placeholder entry with no id
-                if a.get("didNotPlay") or len(values) != len(keys) or "id" not in athlete:
+                if "id" not in athlete:  # the occasional placeholder entry
                     continue
-                row = {
+                who = {
                     "GAME_ID": game["GAME_ID"],
                     "GAME_DATE": game["GAME_DATE"],
                     "PLAYER_ID": int(athlete["id"]),
                     "PLAYER_NAME": athlete.get("displayName", ""),
                     "TEAM_ID": team_id,
                     "TEAM_ABBREVIATION": abbr,
-                    "MATCHUP": matchup,
                 }
+                if a.get("didNotPlay"):
+                    sat.append({**who, "REASON": a.get("reason") or ""})
+                    continue
+                if len(values) != len(keys):
+                    continue
+                row = {**who, "MATCHUP": matchup}
                 for col, key in STAT_KEYS.items():
                     row[col] = pd.to_numeric(values[keys.index(key)], errors="coerce")
                 if pd.isna(row["MIN"]):
                     continue
-                rows.append(row)
-    return rows
+                played.append(row)
+    return played, sat
 
 
 def _log_path(season: str):
     return data_path(f"ESPN_{season_short(season)}_LOG.csv")
+
+
+def _dnp_path(season: str):
+    return data_path(f"ESPN_{season_short(season)}_DNP.csv")
+
+
+def sat_out(season: str) -> pd.DataFrame:
+    """Players who were listed but did not play, one row per player per game."""
+    path = _dnp_path(season)
+    if not path.exists():
+        return pd.DataFrame(columns=DNP_COLS)
+    return pd.read_csv(path, dtype={"GAME_ID": str}, keep_default_na=False)
+
+
+def _save_sat_out(season: str, new_rows: list[dict]) -> None:
+    if not new_rows:
+        return
+    frame = pd.concat([sat_out(season), pd.DataFrame(new_rows)], ignore_index=True)
+    frame = frame.drop_duplicates(subset=["GAME_ID", "PLAYER_ID"], keep="last")
+    frame = frame.sort_values(["GAME_DATE", "GAME_ID", "TEAM_ID", "PLAYER_ID"])
+    frame[DNP_COLS].to_csv(_dnp_path(season), index=False)
+
+
+def backfill_sat_out(season: str) -> int:
+    """One-time: fetch who sat out for games that were stored before this was recorded."""
+    log = pd.read_csv(_log_path(season), dtype={"GAME_ID": str})
+    have = set(sat_out(season)["GAME_ID"])
+    games = season_events(season)
+    todo = games[games["GAME_ID"].isin(set(log["GAME_ID"]) - have)]
+    rows = []
+    for i, (_, game) in enumerate(todo.iterrows(), start=1):
+        try:
+            rows.extend(_box_score_rows(game)[1])
+        except Exception as e:
+            print(f"⚠️  ESPN box score {game['GAME_ID']} failed: {e}")
+        if i % 100 == 0:
+            _save_sat_out(season, rows)
+            rows = []
+            print(f"  ESPN {season}: {i} of {len(todo)} games checked for players who sat out")
+    _save_sat_out(season, rows)
+    return len(todo)
 
 
 def update_season_log(season: str) -> pd.DataFrame:
@@ -187,10 +239,10 @@ def update_season_log(season: str) -> pd.DataFrame:
     finished = games[games["FINAL"]]
     missing = finished[~finished["GAME_ID"].isin(set(log["GAME_ID"].astype(str)))]
 
-    new_rows, failed = [], 0
+    new_rows, new_sat, failed = [], [], 0
     for i, (_, game) in enumerate(missing.iterrows(), start=1):
         try:
-            rows = _box_score_rows(game)
+            rows, sat = _box_score_rows(game)
         except Exception as e:
             failed += 1
             print(f"⚠️  ESPN box score {game['GAME_ID']} failed: {e}")
@@ -199,15 +251,18 @@ def update_season_log(season: str) -> pd.DataFrame:
             failed += 1
             continue
         new_rows.extend(rows)
+        new_sat.extend(sat)
         if i % 100 == 0:  # keep progress during a long first fill
             log = save(pd.concat([log, pd.DataFrame(new_rows)], ignore_index=True))
-            new_rows = []
+            _save_sat_out(season, new_sat)
+            new_rows, new_sat = [], []
             print(f"  ESPN {season}: {i} of {len(missing)} games fetched")
 
     if new_rows:
         log = pd.concat([log, pd.DataFrame(new_rows)], ignore_index=True)
     if len(missing):
         log = save(log)
+    _save_sat_out(season, new_sat)
     print(f"ESPN {season}: {len(missing) - failed} new games, {log['GAME_ID'].nunique()} stored"
           + (f", {failed} not available yet" if failed else ""))
 
@@ -247,3 +302,38 @@ def per_game(season: str) -> pd.DataFrame:
     latest = logs.groupby("PLAYER_ID")[["PLAYER_NAME", "TEAM_ABBREVIATION"]].last()
     means = logs.groupby("PLAYER_ID")[["MIN", "PTS", "REB", "AST", "BLK", "STL"]].mean().round(1)
     return latest.join(means).reset_index()[cols]
+
+
+# =========================================================
+# INJURY REPORT
+# =========================================================
+def injury_report() -> pd.DataFrame:
+    """Today's league-wide injury report, one row per listed player. Free, no key.
+    Only the facts are kept (status, body part, expected return); ESPN's written
+    commentary on each injury is left out."""
+    data = _get("injuries", {})
+    rows = []
+    for team in data.get("injuries", []):
+        for inj in team.get("injuries", []):
+            athlete = inj.get("athlete") or {}
+            club = athlete.get("team") or {}
+            details = inj.get("details") or {}
+            reported = None
+            try:
+                reported = datetime.fromisoformat(inj["date"].replace("Z", "+00:00")).astimezone(EASTERN).date().isoformat()
+            except Exception:
+                pass
+            rows.append({
+                "team_name": club.get("displayName") or team.get("displayName"),
+                "team_abbr": _abbr(club),
+                "player_name": athlete.get("displayName"),
+                "status": inj.get("status"),  # 'Out', 'Day-To-Day'
+                "fantasy_status_abbr": (details.get("fantasyStatus") or {}).get("abbreviation"),  # 'OUT', 'GTD', 'OFS'
+                "injury_type": details.get("type"),
+                "injury_location": details.get("location"),
+                "injury_detail": details.get("detail"),
+                "injury_side": details.get("side"),
+                "return_date": (details.get("returnDate") or "")[:10] or None,
+                "report_date_est": reported,
+            })
+    return pd.DataFrame(rows, columns=INJURY_COLS)

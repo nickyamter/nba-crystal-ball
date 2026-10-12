@@ -126,6 +126,27 @@ def build_players() -> pd.DataFrame:
         if c not in players.columns:
             players[c] = float("nan")
 
+    # today's injury report
+    inj_map = {
+        "snapshot_date": "INJ_DATE", "status": "INJ_STATUS", "fantasy_status_abbr": "INJ_ABBR",
+        "injury_type": "INJ_TYPE", "injury_detail": "INJ_DETAIL", "injury_side": "INJ_SIDE",
+        "return_date": "INJ_RETURN",
+    }
+    inj = load_csv("INJURY_REPORT.csv")
+    if not inj.empty and "player_name" in inj.columns:
+        inj["player_name_clean"] = inj["player_name"].map(clean_player_name)
+        inj = inj.rename(columns=inj_map)
+        keep = ["player_name_clean"] + [c for c in inj_map.values() if c in inj.columns]
+        players = players.merge(inj[keep].drop_duplicates(subset=["player_name_clean"]), on="player_name_clean", how="left")
+    for c in inj_map.values():
+        if c not in players.columns:
+            players[c] = None
+
+    # games missed since each player last played
+    players = safe_merge(players, load_csv("AVAILABILITY.csv"),
+                         ["LAST_PLAYED", "GAMES_MISSED", "MISSED_THIS_SEASON", "LAST_REASON",
+                          "MISSED_FOR_INJURY", "MISSED_FOR_OTHER"])
+
     return players
 
 

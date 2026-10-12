@@ -822,6 +822,23 @@ def _find_injury_lists(obj):
 
 def fetch_nba_injury_report() -> pd.DataFrame:
     """
+    Today's injury report, one row per listed player.
+    ESPN's own feed is free and needs no key, so it is used first. The RapidAPI
+    service returns the same report but has a monthly quota, so it is only a
+    fallback, and only if it has been switched on (see budget.py).
+    """
+    try:
+        df = espn.injury_report()
+        if not df.empty:
+            print(f"Injury report from ESPN: {len(df)} players listed.")
+            return df
+    except Exception as e:
+        print(f"⚠️  ESPN injury report failed: {e}")
+    return _fetch_injury_report_rapidapi()
+
+
+def _fetch_injury_report_rapidapi() -> pd.DataFrame:
+    """
     One-call injury fetch from API-BASKETBALL (NBA) via RapidAPI.
     Flattens into one row per injured player and converts dates to EST.
     """
@@ -894,6 +911,7 @@ def fetch_nba_injury_report() -> pd.DataFrame:
                 "injury_location": details.get("location"),
                 "injury_detail": details.get("detail"),
                 "injury_side": details.get("side"),
+                "return_date": (details.get("returnDate") or "")[:10] or None,
                 "return_date_utc": details.get("returnDate"),
                 "return_date_est": _convert_to_est(details.get("returnDate")),
                 "long_comment": inj.get("longComment"),
@@ -904,7 +922,87 @@ def fetch_nba_injury_report() -> pd.DataFrame:
         print("⚠️  Injury lists found but no rows built.")
         return pd.DataFrame()
 
-    return pd.DataFrame(rows)
+    # same columns as the ESPN report (facts only, no written commentary)
+    out = pd.DataFrame(rows)
+    out["report_date_est"] = out["report_date_est"].astype(str).str[:10]
+    return out.reindex(columns=espn.INJURY_COLS)
+
+
+def save_injury_report(injury_df: pd.DataFrame) -> None:
+    """Write today's report (INJURY_REPORT.csv) and keep every day's report
+    in INJURY_HISTORY.csv, one snapshot per date."""
+    today = datetime.now(pytz.timezone("US/Eastern")).date().isoformat()
+    snap = injury_df.copy()
+    snap.insert(0, "snapshot_date", today)
+    snap.to_csv(data_path("INJURY_REPORT.csv"), index=False)
+
+    history_path = data_path("INJURY_HISTORY.csv")
+    if history_path.exists():
+        old = pd.read_csv(history_path)
+        snap = pd.concat([old[old["snapshot_date"] != today], snap], ignore_index=True)
+    snap.to_csv(history_path, index=False)
+
+
+# =========================================================
+# AVAILABILITY (games missed since a player last played)
+# =========================================================
+_NOT_AN_INJURY = r"COACH|NOT WITH TEAM|SUSPEN|PERSONAL|G LEAGUE|TWO-WAY|TRADE|INELIGIBLE|\bREST\b"
+
+def build_availability(
+    logs_all: pd.DataFrame,
+    keepers_current: pd.DataFrame,
+    sat_out: pd.DataFrame,
+    season_start,
+) -> pd.DataFrame:
+    """
+    For each current-season keeper:
+    - the date he last played
+    - how many games his team has played since then (GAMES_MISSED), and how many
+      of those were in the current season (MISSED_THIS_SEASON)
+    - the reason listed the last time he sat out, when the box score gives one
+      (box scores list a reason for only some absent players)
+    - whether that reason is an injury or illness (MISSED_FOR_INJURY) or something
+      else such as a coach's decision, rest or a suspension (MISSED_FOR_OTHER)
+    """
+    logs = logs_all.copy()
+    logs["GAME_DATE"] = pd.to_datetime(logs["GAME_DATE"], errors="coerce")
+    logs["GAME_ID"] = logs["GAME_ID"].astype(str)
+
+    last_idx = logs.groupby("PLAYER_ID")["GAME_DATE"].idxmax()
+    last = logs.loc[last_idx, ["PLAYER_ID", "PLAYER_NAME", "TEAM_ABBREVIATION", "GAME_DATE"]].copy()
+    last = last.rename(columns={"GAME_DATE": "LAST_PLAYED"})
+    last = last[last["PLAYER_ID"].isin(keepers_current["PLAYER_ID"])]
+
+    team_games = logs[["TEAM_ABBREVIATION", "GAME_ID", "GAME_DATE"]].drop_duplicates(["TEAM_ABBREVIATION", "GAME_ID"])
+    since = last.merge(team_games, on="TEAM_ABBREVIATION")
+    since = since[since["GAME_DATE"] > since["LAST_PLAYED"]]
+    since["THIS_SEASON"] = since["GAME_DATE"] >= pd.to_datetime(season_start)
+    missed = since.groupby("PLAYER_ID").agg(
+        GAMES_MISSED=("GAME_ID", "size"),
+        MISSED_THIS_SEASON=("THIS_SEASON", "sum"),
+    ).reset_index()
+
+    out = last.merge(missed, on="PLAYER_ID", how="left")
+    out["GAMES_MISSED"] = out["GAMES_MISSED"].fillna(0).astype(int)
+    out["MISSED_THIS_SEASON"] = out["MISSED_THIS_SEASON"].fillna(0).astype(int)
+
+    reason = pd.Series(dtype=object)
+    if not sat_out.empty:
+        sat = sat_out.copy()
+        sat["GAME_DATE"] = pd.to_datetime(sat["GAME_DATE"], errors="coerce")
+        sat = sat.merge(last[["PLAYER_ID", "LAST_PLAYED"]], on="PLAYER_ID")
+        sat = sat[sat["GAME_DATE"] > sat["LAST_PLAYED"]].sort_values("GAME_DATE")
+        reason = sat.groupby("PLAYER_ID")["REASON"].last()
+    out["LAST_REASON"] = out["PLAYER_ID"].map(reason).fillna("").astype(str)
+    has_reason = (out["GAMES_MISSED"] > 0) & (out["LAST_REASON"].str.strip() != "")
+    not_injury = out["LAST_REASON"].str.contains(_NOT_AN_INJURY, case=False, regex=True)
+    out["MISSED_FOR_INJURY"] = has_reason & ~not_injury
+    out["MISSED_FOR_OTHER"] = has_reason & not_injury
+    out["LAST_PLAYED"] = out["LAST_PLAYED"].dt.date.astype(str)
+    return out[[
+        "PLAYER_ID", "PLAYER_NAME", "TEAM_ABBREVIATION", "LAST_PLAYED",
+        "GAMES_MISSED", "MISSED_THIS_SEASON", "LAST_REASON", "MISSED_FOR_INJURY", "MISSED_FOR_OTHER",
+    ]]
 
 # =========================================================
 # ODDS: per-event props (points, rebounds, assists) for ALL today's games, DK only
@@ -1384,8 +1482,21 @@ def main():
                 logs_prev_all = fetch_league_player_gamelogs(prev_season, SEASON_TYPE)
                 logs_prev = logs_prev_all[logs_prev_all["PLAYER_ID"].isin(keepers["PLAYER_ID"])].copy()
                 logs_two = pd.concat([logs_prev, logs], ignore_index=True)
+                logs_everyone = pd.concat([logs_prev_all, logs_all], ignore_index=True)
             else:
                 logs_two = logs.copy()
+                logs_everyone = logs_all
+
+            # AVAILABILITY: games missed since each player last played
+            if STATS_SOURCE == "espn":
+                sat_out = pd.concat(
+                    [espn.sat_out(s) for s in [prev_season, season] if s is not None], ignore_index=True
+                )
+            else:
+                sat_out = pd.DataFrame(columns=espn.DNP_COLS)
+            availability = build_availability(logs_everyone, keepers, sat_out, logs_all["GAME_DATE"].min())
+            availability.to_csv(data_path("AVAILABILITY.csv"), index=False)
+            print("Saved games missed since each player last played → AVAILABILITY.csv")
 
             # SIMILAR_NEXT
             similar_next = build_similar_next_csv(logs_two, logs, keepers).round(2)
@@ -1408,8 +1519,8 @@ def main():
             # INJURIES: league-wide injury report
             injury_df = fetch_nba_injury_report()
             if not injury_df.empty:
-                injury_df.to_csv(data_path("INJURY_REPORT.csv"), index=False)
-                print("Saved injury report → INJURY_REPORT.csv")
+                save_injury_report(injury_df)
+                print("Saved injury report → INJURY_REPORT.csv, INJURY_HISTORY.csv")
             else:
                 print("No injury data saved (injury fetch returned empty).")
 
