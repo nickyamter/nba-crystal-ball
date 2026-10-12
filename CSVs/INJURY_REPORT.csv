@@ -27,7 +27,7 @@ snapshot_date,team_name,team_abbr,player_name,status,fantasy_status_abbr,injury_
 2026-10-12,Denver Nuggets,DEN,Spencer Jones,Day-To-Day,GTD,Hamstring,Leg,,Not Specified,2026-10-14,2026-10-12
 2026-10-12,Detroit Pistons,DET,Cade Cunningham,Day-To-Day,GTD,Rest,Other,,,2026-10-14,2026-10-10
 2026-10-12,Detroit Pistons,DET,Jalen Duren,Day-To-Day,GTD,Rest,Other,,,2026-10-14,2026-10-10
-2026-10-12,Golden State Warriors,GSW,Kristaps Porzingis,Day-To-Day,GTD,Undisclosed,Other,,,2026-10-21,2026-10-06
+2026-10-12,Golden State Warriors,GSW,Kristaps Porzingis,Day-To-Day,GTD,Undisclosed,Other,,,2026-10-21,2026-10-12
 2026-10-12,Golden State Warriors,GSW,Jimmy Butler III,Out,OUT,Knee,Leg,Surgery,Right,2027-01-02,2026-10-02
 2026-10-12,Golden State Warriors,GSW,Moses Moody,Out,OUT,Knee,Leg,Surgery,Left,2026-12-01,2026-09-28
 2026-10-12,Houston Rockets,HOU,Steven Adams,Day-To-Day,GTD,Rest,Other,,,2026-10-15,2026-10-11
@@ -92,12 +92,12 @@ snapshot_date,team_name,team_abbr,player_name,status,fantasy_status_abbr,injury_
 2026-10-12,Orlando Magic,ORL,Desmond Bane,Day-To-Day,GTD,Rest,Other,,,2026-10-13,2026-10-11
 2026-10-12,Orlando Magic,ORL,Jalen Suggs,Day-To-Day,GTD,Illness,Other,,,2026-10-13,2026-10-11
 2026-10-12,Orlando Magic,ORL,Izaiyah Nelson,Out,GTD,Ankle,Leg,Surgery,Left,2026-11-01,2026-09-28
+2026-10-12,Philadelphia 76ers,PHI,Anfernee Simons,Day-To-Day,GTD,Hamstring,Leg,,,2026-10-16,2026-10-12
 2026-10-12,Philadelphia 76ers,PHI,LeBron James,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-10
 2026-10-12,Philadelphia 76ers,PHI,Kentavious Caldwell-Pope,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-10
 2026-10-12,Philadelphia 76ers,PHI,Jaylen Brown,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-10
 2026-10-12,Philadelphia 76ers,PHI,Joel Embiid,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-10
 2026-10-12,Philadelphia 76ers,PHI,Dominick Barlow,Day-To-Day,GTD,Back,Torso,,,2026-10-16,2026-10-07
-2026-10-12,Philadelphia 76ers,PHI,Anfernee Simons,Day-To-Day,GTD,Hamstring,Leg,,,2026-10-16,2026-10-07
 2026-10-12,Philadelphia 76ers,PHI,Adem Bona,Day-To-Day,GTD,Foot,Leg,Sprain,Not Specified,2026-10-16,2026-10-07
 2026-10-12,Philadelphia 76ers,PHI,Ariel Hukporti,Out,OUT,Achilles,Leg,Ruptured,Right,2027-10-01,2026-10-06
 2026-10-12,Philadelphia 76ers,PHI,Tacko Fall,Day-To-Day,GTD,Hip,Torso,,Left,2026-10-16,2026-10-01
