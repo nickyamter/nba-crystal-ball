@@ -142,10 +142,33 @@ def build_data() -> dict:
     ]
 
     usage = budget.load_usage()
-    odds_usage = usage["odds"]
-    odds_today = odds_usage.get("today") or {}
-    if odds_today.get("date") != today:
-        odds_today = {}
+    odds_usage, sgo_usage = usage["odds"], usage["sgo"]
+    lines_today = usage.get("lines_today") or {}
+    if lines_today.get("date") != today:
+        lines_today = {}
+
+    # which free allowance the lines are drawn from
+    if sgo_usage.get("tier"):
+        allowance = {
+            "name": "SportsGameOdds", "unit": "objects", "period": "30 days",
+            "remaining": sgo_usage.get("remaining"),
+            "plan": budget.SGO_FREE_OBJECTS,
+            "reserve": budget.SGO_RESERVE,
+            "used": sgo_usage.get("used"),
+            "tier": sgo_usage.get("tier"),
+            "plan_ok": sgo_usage.get("tier") == budget.SGO_FREE_TIER,
+            "backup_remaining": odds_usage.get("remaining"),
+        }
+    else:
+        allowance = {
+            "name": "The Odds API", "unit": "credits", "period": "month",
+            "remaining": odds_usage.get("remaining"),
+            "plan": budget.ODDS_FREE_CREDITS,
+            "reserve": budget.ODDS_RESERVE,
+            "used": odds_usage["months"].get(today[:7], {}).get("credits", 0),
+            "tier": None, "plan_ok": True, "backup_remaining": None,
+        }
+    allowance["today"] = lines_today
 
     return {
         "generated_at": now.strftime("%a %b %-d, %-I:%M %p ET"),
@@ -163,13 +186,7 @@ def build_data() -> dict:
         "injured": injured,
         "blends": blends,
         "blends_used": TOP_BLENDS_USED,
-        "credits": {
-            "remaining": odds_usage.get("remaining"),
-            "plan": budget.ODDS_FREE_CREDITS,
-            "reserve": budget.ODDS_RESERVE,
-            "spent_this_month": odds_usage["months"].get(today[:7], {}).get("credits", 0),
-            "today": odds_today,
-        },
+        "credits": allowance,
     }
 
 

@@ -13,7 +13,7 @@ from datetime import datetime, timedelta
 import pytz
 import requests
 
-from common import data_path, ODDS_API_KEY
+from common import data_path, ODDS_API_KEY, SGO_API_KEY
 
 EASTERN = pytz.timezone("US/Eastern")
 USAGE_PATH = data_path("API_USAGE.json")
@@ -22,6 +22,15 @@ USAGE_PATH = data_path("API_USAGE.json")
 ODDS_FREE_CREDITS = 500      # The Odds API free plan, per month
 ODDS_RESERVE = 10            # credits that are never spent
 ODDS_SPORTS_URL = "https://api.the-odds-api.com/v4/sports"  # free call, reports credits left
+
+# SportsGameOdds free plan: one object per game returned, 2,500 per rolling 30 days.
+# Nothing on this plan is billed by usage (past the limit, requests are refused),
+# so these limits exist to keep well inside it and to notice if the plan changes.
+SGO_FREE_OBJECTS = 2500
+SGO_RESERVE = 500            # objects that are never used
+SGO_FREE_TIER = "amateur"
+SGO_MAX_PULLS_PER_DAY = 3    # retries while DraftKings has not posted lines yet
+SGO_USAGE_URL = "https://api.sportsgameodds.com/v2/account/usage"  # free call
 
 # The injury report is not used by the predictions, and RapidAPI is the one service
 # here that can bill overages if a card is on file, so it stays off unless .env
@@ -47,6 +56,8 @@ def load_usage() -> dict:
     usage.setdefault("odds", {})
     usage["odds"].setdefault("months", {})
     usage.setdefault("injury", {})
+    usage.setdefault("sgo", {})
+    usage["sgo"].setdefault("days", {})
     return usage
 
 
@@ -164,6 +175,82 @@ def record_odds_request(usage: dict, headers, max_cost: int, today=None) -> bool
     odds["remaining"] = remaining
     save_usage(usage)
     return reported
+
+
+# =========================================================
+# SPORTSGAMEODDS
+# =========================================================
+def sgo_account():
+    """Ask SportsGameOdds for the plan and this month's usage. Free.
+    Returns {"tier", "max", "used"} or None if the answer can't be read."""
+    if not SGO_API_KEY:
+        return None
+    try:
+        resp = requests.get(SGO_USAGE_URL, headers={"X-Api-Key": SGO_API_KEY}, timeout=20)
+        if resp.status_code != 200:
+            return None
+        data = resp.json()["data"]
+        month = data["rateLimits"]["per-month"]
+        return {
+            "tier": str(data.get("tier", "")).lower(),
+            "max": _to_int(month.get("max-entities")),
+            "used": _to_int(month.get("current-entities")),
+        }
+    except Exception:
+        return None
+
+
+def record_sgo_account(usage: dict, account) -> None:
+    sgo = usage["sgo"]
+    if account is not None:
+        sgo["tier"] = account["tier"]
+        sgo["max"] = account["max"]
+        sgo["used"] = account["used"]
+        if account["max"] is not None and account["used"] is not None:
+            sgo["remaining"] = min(account["max"], SGO_FREE_OBJECTS) - account["used"]
+        sgo["checked_at"] = datetime.now(EASTERN).isoformat(timespec="seconds")
+    save_usage(usage)
+
+
+def plan_sgo_pull(usage: dict, account, max_cost: int, today=None):
+    """May SportsGameOdds be asked for today's lines? Returns (allowed, reason).
+    Anything unclear is a no, and the caller falls back to The Odds API."""
+    today = today or today_eastern()
+    sgo = usage["sgo"]
+    day = sgo["days"].get(today.isoformat(), {})
+
+    if day.get("got_lines"):
+        return False, "already pulled today"
+    if day.get("pulls", 0) >= SGO_MAX_PULLS_PER_DAY:
+        return False, "tried enough times today"
+    if account is None:
+        return False, "could not confirm the allowance left"
+    if account["tier"] != SGO_FREE_TIER:
+        return False, f"the account is on the '{account['tier']}' plan, not the free one"
+    if account["max"] is None or account["used"] is None:
+        return False, "the service did not report an allowance"
+
+    # two locks: the provider's count, and this project's own tally of the last 30 days
+    since = (today - timedelta(days=30)).isoformat()
+    own_tally = sum(d.get("objects", 0) for date, d in sgo["days"].items() if date > since)
+    allowance = min(account["max"], SGO_FREE_OBJECTS)
+    left = allowance - max(account["used"], own_tally) - SGO_RESERVE
+    if left < max_cost:
+        return False, "monthly allowance reached"
+    return True, "ok"
+
+
+def record_sgo_pull(usage: dict, objects: int, got_lines: bool, today=None) -> None:
+    today = today or today_eastern()
+    sgo = usage["sgo"]
+    day = sgo["days"].setdefault(today.isoformat(), {"pulls": 0, "objects": 0, "got_lines": False})
+    day["pulls"] += 1
+    day["objects"] += objects
+    day["got_lines"] = bool(day.get("got_lines") or got_lines)
+    # keep about six weeks of history
+    cutoff = (today - timedelta(days=45)).isoformat()
+    sgo["days"] = {d: v for d, v in sgo["days"].items() if d > cutoff}
+    save_usage(usage)
 
 
 # =========================================================

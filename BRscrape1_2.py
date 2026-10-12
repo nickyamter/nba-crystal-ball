@@ -25,7 +25,11 @@ warnings.filterwarnings("ignore", message="obj.round has no effect")
 
 import budget
 import espn
-from common import data_path, clean_player_name, load_state, save_state, ODDS_API_KEY, INJURY_API_KEY, STATS_SOURCE
+import sgo
+from common import (
+    data_path, clean_player_name, load_state, save_state,
+    ODDS_API_KEY, INJURY_API_KEY, SGO_API_KEY, STATS_SOURCE,
+)
 
 
 def season_str(start_year: int) -> str:
@@ -1192,6 +1196,68 @@ def fetch_nba_player_props_today() -> pd.DataFrame:
 
 
 # =========================================================
+# TODAY'S LINES: SportsGameOdds first, The Odds API as the fallback
+# =========================================================
+SGO_GIVE_UP_HOUR = 14  # Eastern; from then on, an empty answer falls back to The Odds API
+
+def _games_today(today) -> int | None:
+    """Games today that sportsbooks list (not preseason). None if unknown."""
+    try:
+        sched = _fetch_schedule(default_seasons(today)[-1])
+        return int((sched["COUNTS_FOR_ODDS"] & (sched["GAME_DATE"].dt.date == today)).sum())
+    except Exception:
+        return None
+
+
+def fetch_todays_lines() -> pd.DataFrame:
+    """
+    DraftKings lines for today's games, in the ODDS_TODAY.csv layout.
+
+    SportsGameOdds is asked first: one object per game covers points, rebounds and
+    assists. The Odds API (one credit per stat per game) is used only when
+    SportsGameOdds can't be used, or still has no DraftKings lines by the afternoon.
+    Records what happened in API_USAGE.json under "lines_today".
+    """
+    now = datetime.now(pytz.timezone("US/Eastern"))
+    today = now.date()
+
+    def record(status: dict) -> None:
+        usage = budget.load_usage()
+        usage["lines_today"] = status
+        budget.save_usage(usage)
+
+    if SGO_API_KEY:
+        # free check, every run: keeps the allowance and the plan name on the dashboard current
+        usage = budget.load_usage()
+        budget.record_sgo_account(usage, budget.sgo_account())
+
+    earlier = budget.load_usage().get("lines_today") or {}
+    if earlier.get("date") == today.isoformat() and earlier.get("final") and earlier.get("pulled", 0) > 0:
+        print("Today's lines are already saved.")
+        return pd.DataFrame()
+
+    games = _games_today(today)
+    if games == 0:
+        print("No games today, so no lines to pull.")
+        record({"date": today.isoformat(), "source": "", "events": 0, "pulled": 0,
+                "credits": 0, "note": "no games today", "final": True})
+        return pd.DataFrame()
+
+    if SGO_API_KEY:
+        df, status = sgo.fetch_player_props_today()
+        if status["ok"] and (not df.empty or status["final"] or now.hour < SGO_GIVE_UP_HOUR):
+            record(status)
+            return df
+        print(f"SportsGameOdds gave no lines ({status['note']}); trying The Odds API.")
+
+    df = fetch_nba_player_props_today()
+    status = dict(budget.load_usage()["odds"].get("today") or {})
+    status["source"] = "oddsapi"
+    record(status)
+    return df
+
+
+# =========================================================
 # OU RATE (evaluate yesterday's DK props vs game logs)
 # =========================================================
 def _safe_to_date(x):
@@ -1524,8 +1590,8 @@ def main():
             else:
                 print("No injury data saved (injury fetch returned empty).")
 
-            # ODDS: per-event props
-            odds_df = fetch_nba_player_props_today()
+            # ODDS: today's DraftKings lines
+            odds_df = fetch_todays_lines()
             if not odds_df.empty:
                 odds_df.to_csv(data_path("ODDS_TODAY.csv"), index=False)
                 print("Saved odds → ODDS_TODAY.csv")

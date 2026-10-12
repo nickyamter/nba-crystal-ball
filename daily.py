@@ -63,7 +63,7 @@ def run(force: bool = False) -> int:
         traceback.print_exc()
 
     # the day is finished once the odds step has nothing left to try
-    odds_today = budget.load_usage()["odds"].get("today") or {}
+    odds_today = budget.load_usage().get("lines_today") or {}
     state = load_state()
     state["last_run_at"] = datetime.now(budget.EASTERN).isoformat(timespec="seconds")
     if not failed and odds_today.get("date") == today and odds_today.get("final"):

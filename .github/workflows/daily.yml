@@ -57,6 +57,7 @@ jobs:
       - name: Daily job
         env:
           STATS_SOURCE: espn
+          SGO_API_KEY: ${{ secrets.SGO_API_KEY }}
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: python daily.py ${{ inputs.force && '--force' || '' }}
 

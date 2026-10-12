@@ -320,13 +320,13 @@ function renderTiles() {
   else linesNote = t.events === 0 || t.note === "no games today" ? "No games scheduled today" : "No lines pulled today";
 
   const left = c.remaining;
-  const meter = left == null ? "" : `<div class="meter" title="${left} of ${c.plan} credits left"><i style="width:${Math.max(0, Math.min(100, (left / c.plan) * 100))}%"></i></div>`;
+  const meter = left == null ? "" : `<div class="meter" title="${left} of ${c.plan} ${esc(c.unit)} left"><i style="width:${Math.max(0, Math.min(100, (left / c.plan) * 100))}%"></i></div>`;
   const best = D.blends[0];
 
   $("tiles").innerHTML = `
     <div class="card tile"><div class="label">Lines today</div><div class="value">${linesValue}</div><div class="note">${linesNote}</div></div>
-    <div class="card tile"><div class="label">Odds credits left</div><div class="value">${left == null ? "–" : left}</div>
-      <div class="note">of ${c.plan} free per month, ${c.spent_this_month} used</div>${meter}</div>
+    <div class="card tile"><div class="label">Free lines allowance left</div><div class="value">${left == null ? "–" : left.toLocaleString("en-US")}</div>
+      <div class="note">of ${c.plan.toLocaleString("en-US")} ${esc(c.unit)} per ${esc(c.period)}, ${esc(c.name)}</div>${meter}</div>
     <div class="card tile"><div class="label">Stats through</div><div class="value">${esc(niceDate(D.stats_through))}</div>
       <div class="note">${esc(D.season || "")} season, ${D.players.length} players</div></div>
     <div class="card tile"><div class="label">Best blend hit rate</div><div class="value">${best ? pct(best.rate) : "–"}</div>
@@ -334,12 +334,14 @@ function renderTiles() {
 }
 
 function renderBanner() {
-  if (D.lines_today) { $("banner").innerHTML = ""; return; }
+  const c = D.credits;
+  const planWarning = c.plan_ok ? "" : `<div class="card banner"><div><b>Check your ${esc(c.name)} account.</b> It reports the "${esc(c.tier || "unknown")}" plan, not the free one. Lines are being pulled from The Odds API until this is sorted out.</div></div>`;
+  if (D.lines_today) { $("banner").innerHTML = planWarning; return; }
   if (!D.lines_date) {
-    $("banner").innerHTML = `<div class="card banner"><div>No lines saved yet. Picks appear after the daily run on a game day.</div></div>`;
+    $("banner").innerHTML = planWarning + `<div class="card banner"><div>No lines saved yet. Picks appear after the daily run on a game day.</div></div>`;
     return;
   }
-  $("banner").innerHTML = `<div class="card banner">
+  $("banner").innerHTML = planWarning + `<div class="card banner">
       <div><b>No lines for today.</b> ${state.stale
         ? `Showing the last saved lines, from ${esc(niceDate(D.lines_date))}. These are not today's lines.`
         : `The last saved lines are from ${esc(niceDate(D.lines_date))}, so picks are hidden.`}</div>
@@ -508,9 +510,15 @@ function renderBlends() {
 
 function renderFooter() {
   const c = D.credits, t = c.today || {};
-  const pulled = t.date ? `Today's odds pull: ${t.pulled || 0} of ${t.events || 0} games (assists for ${t.assists_games || 0}), ${t.credits || 0} credits (${esc(t.note || "")}).` : "No odds pull recorded today.";
+  const viaBackup = t.source === "oddsapi" && c.name !== "The Odds API";
+  const pulled = t.date
+    ? `Today's lines: ${t.pulled || 0} of ${t.events || 0} games${t.source ? " from " + (t.source === "sgo" ? "SportsGameOdds" : "The Odds API") : ""} (${esc(t.note || "")}).`
+    : "No lines pull recorded today.";
+  const rule = c.name === "SportsGameOdds"
+    ? `Lines for points, rebounds and assists come from SportsGameOdds' free plan, one object per game; pulling stops once ${c.reserve} objects are left. The Odds API is the fallback${c.backup_remaining == null ? "" : " (" + c.backup_remaining + " credits left)"}.`
+    : `Points and rebounds are pulled for every game; assists only when the month's credits can spare them. The pull stops for the month once ${c.reserve} credits are left, so the free plan is never exceeded.`;
   $("footer").innerHTML = `
-    <p>${pulled} Points and rebounds are pulled for every game; assists only when the month's credits can spare them. The pull stops for the month once ${c.reserve} credits are left, so the free plan is never exceeded.</p>
+    <p>${pulled}${viaBackup ? " The fallback was used today, so assists may be missing for some games." : ""} ${rule}</p>
     <p>${D.injury_today ? "Injury notes are from ESPN's injury report as of this update; statuses can change before tip-off. \"First game back\" means the player sat out his team's most recent game or games, with the reason from the box score when one was listed." : "No injury report was saved in this update."}</p>
     <p>Projections are a weighted average of five signals: season average, last five games, the game after similar performances, the same days of rest, and games against the next opponent. Small samples make any single pick uncertain.</p>`;
 }

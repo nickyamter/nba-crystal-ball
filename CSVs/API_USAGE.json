@@ -14,5 +14,22 @@
       "final": true
     }
   },
-  "injury": {}
+  "injury": {},
+  "sgo": {
+    "days": {},
+    "tier": "amateur",
+    "max": 2500,
+    "used": 11,
+    "remaining": 2489,
+    "checked_at": "2026-10-12T14:09:09-04:00"
+  },
+  "lines_today": {
+    "date": "2026-10-12",
+    "source": "",
+    "events": 0,
+    "pulled": 0,
+    "credits": 0,
+    "note": "no games today",
+    "final": true
+  }
 }

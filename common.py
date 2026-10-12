@@ -48,8 +48,9 @@ def _stats_source() -> str:
 # ----- API KEYS -----
 # Keys are read from environment variables, or from a .env file next to this
 # script with lines like:
-#   ODDS_API_KEY=your_odds_api_key
-#   INJURY_API_KEY=your_rapidapi_key
+#   SGO_API_KEY=your_sportsgameodds_key   (lines: the main source)
+#   ODDS_API_KEY=your_odds_api_key        (lines: the fallback)
+#   INJURY_API_KEY=your_rapidapi_key      (unused unless INJURY_PULL_ENABLED=1)
 def _load_env_file(path: Path = BASE_DIR / ".env") -> None:
     if not path.exists():
         return
@@ -66,6 +67,7 @@ _load_env_file()
 STATS_SOURCE = _stats_source()
 ODDS_API_KEY = os.environ.get("ODDS_API_KEY", "")
 INJURY_API_KEY = os.environ.get("INJURY_API_KEY", "")
+SGO_API_KEY = os.environ.get("SGO_API_KEY", "")  # SportsGameOdds (free plan)
 
 
 # ----- PLAYER NAMES -----

@@ -92,13 +92,13 @@ snapshot_date,team_name,team_abbr,player_name,status,fantasy_status_abbr,injury_
 2026-10-12,Orlando Magic,ORL,Desmond Bane,Day-To-Day,GTD,Rest,Other,,,2026-10-13,2026-10-11
 2026-10-12,Orlando Magic,ORL,Jalen Suggs,Day-To-Day,GTD,Illness,Other,,,2026-10-13,2026-10-11
 2026-10-12,Orlando Magic,ORL,Izaiyah Nelson,Out,GTD,Ankle,Leg,Surgery,Left,2026-11-01,2026-09-28
+2026-10-12,Philadelphia 76ers,PHI,Adem Bona,Day-To-Day,GTD,Foot,Leg,Sprain,Not Specified,2026-10-16,2026-10-12
 2026-10-12,Philadelphia 76ers,PHI,Anfernee Simons,Day-To-Day,GTD,Hamstring,Leg,,,2026-10-16,2026-10-12
 2026-10-12,Philadelphia 76ers,PHI,LeBron James,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-10
 2026-10-12,Philadelphia 76ers,PHI,Kentavious Caldwell-Pope,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-10
 2026-10-12,Philadelphia 76ers,PHI,Jaylen Brown,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-10
 2026-10-12,Philadelphia 76ers,PHI,Joel Embiid,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-10
 2026-10-12,Philadelphia 76ers,PHI,Dominick Barlow,Day-To-Day,GTD,Back,Torso,,,2026-10-16,2026-10-07
-2026-10-12,Philadelphia 76ers,PHI,Adem Bona,Day-To-Day,GTD,Foot,Leg,Sprain,Not Specified,2026-10-16,2026-10-07
 2026-10-12,Philadelphia 76ers,PHI,Ariel Hukporti,Out,OUT,Achilles,Leg,Ruptured,Right,2027-10-01,2026-10-06
 2026-10-12,Philadelphia 76ers,PHI,Tacko Fall,Day-To-Day,GTD,Hip,Torso,,Left,2026-10-16,2026-10-01
 2026-10-12,Phoenix Suns,PHX,Devin Booker,Day-To-Day,GTD,Rest,Other,,,2026-10-14,2026-10-10
@@ -110,8 +110,12 @@ snapshot_date,team_name,team_abbr,player_name,status,fantasy_status_abbr,injury_
 2026-10-12,Sacramento Kings,SAC,Domantas Sabonis,Day-To-Day,GTD,Undisclosed,Other,,,2026-10-13,2026-10-10
 2026-10-12,Sacramento Kings,SAC,Malik Monk,Day-To-Day,GTD,Rest,Other,,,2026-10-13,2026-10-10
 2026-10-12,San Antonio Spurs,SAS,Carter Bryant,Day-To-Day,GTD,Ankle,Leg,,Not Specified,2026-10-12,2026-10-12
-2026-10-12,San Antonio Spurs,SAS,Malik Williams,Day-To-Day,GTD,Undisclosed,Other,,,2026-10-12,2026-10-11
-2026-10-12,San Antonio Spurs,SAS,De'Aaron Fox,Day-To-Day,GTD,Undisclosed,Other,Soreness,,2026-10-12,2026-10-10
+2026-10-12,San Antonio Spurs,SAS,Stephon Castle,Day-To-Day,GTD,Rest,Other,,,2026-10-14,2026-10-12
+2026-10-12,San Antonio Spurs,SAS,Devin Vassell,Day-To-Day,GTD,Rest,Other,,,2026-10-14,2026-10-12
+2026-10-12,San Antonio Spurs,SAS,De'Aaron Fox,Day-To-Day,GTD,Undisclosed,Other,Soreness,,2026-10-14,2026-10-12
+2026-10-12,San Antonio Spurs,SAS,Dylan Harper,Day-To-Day,GTD,Rest,Other,,,2026-10-14,2026-10-12
+2026-10-12,San Antonio Spurs,SAS,Victor Wembanyama,Day-To-Day,GTD,Rest,Other,,,2026-10-14,2026-10-12
+2026-10-12,San Antonio Spurs,SAS,Malik Williams,Day-To-Day,GTD,Undisclosed,Other,,,2026-10-14,2026-10-11
 2026-10-12,San Antonio Spurs,SAS,Jayden Quaintance,Out,OUT,Knee,Leg,Surgery,Right,2026-12-01,2026-10-05
 2026-10-12,San Antonio Spurs,SAS,Tobias Harris,Day-To-Day,GTD,Calf,Leg,Strain,Left,2026-10-20,2026-10-04
 2026-10-12,Toronto Raptors,TOR,Chucky Hepburn,Day-To-Day,GTD,Hamstring,Leg,,Left,2026-10-13,2026-10-10
@@ -119,7 +123,6 @@ snapshot_date,team_name,team_abbr,player_name,status,fantasy_status_abbr,injury_
 2026-10-12,Toronto Raptors,TOR,Nate Bittle,Day-To-Day,GTD,Foot,Leg,,Right,2026-10-13,2026-10-10
 2026-10-12,Toronto Raptors,TOR,Trayce Jackson-Davis,Day-To-Day,GTD,Teeth,Head,,,2026-10-13,2026-10-10
 2026-10-12,Toronto Raptors,TOR,Allen Graves,Day-To-Day,GTD,Groin,Groin,Not Specified,Not Specified,2026-10-13,2026-10-10
-2026-10-12,Toronto Raptors,TOR,Kawhi Leonard,Day-To-Day,GTD,Not Injury Related,,,,2026-10-13,2026-10-09
 2026-10-12,Utah Jazz,UTA,Kyle Filipowski,Day-To-Day,GTD,Back,Torso,,,2026-10-21,2026-10-10
 2026-10-12,Utah Jazz,UTA,Jusuf Nurkic,Out,OUT,Foot,Leg,,Right,2026-11-04,2026-10-07
 2026-10-12,Utah Jazz,UTA,Lauri Markkanen,Day-To-Day,GTD,Neck,Head,Soreness,,2026-10-12,2026-10-06
