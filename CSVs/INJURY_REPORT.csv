@@ -1,137 +1,131 @@
 snapshot_date,team_name,team_abbr,player_name,status,fantasy_status_abbr,injury_type,injury_location,injury_detail,injury_side,return_date,report_date_est
-2026-10-15,Atlanta Hawks,ATL,Keshon Gilbert,Day-To-Day,GTD,Knee,Leg,Tendinitis,Left,2026-10-16,2026-10-12
-2026-10-15,Atlanta Hawks,ATL,Aaron Wiggins,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-12
-2026-10-15,Atlanta Hawks,ATL,Onyeka Okongwu,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-12
-2026-10-15,Atlanta Hawks,ATL,CJ McCollum,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-12
-2026-10-15,Atlanta Hawks,ATL,Luguentz Dort,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-12
-2026-10-15,Atlanta Hawks,ATL,Jalen Johnson,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-12
-2026-10-15,Atlanta Hawks,ATL,Dyson Daniels,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-12
-2026-10-15,Atlanta Hawks,ATL,Henri Veesaar,Out,OFS,Knee,Leg,,Right,2027-07-01,2026-09-21
-2026-10-15,Atlanta Hawks,ATL,Mouhamed Gueye,Day-To-Day,GTD,Foot,Leg,Fracture,Left,2026-10-21,2026-07-18
-2026-10-15,Boston Celtics,BOS,Devin Carter,Day-To-Day,GTD,Illness,Other,,,2026-10-16,2026-10-14
-2026-10-15,Brooklyn Nets,BKN,Joshua Jefferson,Day-To-Day,GTD,Back,Torso,,,2026-10-21,2026-10-14
-2026-10-15,Charlotte Hornets,CHA,Grayson Allen,Day-To-Day,GTD,Knee,Leg,Soreness,Right,2026-10-16,2026-10-14
-2026-10-15,Charlotte Hornets,CHA,Kylan Boswell,Day-To-Day,GTD,Knee,Leg,,Right,2026-10-21,2026-10-05
-2026-10-15,Charlotte Hornets,CHA,Coby White,Day-To-Day,GTD,Calf,Leg,Strain,Left,2026-10-21,2026-10-05
-2026-10-15,Charlotte Hornets,CHA,Kon Knueppel,Day-To-Day,GTD,Hamstring,Leg,,Left,2026-10-21,2026-09-28
-2026-10-15,Charlotte Hornets,CHA,Grant Williams,Day-To-Day,GTD,Hamstring,Leg,,Right,2026-10-21,2026-09-25
-2026-10-15,Chicago Bulls,CHI,Isaac Okoro,Day-To-Day,GTD,Undisclosed,Other,,,2026-10-16,2026-10-14
-2026-10-15,Chicago Bulls,CHI,Tobe Awaka,Day-To-Day,GTD,Knee,Leg,,Not Specified,2026-10-16,2026-10-14
-2026-10-15,Chicago Bulls,CHI,Zach Collins,Day-To-Day,GTD,Toe,Leg,Surgery,Right,2026-10-16,2026-10-13
-2026-10-15,Chicago Bulls,CHI,Nic Claxton,Day-To-Day,GTD,Hamstring,Leg,,Not Specified,2026-10-21,2026-10-05
-2026-10-15,Cleveland Cavaliers,CLE,Nae'Qwan Tomlin,Day-To-Day,GTD,Back,Torso,,,2026-10-22,2026-10-13
-2026-10-15,Cleveland Cavaliers,CLE,Sam Merrill,Day-To-Day,GTD,Elbow,Arm,Soreness,Right,2026-10-22,2026-10-13
-2026-10-15,Cleveland Cavaliers,CLE,Khalifa Diop,Day-To-Day,GTD,Knee,Leg,,Left,2026-10-22,2026-10-13
-2026-10-15,Dallas Mavericks,DAL,Santi Aldama,Day-To-Day,GTD,Knee,Leg,,Not Specified,2026-10-16,2026-10-15
-2026-10-15,Dallas Mavericks,DAL,Marcus Sasser,Day-To-Day,GTD,Hip,Torso,,,2026-10-16,2026-10-15
-2026-10-15,Dallas Mavericks,DAL,Moussa Cisse,Day-To-Day,GTD,Ankle,Leg,Sprain,Left,2026-10-16,2026-10-14
-2026-10-15,Dallas Mavericks,DAL,Jett Howard,Day-To-Day,GTD,Illness,Other,,,2026-10-16,2026-10-14
-2026-10-15,Dallas Mavericks,DAL,Dereck Lively II,Day-To-Day,GTD,Foot,Leg,Surgery,Right,2026-10-16,2026-10-14
-2026-10-15,Dallas Mavericks,DAL,Morez Johnson Jr.,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
-2026-10-15,Dallas Mavericks,DAL,Daniel Gafford,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
-2026-10-15,Dallas Mavericks,DAL,Cooper Flagg,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
-2026-10-15,Dallas Mavericks,DAL,Kyrie Irving,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
-2026-10-15,Denver Nuggets,DEN,Julian Strawther,Day-To-Day,GTD,Knee,Leg,,Left,2026-10-16,2026-10-15
-2026-10-15,Denver Nuggets,DEN,DeMar DeRozan,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
-2026-10-15,Denver Nuggets,DEN,Spencer Jones,Day-To-Day,GTD,Hamstring,Leg,,Not Specified,2026-10-22,2026-10-13
-2026-10-15,Golden State Warriors,GSW,Kristaps Porzingis,Out,OUT,Undisclosed,Other,,,2026-11-09,2026-10-15
-2026-10-15,Golden State Warriors,GSW,Draymond Green,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-13
-2026-10-15,Golden State Warriors,GSW,Al Horford,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-12
-2026-10-15,Golden State Warriors,GSW,Jimmy Butler III,Out,OUT,Knee,Leg,Surgery,Right,2027-01-02,2026-10-02
-2026-10-15,Golden State Warriors,GSW,Moses Moody,Out,OUT,Knee,Leg,Surgery,Left,2026-12-01,2026-09-28
-2026-10-15,Houston Rockets,HOU,Steven Adams,Day-To-Day,GTD,Rest,Other,,,2026-10-15,2026-10-11
-2026-10-15,Houston Rockets,HOU,Alperen Sengun,Day-To-Day,GTD,Rest,Other,,,2026-10-15,2026-10-11
-2026-10-15,Houston Rockets,HOU,Fred VanVleet,Day-To-Day,GTD,Rest,Other,,,2026-10-15,2026-10-11
-2026-10-15,Houston Rockets,HOU,Kevin Durant,Day-To-Day,GTD,Not Injury Related,,,,2026-10-15,2026-10-09
-2026-10-15,Indiana Pacers,IND,Aaron Nesmith,Day-To-Day,GTD,Hamstring,Leg,,,2026-10-21,2026-10-15
-2026-10-15,Indiana Pacers,IND,T.J. McConnell,Day-To-Day,GTD,Undisclosed,Other,,,2026-10-16,2026-10-13
-2026-10-15,Indiana Pacers,IND,Jarace Walker,Day-To-Day,GTD,Undisclosed,Other,,,2026-10-16,2026-10-13
-2026-10-15,Indiana Pacers,IND,Andrew Nembhard,Day-To-Day,GTD,Undisclosed,Other,,,2026-10-16,2026-10-13
-2026-10-15,Indiana Pacers,IND,Johnny Furphy,Out,OUT,Knee,Leg,Surgery,Right,2027-01-01,2026-02-09
-2026-10-15,LA Clippers,LAC,Kris Dunn,Day-To-Day,GTD,Rest,Other,,,2026-10-21,2026-10-14
-2026-10-15,LA Clippers,LAC,Kobe Sanders,Day-To-Day,GTD,Hip,Torso,,Left,2026-10-21,2026-10-14
-2026-10-15,LA Clippers,LAC,Bradley Beal,Out,OUT,Knee,Leg,Inflammation,Not Specified,2026-11-08,2026-10-14
-2026-10-15,LA Clippers,LAC,Max Strus,Out,OUT,Foot,Leg,,Right,2026-11-08,2026-10-05
-2026-10-15,LA Clippers,LAC,Yanic Konan Niederhauser,Out,OUT,Foot,Leg,Surgery,Right,2026-11-08,2026-09-28
-2026-10-15,Toronto Raptors,TOR,Brandon Ingram,Out,OUT,Achilles,Leg,Surgery,Not Specified,2026-11-08,2026-09-28
-2026-10-15,LA Clippers,LAC,Jordan Miller,Out,OUT,Shoulder,Arm,Surgery,,2027-03-01,2026-08-26
-2026-10-15,Los Angeles Lakers,LAL,Cameron Carr,Day-To-Day,GTD,Undisclosed,Other,Bruise,,2026-10-16,2026-10-13
-2026-10-15,Los Angeles Lakers,LAL,Collin Sexton,Day-To-Day,GTD,Lower Leg,Leg,,,2026-10-16,2026-10-13
-2026-10-15,Los Angeles Lakers,LAL,Adou Thiero,Day-To-Day,GTD,Undisclosed,Other,,,2026-10-16,2026-10-13
-2026-10-15,Los Angeles Lakers,LAL,Ziaire Williams,Day-To-Day,GTD,Foot,Leg,Bruise,,2026-10-16,2026-10-13
-2026-10-15,Los Angeles Lakers,LAL,Luka Doncic,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-13
-2026-10-15,Memphis Grizzlies,MEM,Micah Peavy,Day-To-Day,GTD,Ankle,Leg,,Not Specified,2026-10-21,2026-10-09
-2026-10-15,Memphis Grizzlies,MEM,Isaiah Stewart,Out,OUT,Ankle,Leg,,Left,2026-10-23,2026-10-09
-2026-10-15,Miami Heat,MIA,Kylor Kelley,Day-To-Day,GTD,Calf,Leg,Strain,Right,2026-10-16,2026-10-14
-2026-10-15,Miami Heat,MIA,Pelle Larsson,Day-To-Day,GTD,Illness,Other,,,2026-10-16,2026-10-14
-2026-10-15,Miami Heat,MIA,Bam Adebayo,Day-To-Day,GTD,Groin,Groin,,,2026-10-16,2026-10-14
-2026-10-15,Miami Heat,MIA,Dru Smith,Day-To-Day,GTD,Calf,Leg,Strain,Right,2026-10-16,2026-10-01
-2026-10-15,Milwaukee Bucks,MIL,Kevin Porter Jr.,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
-2026-10-15,Milwaukee Bucks,MIL,Myles Turner,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
-2026-10-15,Milwaukee Bucks,MIL,AJ Green,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
-2026-10-15,Milwaukee Bucks,MIL,Ryan Rollins,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
-2026-10-15,Milwaukee Bucks,MIL,Nate Ament,Day-To-Day,GTD,Ankle,Leg,Sprain,Left,2026-10-16,2026-10-14
-2026-10-15,Milwaukee Bucks,MIL,Tyler Herro,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
-2026-10-15,Milwaukee Bucks,MIL,Kyle Kuzma,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
-2026-10-15,Milwaukee Bucks,MIL,Jaime Jaquez Jr.,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
-2026-10-15,Milwaukee Bucks,MIL,Gary Trent Jr.,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
-2026-10-15,Minnesota Timberwolves,MIN,Rocco Zikarsky,Day-To-Day,GTD,Undisclosed,Other,,,2026-10-16,2026-10-14
-2026-10-15,Minnesota Timberwolves,MIN,Enrique Freeman,Day-To-Day,GTD,Shoulder,Arm,,,2026-10-16,2026-10-14
-2026-10-15,Minnesota Timberwolves,MIN,Donte DiVincenzo,Out,OUT,Achilles,Leg,Surgery,Right,2027-04-01,2026-10-05
-2026-10-15,New Orleans Pelicans,NOP,Dejounte Murray,Day-To-Day,GTD,Toe,Leg,Bruise,Right,2026-10-16,2026-10-14
-2026-10-15,New York Knicks,NYK,Karl-Anthony Towns,Day-To-Day,GTD,Rest,Other,,,2026-10-15,2026-10-12
-2026-10-15,New York Knicks,NYK,Mikal Bridges,Day-To-Day,GTD,Rest,Other,,,2026-10-15,2026-10-12
-2026-10-15,New York Knicks,NYK,Josh Hart,Day-To-Day,GTD,Rest,Other,,,2026-10-15,2026-10-12
-2026-10-15,New York Knicks,NYK,OG Anunoby,Day-To-Day,GTD,Rest,Other,,,2026-10-15,2026-10-12
-2026-10-15,New York Knicks,NYK,Jalen Brunson,Day-To-Day,GTD,Rest,Other,,,2026-10-15,2026-10-12
-2026-10-15,Oklahoma City Thunder,OKC,Otega Oweh,Out,OFS,Achilles,Leg,Surgery,Right,2027-07-01,2026-10-14
-2026-10-15,Oklahoma City Thunder,OKC,Jaylin Williams,Day-To-Day,GTD,Heel,Leg,,,2026-10-15,2026-10-13
-2026-10-15,Oklahoma City Thunder,OKC,Chet Holmgren,Day-To-Day,GTD,Quadriceps,Leg,Bruise,,2026-10-15,2026-10-13
-2026-10-15,Oklahoma City Thunder,OKC,Ajay Mitchell,Day-To-Day,GTD,Rest,Other,,,2026-10-15,2026-10-13
-2026-10-15,Oklahoma City Thunder,OKC,Thomas Sorber,Day-To-Day,GTD,Knee,Leg,Surgery,Right,2026-10-15,2026-10-13
-2026-10-15,Oklahoma City Thunder,OKC,Nikola Topic,Day-To-Day,GTD,Back,Torso,Surgery,Not Specified,2026-10-15,2026-10-13
-2026-10-15,Orlando Magic,ORL,Jonathan Isaac,Day-To-Day,GTD,Knee,Leg,Sprain,Left,2026-10-16,2026-10-15
-2026-10-15,Orlando Magic,ORL,Anthony Black,Day-To-Day,GTD,Ankle,Leg,Sprain,Right,2026-10-16,2026-10-15
-2026-10-15,Orlando Magic,ORL,Nikola Vucevic,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-13
-2026-10-15,Orlando Magic,ORL,Izaiyah Nelson,Out,GTD,Ankle,Leg,Surgery,Left,2026-11-01,2026-09-28
-2026-10-15,Philadelphia 76ers,PHI,Anfernee Simons,Day-To-Day,GTD,Hamstring,Leg,,,2026-10-20,2026-10-15
-2026-10-15,Philadelphia 76ers,PHI,Adem Bona,Day-To-Day,GTD,Foot,Leg,Sprain,Not Specified,2026-10-20,2026-10-15
-2026-10-15,Philadelphia 76ers,PHI,Dominick Barlow,Day-To-Day,GTD,Back,Torso,,,2026-10-16,2026-10-13
-2026-10-15,Philadelphia 76ers,PHI,LeBron James,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-10
-2026-10-15,Philadelphia 76ers,PHI,Kentavious Caldwell-Pope,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-10
-2026-10-15,Philadelphia 76ers,PHI,Jaylen Brown,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-10
-2026-10-15,Philadelphia 76ers,PHI,Joel Embiid,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-10
-2026-10-15,Philadelphia 76ers,PHI,Ariel Hukporti,Out,OUT,Achilles,Leg,Ruptured,Right,2027-10-01,2026-10-06
-2026-10-15,Philadelphia 76ers,PHI,Tacko Fall,Day-To-Day,GTD,Hip,Torso,,Left,2026-10-16,2026-10-01
-2026-10-15,Phoenix Suns,PHX,Luke Kennard,Day-To-Day,GTD,Knee,Leg,,Left,2026-10-16,2026-10-15
-2026-10-15,Phoenix Suns,PHX,Oso Ighodaro,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
-2026-10-15,Phoenix Suns,PHX,Collin Gillespie,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
-2026-10-15,Phoenix Suns,PHX,Miles Bridges,Day-To-Day,GTD,Ankle,Leg,,Right,2026-10-16,2026-10-14
-2026-10-15,Phoenix Suns,PHX,Jalen Green,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
-2026-10-15,Phoenix Suns,PHX,Devin Booker,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
-2026-10-15,Phoenix Suns,PHX,Dillon Brooks,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
-2026-10-15,Phoenix Suns,PHX,Mark Williams,Out,OUT,Shoulder,Arm,Surgery,Left,2027-02-03,2026-09-11
-2026-10-15,Portland Trail Blazers,POR,Chris Youngblood,Day-To-Day,GTD,Calf,Leg,Soreness,Left,2026-10-16,2026-10-13
-2026-10-15,Portland Trail Blazers,POR,Shaedon Sharpe,Out,OUT,Knee,Leg,Surgery,Right,2027-03-02,2026-08-24
-2026-10-15,Sacramento Kings,SAC,Dylan Cardwell,Out,OUT,Calf,Leg,Strain,Left,2026-11-02,2026-10-15
-2026-10-15,Sacramento Kings,SAC,Maxime Raynaud,Out,OUT,Knee,Leg,Dislocated,Right,2026-11-02,2026-10-15
-2026-10-15,Sacramento Kings,SAC,Precious Achiuwa,Day-To-Day,GTD,Ankle,Leg,Not Specified,Right,2026-10-16,2026-10-14
-2026-10-15,Sacramento Kings,SAC,Ben Simmons,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-13
-2026-10-15,Sacramento Kings,SAC,De'Andre Hunter,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-13
-2026-10-15,Sacramento Kings,SAC,Darius Acuff Jr.,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-13
-2026-10-15,Sacramento Kings,SAC,Malik Monk,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-13
-2026-10-15,Sacramento Kings,SAC,Domantas Sabonis,Day-To-Day,GTD,Undisclosed,Other,,,2026-10-16,2026-10-13
-2026-10-15,Sacramento Kings,SAC,Zach LaVine,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-13
-2026-10-15,San Antonio Spurs,SAS,Luke Kornet,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
-2026-10-15,San Antonio Spurs,SAS,Keldon Johnson,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
-2026-10-15,San Antonio Spurs,SAS,Julian Champagnie,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
-2026-10-15,San Antonio Spurs,SAS,Jayden Quaintance,Out,OUT,Knee,Leg,Surgery,Right,2026-12-01,2026-10-05
-2026-10-15,San Antonio Spurs,SAS,Tobias Harris,Day-To-Day,GTD,Calf,Leg,Strain,Left,2026-10-20,2026-10-04
-2026-10-15,Toronto Raptors,TOR,Nate Bittle,Day-To-Day,GTD,Foot,Leg,,Right,2026-10-21,2026-10-13
-2026-10-15,Utah Jazz,UTA,Blake Hinson,Day-To-Day,GTD,Hip,Torso,,Left,2026-10-16,2026-10-12
-2026-10-15,Utah Jazz,UTA,Kyle Filipowski,Day-To-Day,GTD,Back,Torso,,,2026-10-21,2026-10-10
-2026-10-15,Utah Jazz,UTA,Jusuf Nurkic,Out,OUT,Foot,Leg,,Right,2026-11-04,2026-10-07
-2026-10-15,Washington Wizards,WAS,Khris Middleton,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-12
-2026-10-15,Washington Wizards,WAS,Anthony Davis,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-12
-2026-10-15,Washington Wizards,WAS,Tristan Vukcevic,Out,OUT,Hip,Torso,,Left,2026-11-02,2026-10-01
-2026-10-15,Washington Wizards,WAS,Jamir Watkins,Out,OUT,Knee,Leg,,Left,2027-04-01,2026-07-30
+2026-10-16,Atlanta Hawks,ATL,Keshon Gilbert,Day-To-Day,GTD,Knee,Leg,Tendinitis,Left,2026-10-16,2026-10-12
+2026-10-16,Atlanta Hawks,ATL,Aaron Wiggins,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-12
+2026-10-16,Atlanta Hawks,ATL,Onyeka Okongwu,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-12
+2026-10-16,Atlanta Hawks,ATL,CJ McCollum,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-12
+2026-10-16,Atlanta Hawks,ATL,Luguentz Dort,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-12
+2026-10-16,Atlanta Hawks,ATL,Jalen Johnson,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-12
+2026-10-16,Atlanta Hawks,ATL,Dyson Daniels,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-12
+2026-10-16,Atlanta Hawks,ATL,Henri Veesaar,Out,OFS,Knee,Leg,,Right,2027-07-01,2026-09-21
+2026-10-16,Atlanta Hawks,ATL,Mouhamed Gueye,Day-To-Day,GTD,Foot,Leg,Fracture,Left,2026-10-21,2026-07-18
+2026-10-16,Boston Celtics,BOS,Devin Carter,Day-To-Day,GTD,Illness,Other,,,2026-10-16,2026-10-14
+2026-10-16,Brooklyn Nets,BKN,Joshua Jefferson,Out,OUT,Back,Torso,,,2026-10-24,2026-10-16
+2026-10-16,Charlotte Hornets,CHA,Grayson Allen,Day-To-Day,GTD,Knee,Leg,Soreness,Right,2026-10-16,2026-10-14
+2026-10-16,Charlotte Hornets,CHA,Kylan Boswell,Day-To-Day,GTD,Knee,Leg,,Right,2026-10-21,2026-10-05
+2026-10-16,Charlotte Hornets,CHA,Coby White,Day-To-Day,GTD,Calf,Leg,Strain,Left,2026-10-21,2026-10-05
+2026-10-16,Charlotte Hornets,CHA,Kon Knueppel,Day-To-Day,GTD,Hamstring,Leg,,Left,2026-10-21,2026-09-28
+2026-10-16,Charlotte Hornets,CHA,Grant Williams,Day-To-Day,GTD,Hamstring,Leg,,Right,2026-10-21,2026-09-25
+2026-10-16,Chicago Bulls,CHI,Isaac Okoro,Day-To-Day,GTD,Undisclosed,Other,,,2026-10-16,2026-10-14
+2026-10-16,Chicago Bulls,CHI,Tobe Awaka,Day-To-Day,GTD,Knee,Leg,,Not Specified,2026-10-16,2026-10-14
+2026-10-16,Chicago Bulls,CHI,Zach Collins,Day-To-Day,GTD,Toe,Leg,Surgery,Right,2026-10-16,2026-10-13
+2026-10-16,Chicago Bulls,CHI,Nic Claxton,Day-To-Day,GTD,Hamstring,Leg,,Not Specified,2026-10-21,2026-10-05
+2026-10-16,Cleveland Cavaliers,CLE,Nae'Qwan Tomlin,Day-To-Day,GTD,Back,Torso,,,2026-10-22,2026-10-13
+2026-10-16,Cleveland Cavaliers,CLE,Sam Merrill,Day-To-Day,GTD,Elbow,Arm,Soreness,Right,2026-10-22,2026-10-13
+2026-10-16,Cleveland Cavaliers,CLE,Khalifa Diop,Day-To-Day,GTD,Knee,Leg,,Left,2026-10-22,2026-10-13
+2026-10-16,Dallas Mavericks,DAL,Moussa Cisse,Day-To-Day,GTD,Ankle,Leg,Sprain,Left,2026-10-16,2026-10-15
+2026-10-16,Dallas Mavericks,DAL,Santi Aldama,Day-To-Day,GTD,Knee,Leg,,Not Specified,2026-10-16,2026-10-15
+2026-10-16,Dallas Mavericks,DAL,Marcus Sasser,Day-To-Day,GTD,Hip,Torso,,,2026-10-16,2026-10-15
+2026-10-16,Dallas Mavericks,DAL,Jett Howard,Day-To-Day,GTD,Illness,Other,,,2026-10-16,2026-10-14
+2026-10-16,Dallas Mavericks,DAL,Dereck Lively II,Day-To-Day,GTD,Foot,Leg,Surgery,Right,2026-10-16,2026-10-14
+2026-10-16,Dallas Mavericks,DAL,Morez Johnson Jr.,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
+2026-10-16,Dallas Mavericks,DAL,Daniel Gafford,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
+2026-10-16,Dallas Mavericks,DAL,Cooper Flagg,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
+2026-10-16,Dallas Mavericks,DAL,Kyrie Irving,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
+2026-10-16,Denver Nuggets,DEN,Julian Strawther,Day-To-Day,GTD,Knee,Leg,,Left,2026-10-16,2026-10-15
+2026-10-16,Denver Nuggets,DEN,DeMar DeRozan,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
+2026-10-16,Denver Nuggets,DEN,Spencer Jones,Day-To-Day,GTD,Hamstring,Leg,,Not Specified,2026-10-22,2026-10-13
+2026-10-16,Golden State Warriors,GSW,Moses Moody,Out,OUT,Knee,Leg,Surgery,Left,2026-12-01,2026-10-16
+2026-10-16,Golden State Warriors,GSW,Jimmy Butler III,Out,OUT,Knee,Leg,Surgery,Right,2027-01-02,2026-10-16
+2026-10-16,Golden State Warriors,GSW,Kristaps Porzingis,Out,OUT,Undisclosed,Other,,,2026-11-09,2026-10-15
+2026-10-16,Golden State Warriors,GSW,Draymond Green,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-13
+2026-10-16,Golden State Warriors,GSW,Al Horford,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-12
+2026-10-16,Houston Rockets,HOU,Steven Adams,Day-To-Day,GTD,Rest,Other,,,2026-10-21,2026-10-15
+2026-10-16,Indiana Pacers,IND,Aaron Nesmith,Day-To-Day,GTD,Hamstring,Leg,,,2026-10-21,2026-10-15
+2026-10-16,Indiana Pacers,IND,T.J. McConnell,Day-To-Day,GTD,Undisclosed,Other,,,2026-10-16,2026-10-13
+2026-10-16,Indiana Pacers,IND,Jarace Walker,Day-To-Day,GTD,Undisclosed,Other,,,2026-10-16,2026-10-13
+2026-10-16,Indiana Pacers,IND,Andrew Nembhard,Day-To-Day,GTD,Undisclosed,Other,,,2026-10-16,2026-10-13
+2026-10-16,Indiana Pacers,IND,Johnny Furphy,Out,OUT,Knee,Leg,Surgery,Right,2027-01-01,2026-02-09
+2026-10-16,LA Clippers,LAC,Kris Dunn,Day-To-Day,GTD,Rest,Other,,,2026-10-21,2026-10-14
+2026-10-16,LA Clippers,LAC,Kobe Sanders,Day-To-Day,GTD,Hip,Torso,,Left,2026-10-21,2026-10-14
+2026-10-16,LA Clippers,LAC,Bradley Beal,Out,OUT,Knee,Leg,Inflammation,Not Specified,2026-11-08,2026-10-14
+2026-10-16,LA Clippers,LAC,Max Strus,Out,OUT,Foot,Leg,,Right,2026-11-08,2026-10-05
+2026-10-16,LA Clippers,LAC,Yanic Konan Niederhauser,Out,OUT,Foot,Leg,Surgery,Right,2026-11-08,2026-09-28
+2026-10-16,Toronto Raptors,TOR,Brandon Ingram,Out,OUT,Achilles,Leg,Surgery,Not Specified,2026-11-08,2026-09-28
+2026-10-16,LA Clippers,LAC,Jordan Miller,Out,OUT,Shoulder,Arm,Surgery,,2027-03-01,2026-08-26
+2026-10-16,Los Angeles Lakers,LAL,Cameron Carr,Day-To-Day,GTD,Undisclosed,Other,Bruise,,2026-10-16,2026-10-15
+2026-10-16,Los Angeles Lakers,LAL,Collin Sexton,Day-To-Day,GTD,Lower Leg,Leg,,,2026-10-16,2026-10-15
+2026-10-16,Los Angeles Lakers,LAL,Ziaire Williams,Day-To-Day,GTD,Foot,Leg,Bruise,,2026-10-16,2026-10-15
+2026-10-16,Los Angeles Lakers,LAL,Adou Thiero,Day-To-Day,GTD,Undisclosed,Other,,,2026-10-16,2026-10-15
+2026-10-16,Los Angeles Lakers,LAL,Luka Doncic,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-13
+2026-10-16,Memphis Grizzlies,MEM,Micah Peavy,Day-To-Day,GTD,Ankle,Leg,,Not Specified,2026-10-21,2026-10-15
+2026-10-16,Memphis Grizzlies,MEM,Isaiah Stewart,Out,OUT,Ankle,Leg,,Left,2026-10-23,2026-10-09
+2026-10-16,Miami Heat,MIA,Kylor Kelley,Day-To-Day,GTD,Calf,Leg,Strain,Right,2026-10-16,2026-10-14
+2026-10-16,Miami Heat,MIA,Pelle Larsson,Day-To-Day,GTD,Illness,Other,,,2026-10-16,2026-10-14
+2026-10-16,Miami Heat,MIA,Bam Adebayo,Day-To-Day,GTD,Groin,Groin,,,2026-10-16,2026-10-14
+2026-10-16,Miami Heat,MIA,Dru Smith,Day-To-Day,GTD,Calf,Leg,Strain,Right,2026-10-16,2026-10-01
+2026-10-16,Milwaukee Bucks,MIL,Kevin Porter Jr.,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
+2026-10-16,Milwaukee Bucks,MIL,Myles Turner,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
+2026-10-16,Milwaukee Bucks,MIL,AJ Green,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
+2026-10-16,Milwaukee Bucks,MIL,Ryan Rollins,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
+2026-10-16,Milwaukee Bucks,MIL,Nate Ament,Day-To-Day,GTD,Ankle,Leg,Sprain,Left,2026-10-16,2026-10-14
+2026-10-16,Milwaukee Bucks,MIL,Tyler Herro,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
+2026-10-16,Milwaukee Bucks,MIL,Kyle Kuzma,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
+2026-10-16,Milwaukee Bucks,MIL,Jaime Jaquez Jr.,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
+2026-10-16,Milwaukee Bucks,MIL,Gary Trent Jr.,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
+2026-10-16,Minnesota Timberwolves,MIN,Ayo Dosunmu,Day-To-Day,GTD,Rest,Other,,,2026-10-21,2026-10-15
+2026-10-16,Minnesota Timberwolves,MIN,Rocco Zikarsky,Day-To-Day,GTD,Undisclosed,Other,,,2026-10-16,2026-10-14
+2026-10-16,Minnesota Timberwolves,MIN,Enrique Freeman,Day-To-Day,GTD,Shoulder,Arm,,,2026-10-16,2026-10-14
+2026-10-16,Minnesota Timberwolves,MIN,Donte DiVincenzo,Out,OUT,Achilles,Leg,Surgery,Right,2027-04-01,2026-10-05
+2026-10-16,New Orleans Pelicans,NOP,Dejounte Murray,Day-To-Day,GTD,Toe,Leg,Bruise,Right,2026-10-16,2026-10-14
+2026-10-16,New York Knicks,NYK,Josh Hart,Day-To-Day,GTD,Ankle,Leg,Soreness,Right,2026-10-20,2026-10-15
+2026-10-16,Oklahoma City Thunder,OKC,Thomas Sorber,Day-To-Day,GTD,Knee,Leg,Surgery,Right,2026-10-20,2026-10-15
+2026-10-16,Oklahoma City Thunder,OKC,Jaylin Williams,Day-To-Day,GTD,Heel,Leg,,,2026-10-20,2026-10-15
+2026-10-16,Oklahoma City Thunder,OKC,Cason Wallace,Day-To-Day,GTD,Undisclosed,Other,,,2026-10-20,2026-10-15
+2026-10-16,Oklahoma City Thunder,OKC,Nikola Topic,Day-To-Day,GTD,Back,Torso,Surgery,Not Specified,2026-10-20,2026-10-15
+2026-10-16,Oklahoma City Thunder,OKC,Chet Holmgren,Day-To-Day,GTD,Quadriceps,Leg,Bruise,,2026-10-20,2026-10-15
+2026-10-16,Oklahoma City Thunder,OKC,Otega Oweh,Out,OFS,Achilles,Leg,Surgery,Right,2027-07-01,2026-10-14
+2026-10-16,Orlando Magic,ORL,Jonathan Isaac,Day-To-Day,GTD,Knee,Leg,Sprain,Left,2026-10-16,2026-10-15
+2026-10-16,Orlando Magic,ORL,Anthony Black,Day-To-Day,GTD,Ankle,Leg,Sprain,Right,2026-10-16,2026-10-15
+2026-10-16,Orlando Magic,ORL,Nikola Vucevic,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-13
+2026-10-16,Orlando Magic,ORL,Izaiyah Nelson,Out,GTD,Ankle,Leg,Surgery,Left,2026-11-01,2026-09-28
+2026-10-16,Philadelphia 76ers,PHI,Anfernee Simons,Day-To-Day,GTD,Hamstring,Leg,,,2026-10-20,2026-10-15
+2026-10-16,Philadelphia 76ers,PHI,Adem Bona,Day-To-Day,GTD,Foot,Leg,Sprain,Not Specified,2026-10-20,2026-10-15
+2026-10-16,Philadelphia 76ers,PHI,Dominick Barlow,Day-To-Day,GTD,Back,Torso,,,2026-10-16,2026-10-13
+2026-10-16,Philadelphia 76ers,PHI,LeBron James,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-10
+2026-10-16,Philadelphia 76ers,PHI,Kentavious Caldwell-Pope,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-10
+2026-10-16,Philadelphia 76ers,PHI,Jaylen Brown,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-10
+2026-10-16,Philadelphia 76ers,PHI,Joel Embiid,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-10
+2026-10-16,Philadelphia 76ers,PHI,Ariel Hukporti,Out,OUT,Achilles,Leg,Ruptured,Right,2027-10-01,2026-10-06
+2026-10-16,Philadelphia 76ers,PHI,Tacko Fall,Day-To-Day,GTD,Hip,Torso,,Left,2026-10-16,2026-10-01
+2026-10-16,Phoenix Suns,PHX,Luke Kennard,Day-To-Day,GTD,Knee,Leg,,Left,2026-10-21,2026-10-16
+2026-10-16,Phoenix Suns,PHX,Oso Ighodaro,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
+2026-10-16,Phoenix Suns,PHX,Collin Gillespie,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
+2026-10-16,Phoenix Suns,PHX,Miles Bridges,Day-To-Day,GTD,Ankle,Leg,,Right,2026-10-16,2026-10-14
+2026-10-16,Phoenix Suns,PHX,Jalen Green,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
+2026-10-16,Phoenix Suns,PHX,Devin Booker,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
+2026-10-16,Phoenix Suns,PHX,Mark Williams,Out,OUT,Shoulder,Arm,Surgery,Left,2027-02-03,2026-09-11
+2026-10-16,Portland Trail Blazers,POR,Chris Youngblood,Day-To-Day,GTD,Calf,Leg,Soreness,Left,2026-10-16,2026-10-13
+2026-10-16,Portland Trail Blazers,POR,Shaedon Sharpe,Out,OUT,Knee,Leg,Surgery,Right,2027-03-02,2026-08-24
+2026-10-16,Sacramento Kings,SAC,Dylan Cardwell,Out,OUT,Calf,Leg,Strain,Left,2026-11-02,2026-10-15
+2026-10-16,Sacramento Kings,SAC,Maxime Raynaud,Out,OUT,Knee,Leg,Dislocated,Right,2026-11-02,2026-10-15
+2026-10-16,Sacramento Kings,SAC,Precious Achiuwa,Day-To-Day,GTD,Ankle,Leg,Not Specified,Right,2026-10-16,2026-10-14
+2026-10-16,Sacramento Kings,SAC,Ben Simmons,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-13
+2026-10-16,Sacramento Kings,SAC,De'Andre Hunter,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-13
+2026-10-16,Sacramento Kings,SAC,Darius Acuff Jr.,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-13
+2026-10-16,Sacramento Kings,SAC,Malik Monk,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-13
+2026-10-16,Sacramento Kings,SAC,Domantas Sabonis,Day-To-Day,GTD,Undisclosed,Other,,,2026-10-16,2026-10-13
+2026-10-16,Sacramento Kings,SAC,Zach LaVine,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-13
+2026-10-16,San Antonio Spurs,SAS,Luke Kornet,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
+2026-10-16,San Antonio Spurs,SAS,Keldon Johnson,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
+2026-10-16,San Antonio Spurs,SAS,Julian Champagnie,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-14
+2026-10-16,San Antonio Spurs,SAS,Jayden Quaintance,Out,OUT,Knee,Leg,Surgery,Right,2026-12-01,2026-10-05
+2026-10-16,San Antonio Spurs,SAS,Tobias Harris,Day-To-Day,GTD,Calf,Leg,Strain,Left,2026-10-20,2026-10-04
+2026-10-16,Toronto Raptors,TOR,Nate Bittle,Day-To-Day,GTD,Foot,Leg,,Right,2026-10-21,2026-10-13
+2026-10-16,Toronto Raptors,TOR,Chucky Hepburn,Day-To-Day,GTD,Hamstring,Leg,,Left,2026-11-06,2026-10-12
+2026-10-16,Utah Jazz,UTA,Blake Hinson,Day-To-Day,GTD,Hip,Torso,,Left,2026-10-16,2026-10-12
+2026-10-16,Utah Jazz,UTA,Kyle Filipowski,Day-To-Day,GTD,Back,Torso,,,2026-10-21,2026-10-10
+2026-10-16,Utah Jazz,UTA,Jusuf Nurkic,Out,OUT,Foot,Leg,,Right,2026-11-04,2026-10-07
+2026-10-16,Washington Wizards,WAS,Khris Middleton,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-12
+2026-10-16,Washington Wizards,WAS,Anthony Davis,Day-To-Day,GTD,Rest,Other,,,2026-10-16,2026-10-12
+2026-10-16,Washington Wizards,WAS,Tristan Vukcevic,Out,OUT,Hip,Torso,,Left,2026-11-02,2026-10-01
+2026-10-16,Washington Wizards,WAS,Jamir Watkins,Out,OUT,Knee,Leg,,Left,2027-04-01,2026-07-30
