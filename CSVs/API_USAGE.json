@@ -16,20 +16,27 @@
   },
   "injury": {},
   "sgo": {
-    "days": {},
+    "days": {
+      "2026-10-20": {
+        "pulls": 1,
+        "objects": 3,
+        "got_lines": true
+      }
+    },
     "tier": "amateur",
     "max": 2500,
-    "used": 11,
-    "remaining": 2489,
-    "checked_at": "2026-10-19T16:36:52-04:00"
+    "used": 14,
+    "remaining": 2486,
+    "checked_at": "2026-10-20T15:19:13-04:00"
   },
   "lines_today": {
-    "date": "2026-10-19",
-    "source": "",
-    "events": 0,
-    "pulled": 0,
-    "credits": 0,
-    "note": "no games today",
+    "date": "2026-10-20",
+    "source": "sgo",
+    "ok": true,
+    "events": 3,
+    "pulled": 3,
+    "credits": 3,
+    "note": "ok",
     "final": true
   }
 }
