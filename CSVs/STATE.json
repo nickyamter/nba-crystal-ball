@@ -1,9 +1,10 @@
 {
   "ou_scored_dates": [
-    "2025-11-17"
+    "2025-11-17",
+    "2026-10-20"
   ],
-  "last_run_at": "2026-10-20T15:19:15-04:00",
-  "last_complete_date": "2026-10-20",
+  "last_run_at": "2026-10-21T15:19:36-04:00",
+  "last_complete_date": "2026-10-21",
   "espn_complete_seasons": [
     "2024-25",
     "2025-26"
