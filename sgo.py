@@ -38,9 +38,11 @@ def _name_from_id(player_id: str) -> str:
     return " ".join(p.capitalize() for p in parts)
 
 
-def parse_events(events: list, today, bookmaker: str = BOOKMAKER) -> tuple[pd.DataFrame, int]:
-    """Rows shaped like ODDS_TODAY.csv, and how many games had at least one line."""
-    rows, games_with_lines = [], 0
+def parse_events(events: list, today, now=None, bookmaker: str = BOOKMAKER) -> tuple[pd.DataFrame, int, int]:
+    """Rows shaped like ODDS_TODAY.csv, how many games had at least one line, and
+    how many of today's games had not started yet."""
+    now = now or datetime.now(pytz.utc)
+    rows, games_with_lines, games_open = [], 0, 0
     for e in events:
         try:
             tip_utc = datetime.fromisoformat(e["status"]["startsAt"].replace("Z", "+00:00"))
@@ -49,6 +51,10 @@ def parse_events(events: list, today, bookmaker: str = BOOKMAKER) -> tuple[pd.Da
             continue
         if tip_eastern.date() != today:
             continue
+        # a game that has tipped off would carry live in-game odds, not the pregame line
+        if e.get("status", {}).get("started") or tip_utc <= now:
+            continue
+        games_open += 1
         players = e.get("players") or {}
         teams = e.get("teams") or {}
         before = len(rows)
@@ -80,7 +86,7 @@ def parse_events(events: list, today, bookmaker: str = BOOKMAKER) -> tuple[pd.Da
                 "price": _decimal_price(book.get("odds")),
             })
         games_with_lines += int(len(rows) > before)
-    return pd.DataFrame(rows), games_with_lines
+    return pd.DataFrame(rows), games_with_lines, games_open
 
 
 def fetch_player_props_today() -> tuple[pd.DataFrame, dict]:
@@ -108,13 +114,14 @@ def fetch_player_props_today() -> tuple[pd.DataFrame, dict]:
         return pd.DataFrame(), status
 
     day_start = EASTERN.localize(datetime(today.year, today.month, today.day))
+    now = datetime.now(pytz.utc)
     params = {
         "leagueID": "NBA",
         "oddsAvailable": "true",
         "bookmakerID": BOOKMAKER,
         "oddIDs": ",".join(f"{stat}-PLAYER_ID-game-ou-over" for stat in STAT_TO_MARKET),
         "includeOpposingOdds": "true",
-        "startsAfter": day_start.astimezone(pytz.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "startsAfter": max(day_start.astimezone(pytz.utc), now).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "startsBefore": (day_start + timedelta(days=1)).astimezone(pytz.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "limit": MAX_GAMES_PER_REQUEST,
     }
@@ -134,15 +141,19 @@ def fetch_player_props_today() -> tuple[pd.DataFrame, dict]:
         status["note"] = f"request failed: {e}"
         return pd.DataFrame(), status
 
-    df, games_with_lines = parse_events(events, today)
+    df, games_with_lines, games_open = parse_events(events, today, now)
     cost = max(1, len(events))  # every response counts as at least one object
-    budget.record_sgo_pull(usage, cost, games_with_lines > 0, today)
+    # done for the day once every game still to play has lines, or, late in the
+    # day, once any do (a later run tries again for the missing ones)
+    late = now.astimezone(EASTERN).hour >= budget.LINES_GIVE_UP_HOUR
+    complete = games_with_lines > 0 and (games_with_lines >= games_open or late)
+    budget.record_sgo_pull(usage, cost, complete, today)
     budget.record_sgo_account(usage, budget.sgo_account())
 
     status.update({
-        "ok": True, "events": len(events), "pulled": games_with_lines, "credits": cost,
-        "note": "ok" if games_with_lines else "no lines posted yet",
-        "final": games_with_lines > 0,
+        "ok": True, "events": games_open, "pulled": games_with_lines, "credits": cost,
+        "note": "ok" if complete else ("some games have no lines yet" if games_with_lines else "no lines posted yet"),
+        "final": complete,
     })
     print(f"SportsGameOdds: {len(events)} games, {games_with_lines} with DraftKings lines, "
           f"{cost} objects used; {usage['sgo'].get('remaining')} left.")

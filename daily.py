@@ -50,8 +50,12 @@ def run(force: bool = False) -> int:
         scraper.main()
         scored = model.score_experiments(today)
         print(f"Scored {scored} earlier exploration picks → WEIGHT_HITRATE.csv")
-        logged = model.generate_experiments(model.build_players(), today)
-        print(f"Logged {logged} exploration picks for {today}")
+        lines_today = budget.load_usage().get("lines_today") or {}
+        if lines_today.get("date") == today and lines_today.get("final"):
+            logged = model.generate_experiments(model.build_players(), today)
+            print(f"Logged {logged} exploration picks for {today}")
+        else:
+            print("Exploration picks wait until today's lines are complete.")
     except Exception:
         failed = True
         traceback.print_exc()

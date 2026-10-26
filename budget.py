@@ -29,7 +29,11 @@ ODDS_SPORTS_URL = "https://api.the-odds-api.com/v4/sports"  # free call, reports
 SGO_FREE_OBJECTS = 2500
 SGO_RESERVE = 500            # objects that are never used
 SGO_FREE_TIER = "amateur"
-SGO_MAX_PULLS_PER_DAY = 3    # retries while DraftKings has not posted lines yet
+SGO_MAX_PULLS_PER_DAY = 3    # retries while DraftKings has not posted every game's lines yet
+
+# Eastern hour after which a day's lines are taken as they are: partial lines are
+# accepted, and no lines at all sends the pull to the fallback service.
+LINES_GIVE_UP_HOUR = 14
 SGO_USAGE_URL = "https://api.sportsgameodds.com/v2/account/usage"  # free call
 
 # The injury report is not used by the predictions, and RapidAPI is the one service
@@ -219,7 +223,7 @@ def plan_sgo_pull(usage: dict, account, max_cost: int, today=None):
     sgo = usage["sgo"]
     day = sgo["days"].get(today.isoformat(), {})
 
-    if day.get("got_lines"):
+    if day.get("complete"):
         return False, "already pulled today"
     if day.get("pulls", 0) >= SGO_MAX_PULLS_PER_DAY:
         return False, "tried enough times today"
@@ -240,13 +244,13 @@ def plan_sgo_pull(usage: dict, account, max_cost: int, today=None):
     return True, "ok"
 
 
-def record_sgo_pull(usage: dict, objects: int, got_lines: bool, today=None) -> None:
+def record_sgo_pull(usage: dict, objects: int, complete: bool, today=None) -> None:
     today = today or today_eastern()
     sgo = usage["sgo"]
-    day = sgo["days"].setdefault(today.isoformat(), {"pulls": 0, "objects": 0, "got_lines": False})
+    day = sgo["days"].setdefault(today.isoformat(), {"pulls": 0, "objects": 0, "complete": False})
     day["pulls"] += 1
     day["objects"] += objects
-    day["got_lines"] = bool(day.get("got_lines") or got_lines)
+    day["complete"] = bool(day.get("complete") or complete)
     # keep about six weeks of history
     cutoff = (today - timedelta(days=45)).isoformat()
     sgo["days"] = {d: v for d, v in sgo["days"].items() if d > cutoff}

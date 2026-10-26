@@ -990,14 +990,16 @@ def build_availability(
     out["GAMES_MISSED"] = out["GAMES_MISSED"].fillna(0).astype(int)
     out["MISSED_THIS_SEASON"] = out["MISSED_THIS_SEASON"].fillna(0).astype(int)
 
-    reason = pd.Series(dtype=object)
+    reasons = {}
     if not sat_out.empty:
         sat = sat_out.copy()
         sat["GAME_DATE"] = pd.to_datetime(sat["GAME_DATE"], errors="coerce")
         sat = sat.merge(last[["PLAYER_ID", "LAST_PLAYED"]], on="PLAYER_ID")
         sat = sat[sat["GAME_DATE"] > sat["LAST_PLAYED"]].sort_values("GAME_DATE")
-        reason = sat.groupby("PLAYER_ID")["REASON"].last()
-    out["LAST_REASON"] = out["PLAYER_ID"].map(reason).fillna("").astype(str)
+        reasons = {int(pid): str(r) for pid, r in sat.groupby("PLAYER_ID")["REASON"].last().items()}
+    # a plain lookup: mapping onto the nullable-integer id column breaks in newer pandas
+    # when no player has a reason (that crashed the Oct 22-24 runs)
+    out["LAST_REASON"] = [reasons.get(int(pid), "") if pd.notna(pid) else "" for pid in out["PLAYER_ID"]]
     has_reason = (out["GAMES_MISSED"] > 0) & (out["LAST_REASON"].str.strip() != "")
     not_injury = out["LAST_REASON"].str.contains(_NOT_AN_INJURY, case=False, regex=True)
     out["MISSED_FOR_INJURY"] = has_reason & ~not_injury
@@ -1075,6 +1077,9 @@ def fetch_nba_player_props_today() -> pd.DataFrame:
             event_date_eastern = None
 
         if event_date_eastern is not None and event_date_eastern != today_eastern:
+            continue
+        # a game that has tipped off would return live in-game odds, not the pregame line
+        if dt_eastern is not None and dt_eastern <= datetime.now(eastern):
             continue
         todays.append((event, dt_eastern, event_date_eastern))
 
@@ -1198,7 +1203,26 @@ def fetch_nba_player_props_today() -> pd.DataFrame:
 # =========================================================
 # TODAY'S LINES: SportsGameOdds first, The Odds API as the fallback
 # =========================================================
-SGO_GIVE_UP_HOUR = 14  # Eastern; from then on, an empty answer falls back to The Odds API
+SGO_GIVE_UP_HOUR = budget.LINES_GIVE_UP_HOUR  # from then on, an empty answer falls back to The Odds API
+
+
+def _with_earlier_pull(df: pd.DataFrame, today) -> pd.DataFrame:
+    """Add back lines from an earlier pull today for games missing from this one
+    (for example because they have tipped off since)."""
+    path = data_path("ODDS_TODAY.csv")
+    if not path.exists():
+        return df
+    try:
+        old = pd.read_csv(path)
+    except Exception:
+        return df
+    if old.empty or "game_date_eastern" not in old.columns:
+        return df
+    old = old[old["game_date_eastern"].astype(str) == today.isoformat()]
+    if df.empty:
+        return old
+    old = old[~old["event_id"].astype(str).isin(set(df["event_id"].astype(str)))]
+    return pd.concat([df, old], ignore_index=True)
 
 def _games_today(today) -> int | None:
     """Games today that sportsbooks list (not preseason). None if unknown."""
@@ -1247,7 +1271,7 @@ def fetch_todays_lines() -> pd.DataFrame:
         df, status = sgo.fetch_player_props_today()
         if status["ok"] and (not df.empty or status["final"] or now.hour < SGO_GIVE_UP_HOUR):
             record(status)
-            return df
+            return _with_earlier_pull(df, today) if not df.empty else df
         print(f"SportsGameOdds gave no lines ({status['note']}); trying The Odds API.")
 
     df = fetch_nba_player_props_today()

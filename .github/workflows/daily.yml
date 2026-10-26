@@ -5,12 +5,13 @@ name: Daily run
 # dashboard as the project's web page.
 on:
   schedule:
-    # GitHub schedules use UTC: 15:17 UTC is 11:17 AM Eastern in summer time and
-    # 10:17 AM in winter. The two later runs are catch-up tries; they do nothing
-    # once the day's run is finished.
-    - cron: "17 15 * * *"
-    - cron: "17 18 * * *"
-    - cron: "17 21 * * *"
+    # GitHub schedules use UTC, and GitHub has been starting these runs 2-5 hours
+    # late. They are asked for at 8:17 AM, 10:17 AM and 12:17 PM Eastern summer
+    # time (an hour earlier in winter) so that, even late, the first one usually
+    # lands around late morning. Later runs do nothing once the day is finished.
+    - cron: "17 12 * * *"
+    - cron: "17 14 * * *"
+    - cron: "17 16 * * *"
   workflow_dispatch:
     inputs:
       force:
