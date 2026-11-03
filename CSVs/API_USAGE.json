@@ -77,16 +77,15 @@
     "max": 2500,
     "used": 96,
     "remaining": 2404,
-    "checked_at": "2026-11-02T16:43:49-05:00"
+    "checked_at": "2026-11-03T14:30:19-05:00"
   },
   "lines_today": {
-    "date": "2026-11-02",
-    "source": "sgo",
-    "ok": true,
-    "events": 15,
-    "pulled": 15,
-    "credits": 15,
-    "note": "ok",
+    "date": "2026-11-03",
+    "source": "",
+    "events": 0,
+    "pulled": 0,
+    "credits": 0,
+    "note": "no games today",
     "final": true
   }
 }
