@@ -1,28 +1,28 @@
 PLAYER_ID,PLAYER_NAME,TEAM_ABBREVIATION,LAST_PLAYED,GAMES_MISSED,MISSED_THIS_SEASON,LAST_REASON,MISSED_FOR_INJURY,MISSED_FOR_OTHER
 1966,LeBron James,PHI,2026-11-04,0,0,,False,False
 3202,Kevin Durant,HOU,2026-11-04,0,0,,False,False
-3213,Al Horford,GSW,2026-11-01,1,1,,False,False
+3213,Al Horford,GSW,2026-11-05,0,0,,False,False
 3442,DeAndre Jordan,NOP,2026-10-28,4,4,COACH'S DECISION,False,True
 3448,Brook Lopez,LAC,2026-11-04,0,0,,False,False
-3975,Stephen Curry,GSW,2026-11-02,0,0,,False,False
+3975,Stephen Curry,GSW,2026-11-05,0,0,,False,False
 3978,DeMar DeRozan,DEN,2026-11-02,1,1,LOW BACK MUSCLE SPASMS,True,False
 3992,James Harden,CLE,2026-11-04,0,0,,False,False
 3995,Jrue Holiday,POR,2026-11-04,0,0,,False,False
 4251,Paul George,BOS,2026-11-04,0,0,,False,False
 6442,Kyrie Irving,DAL,2026-11-04,0,0,,False,False
 6450,Kawhi Leonard,TOR,2026-10-23,6,6,LEFT KNEE SWELLING,True,False
-6475,Klay Thompson,MIA,2026-11-04,0,0,,False,False
+6475,Klay Thompson,MIA,2026-11-05,0,0,,False,False
 6583,Anthony Davis,WAS,2026-11-04,0,0,,False,False
-6589,Draymond Green,GSW,2026-11-02,0,0,,False,False
+6589,Draymond Green,GSW,2026-11-05,0,0,,False,False
 6606,Damian Lillard,POR,2026-11-04,0,0,,False,False
 2490149,CJ McCollum,ATL,2026-11-04,0,0,,False,False
-2528210,Tim Hardaway Jr.,MIA,2026-11-04,0,0,,False,False
+2528210,Tim Hardaway Jr.,MIA,2026-11-05,0,0,,False,False
 2580365,Larry Nance Jr.,IND,2026-11-04,0,0,,False,False
 2581018,Kentavious Caldwell-Pope,PHI,2026-11-04,0,0,,False,False
 2583632,Royce O'Neale,CHA,2026-11-04,0,0,,False,False
 2595516,Norman Powell,CHI,2026-11-04,0,0,,False,False
 2596112,Javonte Green,DET,2026-11-04,0,0,,False,False
-2990969,Georges Niang,GSW,2026-11-02,0,0,,False,False
+2990969,Georges Niang,GSW,2026-11-05,0,0,,False,False
 2990992,Marcus Smart,HOU,2026-11-04,0,0,,False,False
 2991070,Jerami Grant,MEM,2026-11-04,0,0,,False,False
 2991139,Kris Dunn,LAC,2026-11-04,0,0,,False,False
@@ -30,14 +30,14 @@ PLAYER_ID,PLAYER_NAME,TEAM_ABBREVIATION,LAST_PLAYED,GAMES_MISSED,MISSED_THIS_SEA
 2991350,Alex Caruso,OKC,2026-11-04,0,0,,False,False
 2995706,Mario Hezonja,CLE,2026-11-04,0,0,,False,False
 3032976,Rudy Gobert,MIN,2026-11-04,0,0,,False,False
-3032977,Giannis Antetokounmpo,MIA,2026-11-04,0,0,,False,False
+3032977,Giannis Antetokounmpo,MIA,2026-11-05,0,0,,False,False
 3032979,Dennis Schroder,CHA,2026-11-04,0,0,,False,False
 3059318,Joel Embiid,PHI,2026-11-04,0,0,,False,False
-3059319,Andrew Wiggins,MIA,2026-11-04,0,0,,False,False
+3059319,Andrew Wiggins,MIA,2026-11-05,0,0,,False,False
 3062679,Josh Hart,NYK,2026-11-02,1,1,,False,False
 3064290,Aaron Gordon,DEN,2026-11-04,0,0,,False,False
 3064440,Zach LaVine,SAC,2026-11-04,0,0,,False,False
-3064482,Bobby Portis,MIA,2026-11-04,0,0,,False,False
+3064482,Bobby Portis,MIA,2026-11-05,0,0,,False,False
 3064514,Julius Randle,BKN,2026-11-04,0,0,,False,False
 3078576,Derrick White,BOS,2026-11-04,0,0,,False,False
 3112335,Nikola Jokic,DEN,2026-11-04,0,0,,False,False
@@ -45,11 +45,10 @@ PLAYER_ID,PLAYER_NAME,TEAM_ABBREVIATION,LAST_PLAYED,GAMES_MISSED,MISSED_THIS_SEA
 3133603,Kelly Oubre Jr.,IND,2026-11-01,2,2,LEFT CALF CONTUSION,True,False
 3133626,Kenrich Williams,OKC,2026-11-04,0,0,,False,False
 3133628,Myles Turner,MIL,2026-11-04,0,0,,False,False
-3133635,Jevon Carter,ORL,2026-11-02,0,0,,False,False
 3134907,Kyle Kuzma,MIL,2026-11-04,0,0,,False,False
 3134908,Jakob Poeltl,TOR,2026-11-04,0,0,,False,False
 3135045,Grayson Allen,CHA,2026-11-04,0,0,,False,False
-3136193,Devin Booker,PHX,2026-11-04,0,0,,False,False
+3136193,Devin Booker,PHX,2026-11-05,0,0,,False,False
 3136195,Karl-Anthony Towns,NYK,2026-11-04,0,0,,False,False
 3136196,Trey Lyles,MIN,2026-11-04,0,0,,False,False
 3138160,Caleb Martin,DAL,2026-11-04,0,0,,False,False
@@ -58,7 +57,7 @@ PLAYER_ID,PLAYER_NAME,TEAM_ABBREVIATION,LAST_PLAYED,GAMES_MISSED,MISSED_THIS_SEA
 3147657,Mikal Bridges,NYK,2026-11-04,0,0,,False,False
 3149673,Pascal Siakam,IND,2026-11-04,0,0,,False,False
 3150844,Moritz Wagner,BKN,2026-11-04,0,0,,False,False
-3155526,Dillon Brooks,PHX,2026-11-04,0,0,,False,False
+3155526,Dillon Brooks,PHX,2026-11-05,0,0,,False,False
 3155942,Domantas Sabonis,SAC,2026-11-04,0,0,,False,False
 3157465,Duncan Robinson,DET,2026-11-04,0,0,,False,False
 3907497,Dejounte Murray,NOP,2026-11-04,0,0,,False,False
@@ -66,7 +65,7 @@ PLAYER_ID,PLAYER_NAME,TEAM_ABBREVIATION,LAST_PLAYED,GAMES_MISSED,MISSED_THIS_SEA
 3908809,Donovan Mitchell,CLE,2026-11-04,0,0,,False,False
 3908845,John Collins,DET,2026-11-04,0,0,,False,False
 3912848,Dean Wade,PHI,2026-11-04,0,0,,False,False
-3913174,Luke Kennard,PHX,2026-11-04,0,0,,False,False
+3913174,Luke Kennard,PHX,2026-11-05,0,0,,False,False
 3914044,Landry Shamet,NYK,2026-11-04,0,0,,False,False
 3917376,Jaylen Brown,PHI,2026-11-04,0,0,,False,False
 3934672,Jalen Brunson,NYK,2026-11-04,0,0,,False,False
@@ -84,39 +83,39 @@ PLAYER_ID,PLAYER_NAME,TEAM_ABBREVIATION,LAST_PLAYED,GAMES_MISSED,MISSED_THIS_SEA
 4065804,Sam Hauser,BOS,2026-11-04,0,0,,False,False
 4066211,Robert Williams III,POR,2026-11-04,0,0,,False,False
 4066259,De'Aaron Fox,SAS,2026-11-04,0,0,,False,False
-4066261,Bam Adebayo,MIA,2026-11-04,0,0,,False,False
+4066261,Bam Adebayo,MIA,2026-11-05,0,0,,False,False
 4066262,Malik Monk,SAC,2026-11-04,0,0,,False,False
-4066320,Desmond Bane,ORL,2026-11-02,0,0,,False,False
+4066320,Desmond Bane,ORL,2026-11-05,0,0,,False,False
 4066328,Jarrett Allen,CLE,2026-11-04,0,0,,False,False
 4066336,Lauri Markkanen,UTA,2026-11-04,0,0,,False,False
 4066354,Payton Pritchard,BOS,2026-11-04,0,0,,False,False
 4066372,Kevin Huerter,DET,2026-11-04,0,0,,False,False
-4066383,Miles Bridges,PHX,2026-11-04,0,0,,False,False
-4066436,De'Anthony Melton,GSW,2026-11-02,0,0,,False,False
+4066383,Miles Bridges,PHX,2026-11-05,0,0,,False,False
+4066436,De'Anthony Melton,GSW,2026-11-05,0,0,,False,False
 4066457,Austin Reaves,LAL,2026-11-04,0,0,,False,False
 4066648,Rui Hachimura,LAC,2026-11-04,0,0,,False,False
 4066757,Sam Merrill,CLE,2026-11-04,0,0,,False,False
 4222252,Isaiah Hartenstein,OKC,2026-11-04,0,0,,False,False
 4277811,Collin Sexton,LAL,2026-11-04,0,0,,False,False
 4277813,Herbert Jones,NOP,2026-11-04,0,0,,False,False
-4277847,Wendell Carter Jr.,ORL,2026-11-02,0,0,,False,False
+4277847,Wendell Carter Jr.,ORL,2026-11-05,0,0,,False,False
 4277905,Trae Young,WAS,2026-11-04,0,0,,False,False
 4277919,Mo Bamba,UTA,2026-11-04,0,0,,False,False
 4277956,Jordan Poole,NOP,2026-10-28,4,4,COACH'S DECISION,False,True
 4277961,Jaren Jackson Jr.,UTA,2026-10-26,4,4,,False,False
 4278039,Nickeil Alexander-Walker,ATL,2026-11-04,0,0,,False,False
 4278049,Daniel Gafford,DAL,2026-11-04,0,0,,False,False
-4278053,Davion Mitchell,MIA,2026-11-04,0,0,,False,False
+4278053,Davion Mitchell,MIA,2026-11-05,0,0,,False,False
 4278073,Shai Gilgeous-Alexander,OKC,2026-11-04,0,0,,False,False
 4278078,P.J. Washington,DAL,2026-11-04,0,0,,False,False
 4278104,Michael Porter Jr.,BKN,2026-11-04,0,0,,False,False
 4278129,Deandre Ayton,WAS,2026-11-04,0,0,,False,False
 4278355,Obi Toppin,IND,2026-11-04,0,0,,False,False
-4278402,Jordan Goodwin,PHX,2026-11-02,1,1,,False,False
+4278402,Jordan Goodwin,PHX,2026-11-02,2,2,,False,False
 4278562,Paul Reed,DET,2026-11-04,0,0,,False,False
-4278572,Jamal Cain,ORL,2026-11-02,0,0,,False,False
+4278572,Jamal Cain,ORL,2026-11-05,0,0,,False,False
 4278580,Sandro Mamukelashvili,LAL,2026-11-04,0,0,,False,False
-4278585,Collin Gillespie,PHX,2026-11-04,0,0,,False,False
+4278585,Collin Gillespie,PHX,2026-11-05,0,0,,False,False
 4278594,Naji Marshall,DAL,2026-11-04,0,0,,False,False
 4279888,Ja Morant,POR,2026-10-29,3,3,,False,False
 4351851,Anfernee Simons,PHI,2026-11-04,0,0,,False,False
@@ -137,7 +136,7 @@ PLAYER_ID,PLAYER_NAME,TEAM_ABBREVIATION,LAST_PLAYED,GAMES_MISSED,MISSED_THIS_SEA
 4397002,Ayo Dosunmu,MIN,2026-11-04,0,0,,False,False
 4397014,Quentin Grimes,LAL,2026-11-04,0,0,,False,False
 4397020,Luguentz Dort,ATL,2026-11-04,0,0,,False,False
-4397040,Brandon Williams,GSW,2026-11-01,1,1,LEFT QUAD CONTUSION,True,False
+4397040,Brandon Williams,GSW,2026-11-05,0,0,,False,False
 4397077,Jaxson Hayes,UTA,2026-11-04,0,0,,False,False
 4397136,Saddiq Bey,NOP,2026-11-04,0,0,,False,False
 4397183,Aaron Wiggins,ATL,2026-11-04,0,0,,False,False
@@ -159,13 +158,13 @@ PLAYER_ID,PLAYER_NAME,TEAM_ABBREVIATION,LAST_PLAYED,GAMES_MISSED,MISSED_THIS_SEA
 4431893,Jamison Battle,TOR,2026-11-04,0,0,,False,False
 4432107,Marcus Sasser,DAL,2026-11-04,0,0,,False,False
 4432158,Evan Mobley,CLE,2026-11-04,0,0,,False,False
-4432165,Jalen Suggs,ORL,2026-10-25,4,4,,False,False
+4432165,Jalen Suggs,ORL,2026-10-25,5,5,,False,False
 4432166,Cade Cunningham,DET,2026-11-04,0,0,,False,False
 4432170,Isaiah Jackson,LAC,2026-11-04,0,0,,False,False
 4432185,Micah Peavy,OKC,2026-11-04,0,0,,False,False
 4432194,Day'Ron Sharpe,BKN,2026-11-04,0,0,,False,False
 4432241,Jamal Shead,TOR,2026-11-04,0,0,,False,False
-4432573,Paolo Banchero,ORL,2026-10-23,5,5,,False,False
+4432573,Paolo Banchero,ORL,2026-10-23,6,6,,False,False
 4432582,Max Christie,DAL,2026-11-02,1,1,,False,False
 4432639,Jabari Smith Jr.,HOU,2026-11-04,0,0,,False,False
 4432810,Isaiah Stewart,MEM,2026-11-04,0,0,,False,False
@@ -187,9 +186,9 @@ PLAYER_ID,PLAYER_NAME,TEAM_ABBREVIATION,LAST_PLAYED,GAMES_MISSED,MISSED_THIS_SEA
 4433287,Brandon Miller,CHA,2026-11-04,0,0,,False,False
 4433621,Jalen Duren,DET,2026-10-23,6,6,,False,False
 4433627,Keyonte George,UTA,2026-11-04,0,0,,False,False
-4437244,Jalen Green,PHX,2026-11-04,0,0,,False,False
+4437244,Jalen Green,PHX,2026-11-05,0,0,,False,False
 4565698,Bryce Hopkins,DEN,2026-11-04,0,0,,False,False
-4566434,Franz Wagner,ORL,2026-11-02,0,0,,False,False
+4566434,Franz Wagner,ORL,2026-11-05,0,0,,False,False
 4576060,Ryan Kalkbrenner,CHA,2026-11-04,0,0,,False,False
 4576087,Peyton Watson,CLE,2026-10-31,2,2,,False,False
 4591725,Ryan Rollins,MIL,2026-11-04,0,0,,False,False
@@ -201,8 +200,8 @@ PLAYER_ID,PLAYER_NAME,TEAM_ABBREVIATION,LAST_PLAYED,GAMES_MISSED,MISSED_THIS_SEA
 4594268,Anthony Edwards,MIN,2026-10-26,5,5,,False,False
 4594327,Keegan Murray,SAC,2026-10-23,6,6,,False,False
 4600663,Zach Edey,MEM,2026-11-04,0,0,,False,False
-4601023,Oso Ighodaro,PHX,2026-11-04,0,0,,False,False
-4601025,Pelle Larsson,MIA,2026-11-04,0,0,,False,False
+4601023,Oso Ighodaro,PHX,2026-11-05,0,0,,False,False
+4601025,Pelle Larsson,MIA,2026-11-05,0,0,,False,False
 4602025,Sion James,CHA,2026-11-04,0,0,,False,False
 4683021,Deni Avdija,POR,2026-11-04,0,0,,False,False
 4683634,Bennedict Mathurin,NOP,2026-11-04,0,0,,False,False
@@ -220,11 +219,11 @@ PLAYER_ID,PLAYER_NAME,TEAM_ABBREVIATION,LAST_PLAYED,GAMES_MISSED,MISSED_THIS_SEA
 4701230,Jalen Johnson,ATL,2026-10-31,2,2,,False,False
 4702177,Keon Ellis,BKN,2026-11-04,0,0,,False,False
 4702352,Kobe Sanders,LAC,2026-11-04,0,0,,False,False
-4702382,Tristan da Silva,ORL,2026-11-02,0,0,,False,False
-4709138,Brandin Podziemski,GSW,2026-11-02,0,0,,False,False
+4702382,Tristan da Silva,ORL,2026-11-05,0,0,,False,False
+4709138,Brandin Podziemski,GSW,2026-11-05,0,0,,False,False
 4711272,Reed Sheppard,HOU,2026-11-04,0,0,,False,False
 4711294,Matas Buzelis,CHI,2026-11-04,0,0,,False,False
-4712849,Anthony Black,ORL,2026-11-01,1,1,,False,False
+4712849,Anthony Black,ORL,2026-11-05,0,0,,False,False
 4712896,Noah Clowney,BKN,2026-11-04,0,0,,False,False
 4781746,Javon Small,MEM,2026-10-31,2,2,,False,False
 4845367,Stephon Castle,SAS,2026-11-04,0,0,,False,False
@@ -235,11 +234,12 @@ PLAYER_ID,PLAYER_NAME,TEAM_ABBREVIATION,LAST_PLAYED,GAMES_MISSED,MISSED_THIS_SEA
 4871145,Josh Giddey,CHI,2026-11-04,0,0,,False,False
 4873138,Ace Bailey,UTA,2026-11-04,0,0,,False,False
 4873153,Morez Johnson Jr.,DAL,2026-11-04,0,0,,False,False
-4897262,Will Richard,GSW,2026-11-02,0,0,,False,False
+4888725,Ryan Dunn,PHX,2026-11-05,0,0,,False,False
+4897262,Will Richard,GSW,2026-11-05,0,0,,False,False
 4897943,Dalton Knecht,NYK,2026-11-04,0,0,,False,False
 4900671,Ajay Mitchell,OKC,2026-11-04,0,0,,False,False
 4903027,Cedric Coward,MEM,2026-11-04,0,0,,False,False
-4997536,Gui Santos,GSW,2026-11-01,1,1,,False,False
+4997536,Gui Santos,GSW,2026-11-01,2,2,,False,False
 4997538,Karlo Matkovic,NOP,2026-11-04,0,0,,False,False
 5037871,Dylan Harper,SAS,2026-11-04,0,0,,False,False
 5041935,Cameron Boozer,MEM,2026-11-04,0,0,,False,False
@@ -275,12 +275,12 @@ PLAYER_ID,PLAYER_NAME,TEAM_ABBREVIATION,LAST_PLAYED,GAMES_MISSED,MISSED_THIS_SEA
 5174655,Chaney Johnson,BKN,2026-11-04,0,0,,False,False
 5174983,Aday Mara,OKC,2026-11-04,0,0,,False,False
 5175643,Egor Demin,BKN,2026-10-27,4,4,,False,False
-5175737,Yaxel Lendeborg,GSW,2026-11-02,0,0,,False,False
-5203685,Khaman Maluach,PHX,2026-11-04,0,0,,False,False
+5175737,Yaxel Lendeborg,GSW,2026-11-05,0,0,,False,False
+5203685,Khaman Maluach,PHX,2026-11-05,0,0,,False,False
 5211175,Zaccharie Risacher,DAL,2026-11-04,0,0,,False,False
 5214640,Kasparas Jakucionis,MIL,2026-11-04,0,0,,False,False
 5238230,Tre Johnson,WAS,2026-11-04,0,0,,False,False
-5239561,Jase Richardson,ORL,2026-11-02,0,0,,False,False
+5239561,Jase Richardson,ORL,2026-11-05,0,0,,False,False
 5241364,Bennett Stirtz,OKC,2026-11-04,0,0,,False,False
 5254165,Keaton Wagler,LAC,2026-11-04,0,0,,False,False
 5279130,Nolan Traore,BKN,2026-11-04,0,0,,False,False
