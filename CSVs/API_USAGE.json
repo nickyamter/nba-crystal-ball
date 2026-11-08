@@ -91,16 +91,21 @@
         "pulls": 1,
         "objects": 7,
         "complete": true
+      },
+      "2026-11-08": {
+        "pulls": 1,
+        "objects": 7,
+        "complete": true
       }
     },
     "tier": "amateur",
     "max": 2500,
-    "used": 128,
-    "remaining": 2372,
-    "checked_at": "2026-11-07T12:45:48-05:00"
+    "used": 135,
+    "remaining": 2365,
+    "checked_at": "2026-11-08T12:56:59-05:00"
   },
   "lines_today": {
-    "date": "2026-11-07",
+    "date": "2026-11-08",
     "source": "sgo",
     "ok": true,
     "events": 7,
