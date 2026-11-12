@@ -2786,3 +2786,101 @@ snapshot_date,team_name,team_abbr,player_name,status,fantasy_status_abbr,injury_
 2026-11-11,Washington Wizards,WAS,Reece Beekman,Out,OUT,Shoulder,Arm,,,2026-12-03,2026-11-02
 2026-11-11,Washington Wizards,WAS,Justin Champagnie,Out,OUT,Foot,Leg,Not Specified,Right,2027-02-25,2026-10-28
 2026-11-11,Washington Wizards,WAS,Jamir Watkins,Out,OUT,Knee,Leg,Surgery,Left,2027-04-02,2026-07-30
+2026-11-12,Atlanta Hawks,ATL,Asa Newell,Out,GTD,Toe,Leg,,Left,2026-11-13,2026-11-08
+2026-11-12,Atlanta Hawks,ATL,Keshon Gilbert,Out,GTD,Knee,Leg,Inflammation,Left,2026-11-13,2026-11-08
+2026-11-12,Atlanta Hawks,ATL,Mouhamed Gueye,Out,OUT,Foot,Leg,Fracture,Left,2026-11-20,2026-10-19
+2026-11-12,Atlanta Hawks,ATL,Henri Veesaar,Out,OFS,Knee,Leg,,Right,2027-07-01,2026-09-21
+2026-11-12,Boston Celtics,BOS,Paul George,Day-To-Day,GTD,Illness,Other,,,2026-11-15,2026-11-11
+2026-11-12,Brooklyn Nets,BKN,Nolan Traore,Day-To-Day,GTD,Calf,Leg,Soreness,Right,2026-11-14,2026-11-12
+2026-11-12,Brooklyn Nets,BKN,Mikel Brown Jr.,Day-To-Day,GTD,Illness,Other,Not Specified,Not Specified,2026-11-14,2026-11-12
+2026-11-12,Charlotte Hornets,CHA,Brandon Miller,Out,OUT,Groin,Groin,Soreness,Right,2026-11-15,2026-11-11
+2026-11-12,Charlotte Hornets,CHA,Kon Knueppel,Out,OUT,Hamstring,Leg,Strain,Left,2026-12-12,2026-11-08
+2026-11-12,Charlotte Hornets,CHA,Dennis Schroder,Out,OUT,Hamstring,Leg,Strain,Left,2026-11-25,2026-11-08
+2026-11-12,Chicago Bulls,CHI,Dailyn Swain,Day-To-Day,GTD,Back,Torso,,Right,2026-11-13,2026-11-12
+2026-11-12,Chicago Bulls,CHI,Norman Powell,Day-To-Day,GTD,Shoulder,Arm,Inflammation,Right,2026-11-13,2026-11-12
+2026-11-12,Chicago Bulls,CHI,Tobe Awaka,Day-To-Day,GTD,Back,Torso,,,2026-11-13,2026-11-12
+2026-11-12,Chicago Bulls,CHI,Caleb Wilson,Day-To-Day,GTD,Hand,Arm,,Right,2026-11-13,2026-11-11
+2026-11-12,Cleveland Cavaliers,CLE,Sam Merrill,Out,OUT,Elbow,Arm,,Right,2026-11-16,2026-11-10
+2026-11-12,Dallas Mavericks,DAL,Dereck Lively II,Out,OUT,Foot,Leg,Surgery,Right,2026-11-18,2026-11-11
+2026-11-12,Dallas Mavericks,DAL,Tarik Biberovic,Out,OUT,Heel,Leg,Inflammation,Right,2026-11-18,2026-11-11
+2026-11-12,Dallas Mavericks,DAL,Sergio de Larrea,Out,OUT,Knee,Leg,Strain,Right,2026-11-18,2026-11-11
+2026-11-12,Dallas Mavericks,DAL,Morez Johnson Jr.,Day-To-Day,GTD,Lower Leg,Leg,Bruise,Left,2026-11-12,2026-11-11
+2026-11-12,Denver Nuggets,DEN,Julian Strawther,Out,OUT,Knee,Leg,Sprain,Left,2026-11-29,2026-10-16
+2026-11-12,Detroit Pistons,DET,Ugonna Onyenso,Day-To-Day,GTD,Foot,Leg,,Left,2026-11-13,2026-11-11
+2026-11-12,Detroit Pistons,DET,Isaiah Joe,Out,OUT,Hip,Torso,Bruise,Right,2026-11-17,2026-11-09
+2026-11-12,Detroit Pistons,DET,Jalen Duren,Out,OUT,Hamstring,Leg,Strain,Right,2026-11-24,2026-11-08
+2026-11-12,Golden State Warriors,GSW,Stephen Curry,Out,OUT,Abdomen,Torso,,Right,2026-12-01,2026-11-12
+2026-11-12,Golden State Warriors,GSW,Gary Payton II,Day-To-Day,GTD,Knee,Leg,Inflammation,Left,2026-11-13,2026-11-12
+2026-11-12,Golden State Warriors,GSW,Brandon Williams,Out,OUT,Hamstring,Leg,Not Specified,Left,2026-11-22,2026-11-10
+2026-11-12,Golden State Warriors,GSW,Kristaps Porzingis,Out,OUT,Illness,Other,,,2027-01-02,2026-11-06
+2026-11-12,Golden State Warriors,GSW,Moses Moody,Out,OUT,Knee,Leg,Surgery,Left,2026-12-01,2026-10-16
+2026-11-12,Golden State Warriors,GSW,Jimmy Butler III,Out,OUT,Knee,Leg,Surgery,Right,2027-01-02,2026-10-16
+2026-11-12,Houston Rockets,HOU,Clint Capela,Out,OUT,Ankle,Leg,Sprain,Right,2026-11-15,2026-11-09
+2026-11-12,Houston Rockets,HOU,Steven Adams,Out,OUT,Calf,Leg,Strain,Right,2026-11-15,2026-11-09
+2026-11-12,Indiana Pacers,IND,Aaron Nesmith,Day-To-Day,GTD,Knee,Leg,Soreness,Right,2026-11-13,2026-11-11
+2026-11-12,Indiana Pacers,IND,Tyrese Haliburton,Out,OUT,Hamstring,Leg,Strain,Left,2026-11-22,2026-11-11
+2026-11-12,Indiana Pacers,IND,Johnny Furphy,Out,OUT,Knee,Leg,Surgery,Right,2027-01-02,2026-10-30
+2026-11-12,Indiana Pacers,IND,Ben Sheppard,Out,OUT,Knee,Leg,,Left,2027-01-02,2026-10-28
+2026-11-12,LA Clippers,LAC,Cam Christie,Day-To-Day,GTD,Ankle,Leg,,,2026-11-13,2026-11-11
+2026-11-12,LA Clippers,LAC,Yanic Konan Niederhauser,Out,OUT,Foot,Leg,Surgery,Right,2026-11-17,2026-11-09
+2026-11-12,LA Clippers,LAC,Brandon Ingram,Out,GTD,Achilles,Leg,Surgery,Right,2026-11-13,2026-11-09
+2026-11-12,LA Clippers,LAC,Bradley Beal,Out,OUT,Knee,Leg,Inflammation,Right,2026-11-29,2026-10-14
+2026-11-12,LA Clippers,LAC,Jordan Miller,Out,OUT,Shoulder,Arm,Surgery,Left,2027-03-02,2026-08-26
+2026-11-12,Los Angeles Lakers,LAL,Quentin Grimes,Day-To-Day,GTD,Finger,Arm,,,2026-11-15,2026-11-12
+2026-11-12,Los Angeles Lakers,LAL,Collin Sexton,Day-To-Day,GTD,Head,Head,,,2026-11-15,2026-11-11
+2026-11-12,Los Angeles Lakers,LAL,Austin Reaves,Day-To-Day,GTD,Heel,Leg,,Left,2026-11-15,2026-11-11
+2026-11-12,Los Angeles Lakers,LAL,Luka Doncic,Day-To-Day,GTD,Ankle,Leg,,Right,2026-11-15,2026-11-11
+2026-11-12,Memphis Grizzlies,MEM,Quinten Post,Day-To-Day,GTD,Head,Head,,,2026-11-13,2026-11-12
+2026-11-12,Memphis Grizzlies,MEM,Scotty Pippen Jr.,Out,OUT,Back,Torso,Soreness,,2026-11-21,2026-11-10
+2026-11-12,Memphis Grizzlies,MEM,Richie Saunders,Out,OUT,Knee,Leg,Surgery,Right,2026-12-01,2026-11-07
+2026-11-12,Miami Heat,MIA,Pelle Larsson,Day-To-Day,GTD,Illness,Other,,,2026-11-13,2026-11-12
+2026-11-12,Miami Heat,MIA,Klay Thompson,Day-To-Day,GTD,Ankle,Leg,,,2026-11-13,2026-11-12
+2026-11-12,Milwaukee Bucks,MIL,Myles Turner,Day-To-Day,GTD,Rest,Other,,,2026-11-13,2026-11-12
+2026-11-12,Milwaukee Bucks,MIL,Ryan Rollins,Day-To-Day,GTD,Head,Head,,,2026-11-13,2026-11-11
+2026-11-12,Minnesota Timberwolves,MIN,Anthony Edwards,Out,OUT,Knee,Leg,Surgery,Right,2026-12-21,2026-10-29
+2026-11-12,Minnesota Timberwolves,MIN,Donte DiVincenzo,Out,OUT,Achilles,Leg,Surgery,Right,2027-04-02,2026-10-05
+2026-11-12,New Orleans Pelicans,NOP,Bennedict Mathurin,Day-To-Day,GTD,Thumb,Arm,Sprain,Right,2026-11-13,2026-11-12
+2026-11-12,New Orleans Pelicans,NOP,Trendon Watford,Day-To-Day,GTD,Ankle,Leg,Sprain,Right,2026-11-13,2026-11-12
+2026-11-12,New Orleans Pelicans,NOP,Trey Murphy III,Day-To-Day,GTD,Knee,Leg,Tendinitis,Not Specified,2026-11-13,2026-11-12
+2026-11-12,New Orleans Pelicans,NOP,Yves Missi,Out,OUT,Knee,Leg,Bruise,Left,2026-11-16,2026-11-05
+2026-11-12,Oklahoma City Thunder,OKC,Ajay Mitchell,Day-To-Day,GTD,Ankle,Leg,,Left,2026-11-13,2026-11-12
+2026-11-12,Oklahoma City Thunder,OKC,Jaylin Williams,Out,OUT,Back,Torso,Spasms,,2026-11-15,2026-11-11
+2026-11-12,Oklahoma City Thunder,OKC,Thomas Sorber,Out,GTD,Knee,Leg,,,2026-11-13,2026-11-03
+2026-11-12,Oklahoma City Thunder,OKC,Cason Wallace,Out,OUT,Shoulder,Arm,Surgery,Left,2027-03-02,2026-10-30
+2026-11-12,Oklahoma City Thunder,OKC,Chet Holmgren,Out,OUT,Knee,Leg,,Right,2027-01-02,2026-10-30
+2026-11-12,Oklahoma City Thunder,OKC,Jalen Williams,Out,OUT,Leg,Leg,Fracture,Left,2027-03-02,2026-10-28
+2026-11-12,Orlando Magic,ORL,Tristan da Silva,Day-To-Day,GTD,Calf,Leg,Strain,Left,2026-11-13,2026-11-12
+2026-11-12,Orlando Magic,ORL,Jamal Cain,Day-To-Day,GTD,Shoulder,Arm,Bruise,Left,2026-11-13,2026-11-12
+2026-11-12,Orlando Magic,ORL,Jalen Suggs,Out,OUT,Knee,Leg,,Right,2026-11-16,2026-11-09
+2026-11-12,Orlando Magic,ORL,Jonathan Isaac,Out,OUT,Knee,Leg,Not Specified,Left,2026-11-16,2026-11-09
+2026-11-12,Orlando Magic,ORL,Paolo Banchero,Out,OUT,Ankle,Leg,Sprain,Right,2026-11-22,2026-10-24
+2026-11-12,Orlando Magic,ORL,Noah Penda,Out,OUT,Hamstring,Leg,Strain,Right,2026-11-18,2026-10-17
+2026-11-12,Orlando Magic,ORL,Izaiyah Nelson,Out,OUT,Ankle,Leg,Surgery,Left,2026-11-18,2026-09-28
+2026-11-12,Philadelphia 76ers,PHI,LeBron James,Out,OUT,Back,Torso,,,2026-11-15,2026-11-12
+2026-11-12,Philadelphia 76ers,PHI,Dominick Barlow,Out,OUT,Back,Torso,Fracture,Not Specified,2026-11-18,2026-11-12
+2026-11-12,Philadelphia 76ers,PHI,Adem Bona,Out,OUT,Back,Torso,Sprain,,2026-11-18,2026-11-12
+2026-11-12,Philadelphia 76ers,PHI,Joel Embiid,Day-To-Day,GTD,Foot,Leg,,Right,2026-11-12,2026-11-12
+2026-11-12,Philadelphia 76ers,PHI,Ariel Hukporti,Out,OFS,Achilles,Leg,Surgery,Right,2027-10-01,2026-10-06
+2026-11-12,Phoenix Suns,PHX,Mark Williams,Out,OUT,Shoulder,Arm,Surgery,Left,2027-02-03,2026-09-11
+2026-11-12,Portland Trail Blazers,POR,Chris Youngblood,Day-To-Day,GTD,Foot,Leg,Bruise,Right,2026-11-13,2026-11-12
+2026-11-12,Portland Trail Blazers,POR,Vit Krejci,Out,OUT,Ankle,Leg,,Left,2027-01-12,2026-11-11
+2026-11-12,Portland Trail Blazers,POR,Ja Morant,Out,OUT,Hamstring,Leg,Not Specified,Left,2026-12-01,2026-11-07
+2026-11-12,Portland Trail Blazers,POR,Shaedon Sharpe,Out,OUT,Knee,Leg,Surgery,Right,2027-03-02,2026-08-24
+2026-11-12,Sacramento Kings,SAC,Precious Achiuwa,Day-To-Day,GTD,Lower Leg,Leg,Bruise,Left,2026-11-13,2026-11-11
+2026-11-12,Sacramento Kings,SAC,Maxime Raynaud,Out,OUT,Knee,Leg,Dislocated,Right,2026-11-15,2026-11-09
+2026-11-12,Sacramento Kings,SAC,Ben Simmons,Out,OFS,Achilles,Leg,Surgery,Right,2027-10-01,2026-10-21
+2026-11-12,San Antonio Spurs,SAS,Devin Vassell,Day-To-Day,GTD,Groin,Groin,,Left,2026-11-13,2026-11-12
+2026-11-12,San Antonio Spurs,SAS,Tobias Harris,Out,OUT,Calf,Leg,Strain,Left,2026-11-19,2026-11-10
+2026-11-12,San Antonio Spurs,SAS,Jayden Quaintance,Out,OUT,Knee,Leg,Surgery,Right,2026-12-03,2026-10-05
+2026-11-12,Toronto Raptors,TOR,Trayce Jackson-Davis,Out,OUT,Illness,Other,,,2026-11-15,2026-11-12
+2026-11-12,Toronto Raptors,TOR,Scottie Barnes,Out,OUT,Groin,Groin,Soreness,Left,2026-11-15,2026-11-12
+2026-11-12,Toronto Raptors,TOR,Kawhi Leonard,Out,OUT,Knee,Leg,Inflammation,Left,2026-11-23,2026-11-11
+2026-11-12,Toronto Raptors,TOR,Nate Bittle,Out,OUT,Foot,Leg,Fracture,Right,2026-11-15,2026-11-08
+2026-11-12,Utah Jazz,UTA,Trey Alexander,Out,GTD,Ankle,Leg,Sprain,Right,2026-11-16,2026-11-12
+2026-11-12,Utah Jazz,UTA,Lauri Markkanen,Out,OUT,Hand,Arm,Fracture,Right,2027-01-04,2026-11-11
+2026-11-12,Utah Jazz,UTA,Jusuf Nurkic,Out,OUT,Foot,Leg,Strain,Right,2026-11-20,2026-11-06
+2026-11-12,Utah Jazz,UTA,Jaren Jackson Jr.,Out,OUT,Knee,Leg,Not Specified,Right,2026-12-14,2026-10-27
+2026-11-12,Washington Wizards,WAS,Tristan Vukcevic,Out,OUT,Hip,Torso,Pinched Nerve,Left,2026-11-16,2026-11-08
+2026-11-12,Washington Wizards,WAS,Reece Beekman,Out,OUT,Shoulder,Arm,,,2026-12-03,2026-11-02
+2026-11-12,Washington Wizards,WAS,Justin Champagnie,Out,OUT,Foot,Leg,Not Specified,Right,2027-02-25,2026-10-28
+2026-11-12,Washington Wizards,WAS,Jamir Watkins,Out,OUT,Knee,Leg,Surgery,Left,2027-04-02,2026-07-30
