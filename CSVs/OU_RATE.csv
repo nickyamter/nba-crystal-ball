@@ -4,7 +4,7 @@ AARON NESMITH,Aaron Nesmith,4,4,1,9,4,2,24
 AARON WIGGINS,Aaron Wiggins,5,3,3,2,2,0,15
 ACE BAILEY,Ace Bailey,7,6,9,4,6,3,35
 ADAY MARA,Aday Mara,7,2,7,3,0,1,20
-AJ DYBANTSA,AJ Dybantsa,6,3,7,2,4,2,24
+AJ DYBANTSA,AJ Dybantsa,6,4,8,2,5,2,27
 AJ GREEN,AJ Green,3,3,2,3,0,1,12
 AJAY MITCHELL,Ajay Mitchell,7,7,6,9,7,8,44
 AL HORFORD,Al Horford,0,2,0,3,0,0,5
@@ -15,13 +15,13 @@ AMEN THOMPSON,Amen Thompson,5,7,6,8,3,11,40
 ANDRE DRUMMOND,Andre Drummond,3,0,2,1,0,0,6
 ANDREW NEMBHARD,Andrew Nembhard,7,4,3,10,8,6,38
 ANDREW WIGGINS,Andrew Wiggins,2,12,4,8,4,5,35
-ANFERNEE SIMONS,Anfernee Simons,4,5,6,2,4,3,24
+ANFERNEE SIMONS,Anfernee Simons,5,5,6,2,4,3,25
 ANTHONY BLACK,Anthony Black,5,2,7,2,6,3,25
-ANTHONY DAVIS,Anthony Davis,6,1,4,6,3,5,25
+ANTHONY DAVIS,Anthony Davis,7,1,5,6,4,5,28
 ANTHONY EDWARDS,Anthony Edwards,2,3,2,4,2,4,17
-AUSAR THOMPSON,Ausar Thompson,5,6,6,2,4,4,27
+AUSAR THOMPSON,Ausar Thompson,6,6,7,2,5,4,30
 AUSTIN REAVES,Austin Reaves,6,7,5,9,5,10,42
-AYO DOSUNMU,Ayo Dosunmu,12,2,5,8,6,7,40
+AYO DOSUNMU,Ayo Dosunmu,12,3,5,9,6,8,43
 BAM ADEBAYO,Bam Adebayo,4,6,4,6,5,5,30
 BAYLOR SCHEIERMAN,Baylor Scheierman,0,1,1,0,0,0,2
 BEN SHEPPARD,Ben Sheppard,0,3,1,2,0,0,6
@@ -37,8 +37,8 @@ BRANDON WILLIAMS,Brandon Williams,4,1,4,0,3,2,14
 BRAYDEN BURRIES,Brayden Burries,2,4,3,2,3,2,16
 BROOK LOPEZ,Brook Lopez,4,5,4,5,0,3,21
 BRUCE BROWN,Bruce Brown,1,1,1,1,0,0,4
-CADE CUNNINGHAM,Cade Cunningham,5,4,4,6,1,10,30
-CALEB MARTIN,Caleb Martin,0,2,1,1,1,0,5
+CADE CUNNINGHAM,Cade Cunningham,6,4,4,7,2,10,33
+CALEB MARTIN,Caleb Martin,1,2,1,2,2,0,8
 CALEB WILSON,Caleb Wilson,0,3,0,4,0,3,10
 CAM SPENCER,Cam Spencer,2,4,3,2,1,5,17
 CAMERON BOOZER,Cameron Boozer,4,5,7,5,5,7,33
@@ -48,16 +48,16 @@ CEDRIC COWARD,Cedric Coward,3,6,12,2,8,5,36
 CHET HOLMGREN,Chet Holmgren,4,2,3,3,2,1,15
 CHRISTIAN BRAUN,Christian Braun,4,7,2,8,4,3,28
 CJ MCCOLLUM,CJ McCollum,3,10,5,7,6,6,37
-COBY WHITE,Coby White,0,5,1,3,2,3,14
+COBY WHITE,Coby White,1,5,2,3,2,4,17
 COLE ANTHONY,Cole Anthony,1,2,0,1,2,1,7
-COLLIN GILLESPIE,Collin Gillespie,3,8,3,8,4,8,34
-COLLIN MURRAY BOYLES,Collin Murray-Boyles,4,3,4,5,3,3,22
+COLLIN GILLESPIE,Collin Gillespie,4,8,3,9,4,9,37
+COLLIN MURRAY BOYLES,Collin Murray-Boyles,5,3,4,6,4,3,25
 COLLIN SEXTON,Collin Sexton,1,4,1,1,3,1,11
-COOPER FLAGG,Cooper Flagg,6,6,7,8,8,6,41
+COOPER FLAGG,Cooper Flagg,6,7,8,8,8,7,44
 COREY KISPERT,Corey Kispert,0,1,0,1,0,0,2
 DAMIAN LILLARD,Damian Lillard,4,4,3,7,4,7,29
-DANIEL GAFFORD,Daniel Gafford,5,6,5,7,2,2,27
-DANISS JENKINS,Daniss Jenkins,4,4,3,4,5,3,23
+DANIEL GAFFORD,Daniel Gafford,5,7,5,8,2,3,30
+DANISS JENKINS,Daniss Jenkins,5,4,4,4,5,4,26
 DANNY WOLF,Danny Wolf,1,0,0,2,0,1,4
 DARIUS ACUFF,Darius Acuff Jr.,2,2,3,2,4,1,14
 DARIUS GARLAND,Darius Garland,4,4,3,6,6,6,29
@@ -65,7 +65,7 @@ DARRYN PETERSON,Darryn Peterson,7,1,4,6,11,3,32
 DAVION MITCHELL,Davion Mitchell,10,2,6,6,10,4,38
 DAYRON SHARPE,Day'Ron Sharpe,5,6,2,10,8,3,34
 DEAARON FOX,De'Aaron Fox,5,9,7,6,7,7,41
-DEAN WADE,Dean Wade,0,3,1,3,0,1,8
+DEAN WADE,Dean Wade,1,3,2,3,0,1,10
 DEANDRE AYTON,Deandre Ayton,2,1,2,2,0,0,7
 DEANDRE HUNTER,De'Andre Hunter,6,7,6,7,3,5,34
 DEANTHONY MELTON,De'Anthony Melton,2,2,4,1,2,1,12
@@ -78,16 +78,16 @@ DERIK QUEEN,Derik Queen,6,4,7,6,4,5,32
 DERRICK JONES,Derrick Jones Jr.,5,5,5,3,1,4,23
 DERRICK WHITE,Derrick White,7,5,7,8,9,6,42
 DESMOND BANE,Desmond Bane,5,5,7,5,5,8,35
-DEVIN BOOKER,Devin Booker,8,5,2,13,6,9,43
+DEVIN BOOKER,Devin Booker,9,5,2,14,7,9,46
 DEVIN VASSELL,Devin Vassell,6,5,4,8,3,5,31
-DILLON BROOKS,Dillon Brooks,6,5,8,5,3,9,36
+DILLON BROOKS,Dillon Brooks,6,6,8,6,3,10,39
 DOMANTAS SABONIS,Domantas Sabonis,7,6,6,8,5,8,40
 DONOVAN CLINGAN,Donovan Clingan,9,5,8,7,4,5,38
 DONOVAN MITCHELL,Donovan Mitchell,6,5,8,5,9,5,38
 DONTE DIVINCENZO,Donte DiVincenzo,2,1,3,0,1,2,9
 DRAKE POWELL,Drake Powell,0,2,1,0,0,1,4
 DRAYMOND GREEN,Draymond Green,1,11,5,9,10,5,41
-DUNCAN ROBINSON,Duncan Robinson,8,4,3,7,5,3,30
+DUNCAN ROBINSON,Duncan Robinson,8,5,4,7,5,4,33
 DYLAN HARPER,Dylan Harper,6,3,7,3,6,4,29
 DYSON DANIELS,Dyson Daniels,2,11,7,6,10,6,42
 EGOR DEMIN,Egor Demin,1,3,1,3,0,4,12
@@ -98,11 +98,11 @@ GARY TRENT,Gary Trent Jr.,1,2,0,0,0,0,3
 GEORGES NIANG,Georges Niang,4,2,3,3,0,2,14
 GG JACKSON,GG Jackson,0,1,0,1,0,0,2
 GIANNIS ANTETOKOUNMPO,Giannis Antetokounmpo,2,10,9,5,5,9,40
-GRAYSON ALLEN,Grayson Allen,5,3,4,4,3,5,24
+GRAYSON ALLEN,Grayson Allen,5,4,5,4,4,5,27
 GUI SANTOS,Gui Santos,1,4,1,4,0,3,13
 HARRISON BARNES,Harrison Barnes,2,1,1,2,0,0,6
 HERBERT JONES,Herbert Jones,2,3,4,3,1,3,16
-IMMANUEL QUICKLEY,Immanuel Quickley,5,7,7,5,7,6,37
+IMMANUEL QUICKLEY,Immanuel Quickley,6,7,8,5,8,6,40
 ISAAC OKORO,Isaac Okoro,1,2,2,1,0,0,6
 ISAIAH COLLIER,Isaiah Collier,7,2,3,1,5,3,21
 ISAIAH HARTENSTEIN,Isaiah Hartenstein,7,10,11,8,9,5,50
@@ -112,14 +112,14 @@ ISAIAH STEWART,Isaiah Stewart,2,0,2,1,0,0,5
 IVICA ZUBAC,Ivica Zubac,5,5,7,5,0,8,30
 JA MORANT,Ja Morant,0,3,1,4,2,3,13
 JABARI SMITH,Jabari Smith Jr.,6,6,10,5,6,4,37
-JADEN MCDANIELS,Jaden McDaniels,8,6,11,4,11,3,43
+JADEN MCDANIELS,Jaden McDaniels,8,7,12,4,11,4,46
 JAIME JAQUEZ,Jaime Jaquez Jr.,7,5,8,6,4,11,41
 JAKE LARAVIA,Jake LaRavia,2,7,4,4,1,0,18
-JAKOB POELTL,Jakob Poeltl,11,4,8,6,2,4,35
-JAKOBE WALTER,Ja'Kobe Walter,3,5,7,3,4,4,26
+JAKOB POELTL,Jakob Poeltl,11,5,8,7,3,4,38
+JAKOBE WALTER,Ja'Kobe Walter,3,6,8,3,4,5,29
 JALEN BRUNSON,Jalen Brunson,6,7,7,6,4,10,40
 JALEN DUREN,Jalen Duren,2,0,1,1,1,1,6
-JALEN GREEN,Jalen Green,3,6,5,5,5,6,30
+JALEN GREEN,Jalen Green,3,7,6,5,5,7,33
 JALEN JOHNSON,Jalen Johnson,4,5,4,5,4,6,28
 JALEN SMITH,Jalen Smith,4,4,6,5,3,4,26
 JALEN SUGGS,Jalen Suggs,1,3,2,2,3,1,12
@@ -136,7 +136,7 @@ JASE RICHARDSON,Jase Richardson,2,7,2,5,5,1,22
 JAVONTE GREEN,Javonte Green,1,1,1,1,0,0,4
 JAXSON HAYES,Jaxson Hayes,4,6,3,7,2,3,25
 JAY HUFF,Jay Huff,0,2,1,2,0,2,7
-JAYLEN BROWN,Jaylen Brown,5,5,8,3,7,5,33
+JAYLEN BROWN,Jaylen Brown,5,6,8,4,7,6,36
 JAYLEN WELLS,Jaylen Wells,8,5,5,8,3,4,33
 JAYLON TYSON,Jaylon Tyson,1,2,1,3,1,2,10
 JAYSON TATUM,Jayson Tatum,1,7,1,10,8,3,30
@@ -145,11 +145,11 @@ JEREMIAH FEARS,Jeremiah Fears,9,6,10,5,9,6,45
 JEVON CARTER,Jevon Carter,0,1,0,0,0,0,1
 JOAN BERINGER,Joan Beringer,0,3,3,0,0,0,6
 JOCK LANDALE,Jock Landale,2,2,4,2,1,1,12
-JOEL EMBIID,Joel Embiid,2,8,4,4,3,6,27
-JOHN COLLINS,John Collins,5,9,5,10,1,3,33
-JONATHAN KUMINGA,Jonathan Kuminga,3,7,6,7,7,4,34
+JOEL EMBIID,Joel Embiid,2,9,4,5,3,7,30
+JOHN COLLINS,John Collins,5,10,5,11,1,4,36
+JONATHAN KUMINGA,Jonathan Kuminga,4,7,7,7,8,4,37
 JORDAN CLARKSON,Jordan Clarkson,1,1,0,0,0,0,2
-JORDAN GOODWIN,Jordan Goodwin,2,1,2,1,2,1,9
+JORDAN GOODWIN,Jordan Goodwin,2,2,3,1,2,1,11
 JORDAN WALSH,Jordan Walsh,3,2,1,6,0,2,14
 JOSE ALVARADO,Jose Alvarado,0,2,0,1,0,2,5
 JOSH GIDDEY,Josh Giddey,6,5,4,7,5,6,33
@@ -174,9 +174,9 @@ KENRICH WILLIAMS,Kenrich Williams,4,2,1,6,2,2,17
 KENTAVIOUS CALDWELL POPE,Kentavious Caldwell-Pope,1,4,0,3,1,2,11
 KEON ELLIS,Keon Ellis,1,3,1,3,2,0,10
 KEVIN DURANT,Kevin Durant,5,7,9,7,5,8,41
-KEVIN HUERTER,Kevin Huerter,4,1,1,2,0,2,10
+KEVIN HUERTER,Kevin Huerter,5,1,1,2,0,2,11
 KEYONTE GEORGE,Keyonte George,6,5,7,5,7,7,37
-KHAMAN MALUACH,Khaman Maluach,7,4,4,6,2,0,23
+KHAMAN MALUACH,Khaman Maluach,7,5,4,7,2,0,25
 KHRIS MIDDLETON,Khris Middleton,1,1,1,1,1,1,6
 KINGSTON FLEMINGS,Kingston Flemings,2,2,1,3,3,2,13
 KLAY THOMPSON,Klay Thompson,7,4,1,6,4,0,22
@@ -186,9 +186,9 @@ KRIS DUNN,Kris Dunn,5,8,7,7,6,9,42
 KRIS MURRAY,Kris Murray,1,1,2,0,0,0,4
 KYLE FILIPOWSKI,Kyle Filipowski,1,2,3,0,0,0,6
 KYLE KUZMA,Kyle Kuzma,5,7,8,5,6,3,34
-KYRIE IRVING,Kyrie Irving,4,1,4,4,4,4,21
-KYSHAWN GEORGE,Kyshawn George,9,2,6,10,8,5,40
-LAMELO BALL,LaMelo Ball,6,6,3,9,5,9,38
+KYRIE IRVING,Kyrie Irving,4,2,4,5,4,5,24
+KYSHAWN GEORGE,Kyshawn George,9,3,6,11,9,5,43
+LAMELO BALL,LaMelo Ball,7,6,3,10,6,9,41
 LANDRY SHAMET,Landry Shamet,4,6,1,2,0,1,14
 LAURI MARKKANEN,Lauri Markkanen,5,4,8,2,5,4,28
 LEBRON JAMES,LeBron James,2,8,7,4,4,7,32
@@ -212,15 +212,15 @@ MICHAEL PORTER,Michael Porter Jr.,5,5,9,5,7,7,38
 MIKAL BRIDGES,Mikal Bridges,3,11,8,7,4,12,45
 MIKE CONLEY,Mike Conley,0,2,0,0,0,3,5
 MIKEL BROWN,Mikel Brown Jr.,3,0,0,2,1,1,7
-MILES BRIDGES,Miles Bridges,7,8,8,8,8,7,46
+MILES BRIDGES,Miles Bridges,7,9,8,9,9,7,49
 MILES MCBRIDE,Miles McBride,3,6,1,2,1,3,16
 MITCHELL ROBINSON,Mitchell Robinson,3,7,5,6,0,0,21
 MORITZ WAGNER,Moritz Wagner,1,4,2,5,0,0,12
 MOSES MOODY,Moses Moody,2,1,1,2,0,0,6
-MOUSSA DIABATE,Moussa Diabate,4,3,2,7,3,2,21
+MOUSSA DIABATE,Moussa Diabate,4,4,3,7,4,2,24
 MYLES TURNER,Myles Turner,5,7,8,6,6,2,34
-NAJI MARSHALL,Naji Marshall,2,3,2,3,3,3,16
-NAZ REID,Naz Reid,6,4,8,5,3,7,33
+NAJI MARSHALL,Naji Marshall,3,3,2,4,4,3,19
+NAZ REID,Naz Reid,6,5,9,5,4,7,36
 NEEMIAS QUETA,Neemias Queta,8,8,7,8,4,2,37
 NIC CLAXTON,Nic Claxton,1,0,1,0,0,0,2
 NICKEIL ALEXANDER WALKER,Nickeil Alexander-Walker,7,6,5,7,6,8,39
@@ -233,29 +233,29 @@ NORMAN POWELL,Norman Powell,4,4,3,7,4,5,27
 OBI TOPPIN,Obi Toppin,2,3,2,3,2,2,14
 OG ANUNOBY,OG Anunoby,6,7,4,11,5,7,40
 ONYEKA OKONGWU,Onyeka Okongwu,6,5,9,5,7,4,36
-OSO IGHODARO,Oso Ighodaro,2,5,4,4,1,3,19
+OSO IGHODARO,Oso Ighodaro,2,6,4,5,2,3,22
 PAOLO BANCHERO,Paolo Banchero,0,1,0,2,1,1,5
 PASCAL SIAKAM,Pascal Siakam,7,5,7,7,6,9,41
 PAUL GEORGE,Paul George,6,5,8,4,6,4,33
-PAUL REED,Paul Reed,2,8,6,6,5,4,31
+PAUL REED,Paul Reed,3,8,7,6,6,4,34
 PAYTON PRITCHARD,Payton Pritchard,6,8,9,7,6,10,46
 PELLE LARSSON,Pelle Larsson,8,5,4,8,6,5,36
 PEYTON WATSON,Peyton Watson,5,4,5,4,5,1,24
-PJ WASHINGTON,P.J. Washington,5,5,7,8,2,7,34
+PJ WASHINGTON,P.J. Washington,5,6,7,9,2,8,37
 PRECIOUS ACHIUWA,Precious Achiuwa,4,7,3,8,1,2,25
 QUENTIN GRIMES,Quentin Grimes,2,7,3,6,2,5,25
 QUENTON JACKSON,Quenton Jackson,1,0,1,0,0,1,3
 QUINTEN POST,Quinten Post,0,1,0,1,0,0,2
 REED SHEPPARD,Reed Sheppard,3,3,1,2,4,2,15
-RJ BARRETT,RJ Barrett,8,6,8,9,7,7,45
+RJ BARRETT,RJ Barrett,9,6,9,9,8,7,48
 ROBERT WILLIAMS,Robert Williams III,4,3,2,7,0,0,16
 RONALD HOLLAND,Ronald Holland II,1,1,1,2,0,0,5
-ROYCE ONEALE,Royce O'Neale,4,3,4,3,3,2,19
-RUDY GOBERT,Rudy Gobert,3,11,7,8,3,5,37
+ROYCE ONEALE,Royce O'Neale,5,3,5,3,3,2,21
+RUDY GOBERT,Rudy Gobert,3,12,7,9,3,6,40
 RUI HACHIMURA,Rui Hachimura,3,8,7,3,3,2,26
 RUSSELL WESTBROOK,Russell Westbrook,0,3,2,1,1,2,9
 RYAN DUNN,Ryan Dunn,2,1,0,3,0,0,6
-RYAN KALKBRENNER,Ryan Kalkbrenner,3,3,3,3,0,0,12
+RYAN KALKBRENNER,Ryan Kalkbrenner,3,4,4,3,0,0,14
 RYAN ROLLINS,Ryan Rollins,5,7,6,6,6,7,37
 SADDIQ BEY,Saddiq Bey,8,4,7,5,5,4,33
 SAM HAUSER,Sam Hauser,5,2,3,1,1,0,12
@@ -267,7 +267,7 @@ SCOTTIE BARNES,Scottie Barnes,3,6,4,7,6,5,31
 SHAEDON SHARPE,Shaedon Sharpe,2,1,2,1,2,0,8
 SHAI GILGEOUS ALEXANDER,Shai Gilgeous-Alexander,6,9,9,8,8,10,50
 SIDY CISSOKO,Sidy Cissoko,2,0,0,2,1,1,6
-SION JAMES,Sion James,4,6,4,4,5,2,25
+SION JAMES,Sion James,4,7,5,4,6,2,28
 SPENCER JONES,Spencer Jones,1,2,0,2,0,0,5
 STEPHEN CURRY,Stephen Curry,6,5,9,3,5,8,36
 STEPHON CASTLE,Stephon Castle,3,8,10,6,4,11,42
@@ -275,12 +275,12 @@ STEVEN ADAMS,Steven Adams,1,1,2,0,0,0,4
 SVI MYKHAILIUK,Svi Mykhailiuk,2,1,1,2,0,0,6
 TARI EASON,Tari Eason,5,6,7,5,1,1,25
 TERANCE MANN,Terance Mann,1,2,1,2,1,2,9
-TERRENCE SHANNON,Terrence Shannon Jr.,2,3,3,2,3,1,14
+TERRENCE SHANNON,Terrence Shannon Jr.,2,4,3,2,3,1,15
 TIM HARDAWAY,Tim Hardaway Jr.,2,5,2,1,0,0,10
 TJ MCCONNELL,T.J. McConnell,0,1,0,0,0,1,2
 TOUMANI CAMARA,Toumani Camara,9,6,6,9,5,6,41
-TRAE YOUNG,Trae Young,4,6,6,5,3,10,34
-TRE JOHNSON,Tre Johnson,2,7,0,4,1,2,16
+TRAE YOUNG,Trae Young,5,6,6,6,4,10,37
+TRE JOHNSON,Tre Johnson,3,7,0,4,1,2,17
 TRE JONES,Tre Jones,4,5,4,3,3,6,25
 TRE MANN,Tre Mann,1,1,1,1,1,1,6
 TRENDON WATFORD,Trendon Watford,1,1,1,1,1,1,6
@@ -291,9 +291,9 @@ TY JEROME,Ty Jerome,7,0,6,4,1,8,26
 TYLER HERRO,Tyler Herro,4,2,4,5,5,5,25
 TYRESE HALIBURTON,Tyrese Haliburton,2,0,2,1,2,1,8
 TYRESE MARTIN,Tyrese Martin,1,1,0,1,1,0,4
-TYRESE MAXEY,Tyrese Maxey,9,4,8,7,5,8,41
+TYRESE MAXEY,Tyrese Maxey,10,4,8,8,6,8,44
 VICTOR WEMBANYAMA,Victor Wembanyama,9,3,7,6,8,5,38
-VJ EDGECOMBE,VJ Edgecombe,5,7,6,7,6,7,38
+VJ EDGECOMBE,VJ Edgecombe,6,7,7,7,7,7,41
 WALKER KESSLER,Walker Kessler,6,4,6,6,4,5,31
 WENDELL CARTER,Wendell Carter Jr.,6,6,11,4,3,6,36
 WILL RICHARD,Will Richard,2,1,0,3,0,0,6
