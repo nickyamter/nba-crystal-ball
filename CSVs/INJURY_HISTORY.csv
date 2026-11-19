@@ -3525,3 +3525,108 @@ snapshot_date,team_name,team_abbr,player_name,status,fantasy_status_abbr,injury_
 2026-11-18,Washington Wizards,WAS,Reece Beekman,Out,OUT,Shoulder,Arm,,,2026-12-03,2026-11-02
 2026-11-18,Washington Wizards,WAS,Justin Champagnie,Out,OUT,Foot,Leg,Not Specified,Right,2027-02-25,2026-10-28
 2026-11-18,Washington Wizards,WAS,Jamir Watkins,Out,OUT,Knee,Leg,Surgery,Left,2027-04-02,2026-07-30
+2026-11-19,Atlanta Hawks,ATL,Jock Landale,Day-To-Day,GTD,Hip,Torso,Inflammation,Right,2026-11-20,2026-11-19
+2026-11-19,Atlanta Hawks,ATL,Kingston Flemings,Day-To-Day,GTD,Back,Torso,Strain,,2026-11-20,2026-11-19
+2026-11-19,Atlanta Hawks,ATL,Asa Newell,Out,OUT,Toe,Leg,,Left,2027-03-17,2026-11-17
+2026-11-19,Atlanta Hawks,ATL,CJ McCollum,Out,OUT,Calf,Leg,Strain,Left,2026-12-19,2026-11-17
+2026-11-19,Atlanta Hawks,ATL,Mouhamed Gueye,Out,OUT,Foot,Leg,Fracture,Left,2026-12-12,2026-11-12
+2026-11-19,Atlanta Hawks,ATL,Henri Veesaar,Out,OFS,Knee,Leg,,Right,2027-07-01,2026-09-21
+2026-11-19,Brooklyn Nets,BKN,Grant Nelson,Day-To-Day,GTD,Ankle,Leg,Sprain,Right,2026-11-24,2026-11-19
+2026-11-19,Charlotte Hornets,CHA,Grayson Allen,Day-To-Day,GTD,Concussion,Head,,,2026-11-20,2026-11-18
+2026-11-19,Charlotte Hornets,CHA,Kon Knueppel,Out,OUT,Hamstring,Leg,Strain,Left,2026-12-12,2026-11-08
+2026-11-19,Charlotte Hornets,CHA,Dennis Schroder,Out,OUT,Hamstring,Leg,Strain,Left,2026-11-25,2026-11-08
+2026-11-19,Chicago Bulls,CHI,Tobe Awaka,Out,OUT,Back,Torso,,,2026-11-25,2026-11-17
+2026-11-19,Chicago Bulls,CHI,Caleb Wilson,Out,OUT,Hand,Arm,,Right,2026-12-13,2026-11-12
+2026-11-19,Cleveland Cavaliers,CLE,Jaylon Tyson,Day-To-Day,GTD,Ankle,Leg,,Right,2026-11-20,2026-11-19
+2026-11-19,Cleveland Cavaliers,CLE,Peyton Watson,Day-To-Day,GTD,Back,Torso,Bruise,,2026-11-20,2026-11-19
+2026-11-19,Cleveland Cavaliers,CLE,Nae'Qwan Tomlin,Out,OUT,Back,Torso,,,2026-11-29,2026-11-17
+2026-11-19,Cleveland Cavaliers,CLE,Evan Mobley,Out,OUT,Toe,Leg,Sprain,Left,2026-11-29,2026-11-16
+2026-11-19,Dallas Mavericks,DAL,Tobi Lawal,Day-To-Day,GTD,Groin,Groin,,Right,2026-11-21,2026-11-19
+2026-11-19,Dallas Mavericks,DAL,Sergio de Larrea,Out,OUT,Knee,Leg,Strain,Right,2026-11-27,2026-11-17
+2026-11-19,Dallas Mavericks,DAL,Dereck Lively II,Out,OUT,Foot,Leg,Surgery,Right,2026-11-27,2026-11-17
+2026-11-19,Dallas Mavericks,DAL,Tarik Biberovic,Out,OUT,Heel,Leg,Inflammation,Right,2026-11-27,2026-11-17
+2026-11-19,Denver Nuggets,DEN,Julian Strawther,Out,OUT,Knee,Leg,Sprain,Left,2026-11-29,2026-10-16
+2026-11-19,Detroit Pistons,DET,Ugonna Onyenso,Day-To-Day,GTD,Foot,Leg,,Left,2026-11-21,2026-11-19
+2026-11-19,Detroit Pistons,DET,Taurean Prince,Day-To-Day,GTD,Knee,Leg,Soreness,Right,2026-11-20,2026-11-19
+2026-11-19,Detroit Pistons,DET,Ronald Holland II,Day-To-Day,GTD,Knee,Leg,Bruise,Left,2026-11-20,2026-11-19
+2026-11-19,Detroit Pistons,DET,Cade Cunningham,Day-To-Day,GTD,Knee,Leg,Soreness,Right,2026-11-20,2026-11-19
+2026-11-19,Detroit Pistons,DET,Duncan Robinson,Out,OUT,Quadriceps,Leg,Strain,Left,2026-11-27,2026-11-17
+2026-11-19,Detroit Pistons,DET,Jalen Duren,Out,OUT,Hamstring,Leg,Strain,Right,2026-11-24,2026-11-08
+2026-11-19,Golden State Warriors,GSW,Draymond Green,Out,OUT,Rest,Other,,Not Specified,2026-11-22,2026-11-19
+2026-11-19,Golden State Warriors,GSW,LJ Cryer,Day-To-Day,GTD,Back,Torso,,,2026-11-19,2026-11-19
+2026-11-19,Golden State Warriors,GSW,Brandon Williams,Out,OUT,Hamstring,Leg,Strain,Left,2026-11-22,2026-11-18
+2026-11-19,Golden State Warriors,GSW,Stephen Curry,Out,OUT,Abdomen,Torso,,Right,2026-12-12,2026-11-12
+2026-11-19,Golden State Warriors,GSW,Kristaps Porzingis,Out,OUT,Illness,Other,,,2027-01-02,2026-11-06
+2026-11-19,Golden State Warriors,GSW,Moses Moody,Out,OUT,Knee,Leg,Surgery,Left,2026-12-01,2026-10-16
+2026-11-19,Golden State Warriors,GSW,Jimmy Butler III,Out,OUT,Knee,Leg,Surgery,Right,2027-01-02,2026-10-16
+2026-11-19,Houston Rockets,HOU,Alperen Sengun,Day-To-Day,GTD,Eye,Head,,,2026-11-20,2026-11-18
+2026-11-19,Houston Rockets,HOU,Clint Capela,Out,GTD,Ankle,Leg,Sprain,Right,2026-11-20,2026-11-17
+2026-11-19,Indiana Pacers,IND,Andrew Nembhard,Day-To-Day,GTD,Hip,Torso,Soreness,Left,2026-11-20,2026-11-19
+2026-11-19,Indiana Pacers,IND,Braden Smith,Day-To-Day,GTD,Ankle,Leg,Sprain,Right,2026-11-20,2026-11-18
+2026-11-19,Indiana Pacers,IND,Tyrese Haliburton,Out,OUT,Hamstring,Leg,Strain,Left,2026-11-28,2026-11-17
+2026-11-19,Indiana Pacers,IND,Johnny Furphy,Out,OUT,Knee,Leg,Surgery,Right,2027-01-02,2026-10-30
+2026-11-19,Indiana Pacers,IND,Ben Sheppard,Out,OUT,Knee,Leg,,Left,2027-01-02,2026-10-28
+2026-11-19,LA Clippers,LAC,Brandon Ingram,Out,OUT,Achilles,Leg,Surgery,Right,2026-11-21,2026-11-18
+2026-11-19,LA Clippers,LAC,Bradley Beal,Out,OUT,Knee,Leg,Inflammation,Right,2026-11-29,2026-10-14
+2026-11-19,LA Clippers,LAC,Jordan Miller,Out,OUT,Shoulder,Arm,Surgery,Left,2027-03-02,2026-08-26
+2026-11-19,Los Angeles Lakers,LAL,Austin Reaves,Out,GTD,Heel,Leg,Bruise,Left,2026-11-20,2026-11-18
+2026-11-19,Memphis Grizzlies,MEM,Isaiah Stewart,Day-To-Day,GTD,Illness,Other,,,2026-11-19,2026-11-19
+2026-11-19,Memphis Grizzlies,MEM,Zach Edey,Out,OUT,Ankle,Leg,,,2026-11-21,2026-11-19
+2026-11-19,Memphis Grizzlies,MEM,Ty Jerome,Out,OUT,Hip,Torso,,Right,2026-11-21,2026-11-19
+2026-11-19,Memphis Grizzlies,MEM,GG Jackson,Out,OUT,Foot,Leg,Surgery,Left,2027-01-18,2026-11-17
+2026-11-19,Memphis Grizzlies,MEM,Scotty Pippen Jr.,Out,OUT,Back,Torso,Soreness,,2026-11-25,2026-11-16
+2026-11-19,Memphis Grizzlies,MEM,Richie Saunders,Out,OUT,Knee,Leg,Surgery,Right,2026-12-01,2026-11-07
+2026-11-19,Miami Heat,MIA,Myron Gardner,Day-To-Day,GTD,Hamstring,Leg,,,2026-11-22,2026-11-19
+2026-11-19,Milwaukee Bucks,MIL,Kyle Kuzma,Out,OUT,Shoulder,Arm,Bruise,Right,2026-11-21,2026-11-19
+2026-11-19,Milwaukee Bucks,MIL,Myles Turner,Out,OUT,Shoulder,Arm,Bruise,Left,2026-11-21,2026-11-19
+2026-11-19,Milwaukee Bucks,MIL,Ousmane Dieng,Out,OUT,Finger,Arm,Surgery,Left,2026-12-14,2026-11-15
+2026-11-19,Minnesota Timberwolves,MIN,Jonathan Kuminga,Day-To-Day,GTD,Shoulder,Arm,,Right,2026-11-19,2026-11-18
+2026-11-19,Minnesota Timberwolves,MIN,Jaylen Clark,Out,OUT,Hamstring,Leg,Not Specified,Right,2026-11-29,2026-11-15
+2026-11-19,Minnesota Timberwolves,MIN,Anthony Edwards,Out,OUT,Knee,Leg,Surgery,Right,2026-12-21,2026-10-29
+2026-11-19,Minnesota Timberwolves,MIN,Donte DiVincenzo,Out,OUT,Achilles,Leg,Surgery,Right,2027-04-02,2026-10-05
+2026-11-19,New Orleans Pelicans,NOP,Bennedict Mathurin,Out,GTD,Foot,Leg,Plantar Fasciitis,Left,2026-11-20,2026-11-17
+2026-11-19,New Orleans Pelicans,NOP,Bryce McGowens,Out,GTD,Elbow,Arm,Infection,Left,2026-11-20,2026-11-17
+2026-11-19,New Orleans Pelicans,NOP,Trendon Watford,Out,GTD,Ankle,Leg,Sprain,Right,2026-11-20,2026-11-17
+2026-11-19,New Orleans Pelicans,NOP,Trey Murphy III,Out,GTD,Knee,Leg,Tendinitis,Not Specified,2026-11-20,2026-11-17
+2026-11-19,New Orleans Pelicans,NOP,Dejounte Murray,Out,OUT,Ankle,Leg,,,2026-11-27,2026-11-13
+2026-11-19,Oklahoma City Thunder,OKC,Alex Caruso,Day-To-Day,GTD,Hip,Torso,Soreness,Right,2026-11-20,2026-11-19
+2026-11-19,Oklahoma City Thunder,OKC,Thomas Sorber,Out,OUT,Knee,Leg,,,2027-01-31,2026-11-17
+2026-11-19,Oklahoma City Thunder,OKC,Cason Wallace,Out,OUT,Shoulder,Arm,Surgery,Left,2027-03-02,2026-10-30
+2026-11-19,Oklahoma City Thunder,OKC,Chet Holmgren,Out,OUT,Knee,Leg,,Right,2027-01-02,2026-10-30
+2026-11-19,Oklahoma City Thunder,OKC,Jalen Williams,Out,OUT,Leg,Leg,Fracture,Left,2027-03-02,2026-10-28
+2026-11-19,Orlando Magic,ORL,Izaiyah Nelson,Out,OUT,Ankle,Leg,Surgery,Left,2026-11-29,2026-11-18
+2026-11-19,Orlando Magic,ORL,Jonathan Isaac,Out,OUT,Knee,Leg,Not Specified,Left,2026-11-22,2026-11-15
+2026-11-19,Orlando Magic,ORL,Noah Penda,Out,OUT,Hamstring,Leg,Strain,Right,2026-11-22,2026-11-14
+2026-11-19,Orlando Magic,ORL,Paolo Banchero,Out,OUT,Ankle,Leg,Sprain,Right,2026-11-29,2026-10-24
+2026-11-19,Philadelphia 76ers,PHI,Dean Wade,Day-To-Day,GTD,Hamstring,Leg,Soreness,Left,2026-11-21,2026-11-19
+2026-11-19,Philadelphia 76ers,PHI,Tyrese Maxey,Day-To-Day,GTD,Foot,Leg,Soreness,Right,2026-11-21,2026-11-19
+2026-11-19,Philadelphia 76ers,PHI,Jaylen Brown,Out,OUT,Hamstring,Leg,Not Specified,Left,2026-11-23,2026-11-18
+2026-11-19,Philadelphia 76ers,PHI,Dominick Barlow,Out,GTD,Back,Torso,Fracture,Not Specified,2026-11-21,2026-11-17
+2026-11-19,Philadelphia 76ers,PHI,Adem Bona,Out,GTD,Back,Torso,Sprain,,2026-11-21,2026-11-12
+2026-11-19,Philadelphia 76ers,PHI,Ariel Hukporti,Out,OFS,Achilles,Leg,Surgery,Right,2027-10-01,2026-10-06
+2026-11-19,Phoenix Suns,PHX,Mark Williams,Out,OUT,Shoulder,Arm,Surgery,Left,2027-02-03,2026-09-11
+2026-11-19,Portland Trail Blazers,POR,Chris Youngblood,Out,OUT,Heel,Leg,Bruise,Right,2026-11-21,2026-11-19
+2026-11-19,Portland Trail Blazers,POR,Robert Williams III,Out,OUT,Rest,Other,,,2026-11-21,2026-11-18
+2026-11-19,Portland Trail Blazers,POR,Deni Avdija,Day-To-Day,GTD,Foot,Leg,,,2026-11-19,2026-11-18
+2026-11-19,Portland Trail Blazers,POR,Toumani Camara,Day-To-Day,GTD,Rest,Other,,,2026-11-19,2026-11-18
+2026-11-19,Portland Trail Blazers,POR,Vit Krejci,Out,OUT,Ankle,Leg,,Left,2027-01-12,2026-11-11
+2026-11-19,Portland Trail Blazers,POR,Ja Morant,Out,OUT,Hamstring,Leg,Not Specified,Left,2026-12-01,2026-11-07
+2026-11-19,Portland Trail Blazers,POR,Shaedon Sharpe,Out,OUT,Knee,Leg,Surgery,Right,2027-03-02,2026-08-24
+2026-11-19,Sacramento Kings,SAC,Maxime Raynaud,Out,OUT,Knee,Leg,Dislocated,Right,2026-11-25,2026-11-18
+2026-11-19,Sacramento Kings,SAC,Ben Simmons,Out,OFS,Achilles,Leg,Surgery,Right,2027-10-01,2026-10-21
+2026-11-19,San Antonio Spurs,SAS,Dylan Harper,Out,OUT,Hip,Torso,Soreness,,2026-12-13,2026-11-19
+2026-11-19,San Antonio Spurs,SAS,Tobias Harris,Out,OUT,Calf,Leg,Strain,Left,2026-12-03,2026-11-16
+2026-11-19,San Antonio Spurs,SAS,Jayden Quaintance,Out,OUT,Knee,Leg,Surgery,Right,2026-12-03,2026-10-05
+2026-11-19,Toronto Raptors,TOR,RJ Barrett,Day-To-Day,GTD,Hamstring,Leg,Soreness,,2026-11-20,2026-11-19
+2026-11-19,Toronto Raptors,TOR,Scottie Barnes,Day-To-Day,GTD,Groin,Groin,,,2026-11-20,2026-11-19
+2026-11-19,Toronto Raptors,TOR,Collin Murray-Boyles,Day-To-Day,GTD,Illness,Other,,,2026-11-20,2026-11-18
+2026-11-19,Toronto Raptors,TOR,Kawhi Leonard,Out,OUT,Knee,Leg,Inflammation,Left,2026-11-27,2026-11-17
+2026-11-19,Toronto Raptors,TOR,Nate Bittle,Out,OUT,Foot,Leg,Fracture,Right,2026-11-23,2026-11-14
+2026-11-19,Utah Jazz,UTA,Lauri Markkanen,Out,OUT,Hand,Arm,Fracture,Right,2027-01-04,2026-11-11
+2026-11-19,Utah Jazz,UTA,Jusuf Nurkic,Out,GTD,Foot,Leg,Strain,Right,2026-11-20,2026-11-06
+2026-11-19,Utah Jazz,UTA,Jaren Jackson Jr.,Out,OUT,Knee,Leg,Not Specified,Right,2026-12-14,2026-10-27
+2026-11-19,Washington Wizards,WAS,Felix Okpara,Day-To-Day,GTD,Back,Torso,Strain,,2026-11-20,2026-11-17
+2026-11-19,Washington Wizards,WAS,Tristan Vukcevic,Out,OUT,Hip,Torso,Pinched Nerve,Left,2026-11-24,2026-11-16
+2026-11-19,Washington Wizards,WAS,Reece Beekman,Out,OUT,Shoulder,Arm,,,2026-12-03,2026-11-02
+2026-11-19,Washington Wizards,WAS,Justin Champagnie,Out,OUT,Foot,Leg,Not Specified,Right,2027-02-25,2026-10-28
+2026-11-19,Washington Wizards,WAS,Jamir Watkins,Out,OUT,Knee,Leg,Surgery,Left,2027-04-02,2026-07-30
