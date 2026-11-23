@@ -166,21 +166,26 @@
         "pulls": 1,
         "objects": 7,
         "complete": true
+      },
+      "2026-11-23": {
+        "pulls": 1,
+        "objects": 10,
+        "complete": true
       }
     },
     "tier": "amateur",
     "max": 2500,
-    "used": 86,
-    "remaining": 2414,
-    "checked_at": "2026-11-22T14:43:27-05:00"
+    "used": 96,
+    "remaining": 2404,
+    "checked_at": "2026-11-23T18:56:03-05:00"
   },
   "lines_today": {
-    "date": "2026-11-22",
+    "date": "2026-11-23",
     "source": "sgo",
     "ok": true,
-    "events": 7,
-    "pulled": 7,
-    "credits": 7,
+    "events": 10,
+    "pulled": 10,
+    "credits": 10,
     "note": "ok",
     "final": true
   }
